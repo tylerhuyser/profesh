@@ -14,19 +14,19 @@ Using .Profesh, job-seekers will be able to take the most advantage of opportuni
 
 ** Home
 
-![Home] (https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh%20Wireframes%20(Mobile).001.jpeg)
+![Home] (/profesh/Mobile/Profesh Wireframes (Mobile).001.jpeg)
 
 ** Tracker Home
 
-![Tracker Home] (https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh%20Wireframes%20(Mobile).005.jpeg)
+![Tracker Home] (/profesh/Mobile/Profesh Wireframes (Mobile).005.jpeg)
 
 ** Tracker Opportunity Details
 
-![Opportunity Details] (https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh%20Wireframes%20(Mobile).006.jpeg)
+![Opportunity Details] (/profesh/Mobile/Profesh Wireframes (Mobile).006.jpeg)
 
 ** Search
 
-![Opportunity Details] (https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh%20Wireframes%20(Mobile).002.jpeg)
+![Opportunity Details] (/profesh/Mobile/Profesh Wireframes (Mobile).002.jpeg)
 
 ## Component Heirarchy
 
