@@ -14,19 +14,19 @@ Using .Profesh, job-seekers will be able to take the most advantage of opportuni
 
 ** Home
 
-![Home] (/profesh/Mobile/Profesh Wireframes (Mobile).001.jpeg)
+![Home] (/profesh/Mobile/Profesh_Wireframes_(Mobile).001.jpeg)
 
 ** Tracker Home
 
-![Tracker Home] (/profesh/Mobile/Profesh Wireframes (Mobile).005.jpeg)
+![Tracker Home] (/profesh/Mobile/Profesh_Wireframes_(Mobile).005.jpeg)
 
 ** Tracker Opportunity Details
 
-![Opportunity Details] (/profesh/Mobile/Profesh Wireframes (Mobile).006.jpeg)
+![Opportunity Details] (/profesh/Mobile_Profesh_Wireframes_(Mobile).006.jpeg)
 
 ** Search
 
-![Opportunity Details] (/profesh/Mobile/Profesh Wireframes (Mobile).002.jpeg)
+![Opportunity Details] (/profesh/Mobile_Profesh_Wireframes_(Mobile).002.jpeg)
 
 ## Component Heirarchy
 
