@@ -10,33 +10,49 @@ Using .Profesh, job-seekers will be able to take the most advantage of opportuni
  
 ## Wireframes
 
+### Mobile
 
+** Home
+
+![Home] (https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh%20Wireframes%20(Mobile).001.jpeg)
+
+** Tracker Home
+
+![Tracker Home] (https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh%20Wireframes%20(Mobile).005.jpeg)
+
+** Tracker Opportunity Details
+
+![Opportunity Details] (https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh%20Wireframes%20(Mobile).006.jpeg)
+
+** Search
+
+![Opportunity Details] (https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh%20Wireframes%20(Mobile).002.jpeg)
 
 ## Component Heirarchy
 
 * **Home Page:**
 
- * Job Search Bar -> Routes to "Search" Page
+    * Job Search Bar -> Routes to "Search" Page
  
- * Job Timeline (a random list of jobs) 
+    * Job Timeline (a random list of jobs) 
  
-   * Composed of Job components.
+        * Composed of Job components.
    
- * Nav Bar -> Routes to "Search", "Track", or "Profile" Pages
+    * Nav Bar -> Routes to "Search", "Track", or "Profile" Pages
  
 * **Search Page:**
 
- * Includes a form with "Key Word", "Location", and "experience" inputs.
+    * Includes a form with "Key Word", "Location", and "experience" inputs.
  
- * Produces a list of jobs displaying high-level information. When a user selects a job....
+    * Produces a list of jobs displaying high-level information. When a user selects a job....
  
-  * A job component opens, which includes detailed information on the job.
+    * A job component opens, which includes detailed information on the job.
   
 * **Tracker**
 
- * Includes a list of "Saved" opportunities, displaying high-level information. When a user selects a job...
+    * Includes a list of "Saved" opportunities, displaying high-level information. When a user selects a job...
  
-   * A job component opens, which includes detailed information on the job.
+        * A job component opens, which includes detailed information on the job.
 
 ## API
 
@@ -50,28 +66,28 @@ Details on the job listings arrays below:
 
 1. Indeed: 
  
-  * Documentation: https://www.indeed.com/publisher
+    * Documentation: https://www.indeed.com/publisher
   
-  * API Link: TBD
+    * API Link: TBD
   
-  * Request Limitations: TBD
+    * Request Limitations: TBD
   
 2. The Muse: 
 
-  * Documentation: https://www.themuse.com/developers/api/v2
+    * Documentation: https://www.themuse.com/developers/api/v2
   
-  * API Link: https://www.themuse.com/api/public/jobs  
+    * API Link: https://www.themuse.com/api/public/jobs  
   
-  * Request Limitations: You can register your app and use the provided API key by passing it in as the query parameter api_key. This will allow you to make up to 3600 requests per hour. If you don't register your app and provide an api_key query parameter, you're limited to 500 requests per hour.
+    * Request Limitations: You can register your app and use the provided API key by passing it in as the query parameter api_key. This will allow you to make up to 3600 requests per hour. If you don't register your app and provide an api_key query parameter, you're limited to 500 requests per hour.
 
 
 3. ZipRecruiter:
 
-  * Documentation: https://www.ziprecruiter.com/partner
+    * Documentation: https://www.ziprecruiter.com/partner
   
-  * API Link: TBD
+    * API Link: TBD
   
-  * Request Limitations: TBD
+    * Request Limitations: TBD
 
 ## MVP
 
@@ -101,24 +117,24 @@ My Post-MVP will include:
 
 * *Strengths*:
 
- * Ability to work independently
+    * Ability to work independently
  
- * Understanding of CRUD
+    * Understanding of CRUD
  
- * Understanding of FlexBox
+    * Understanding of FlexBox
 
 * *Weaknesses*:
 
- * Difficult to reign in scope
+    * Difficult to reign in scope
  
- * Prioritization of MVP
+    * Prioritization of MVP
 
 * *Opportunities*:
 
- * To create an app that can provide realistic value
+    * To create an app that can provide realistic value
 
 * *Threats*:
 
- * Large Scope
+    * Large Scope
 
 
