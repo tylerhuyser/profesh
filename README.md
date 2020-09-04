@@ -12,19 +12,19 @@ Using .Profesh, job-seekers will be able to take the most advantage of opportuni
 
 ### Mobile
 
-** Home
+**Home**
 
 ![Home](/profesh/Mobile/Profesh_Wireframes_(Mobile).001.jpeg)
 
-** Tracker Home
+**Tracker Home**
 
 ![Tracker Home](/profesh/Mobile/Profesh_Wireframes_(Mobile).005.jpeg)
 
-** Tracker Opportunity Details
+**Tracker Opportunity Details**
 
 ![Opportunity Details](/profesh/Mobile/Profesh_Wireframes_(Mobile).006.jpeg)
 
-** Search
+**Search**
 
 ![Search](profesh/Mobile/Profesh_Wireframes_(Mobile).002.jpeg)
 
