@@ -48,7 +48,7 @@ class Nav extends Component {
             display: "grid",
             
           }} >
-            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/home-charlestonGreen.png?raw=true" key="home" className="visible" width="50px" height="auto" style={{
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/home-charlestonGreen.png?raw=true" key="homeCharleston" alt="homeCharleston" className="visible" width="50px" height="auto" style={{
 
               zIndex: "2",
               gridColumn: "1",
@@ -56,7 +56,7 @@ class Nav extends Component {
               opacity: "90%",
 
             }} />
-            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/home-sage.png?raw=true" key="home" className="hidden" width="50px" height="auto" style={{
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/home-sage.png?raw=true" key="homeSage" alt="homeSage" className="hidden" width="50px" height="auto" style={{
 
               zIndex: "1",
               gridColumn: "1",
@@ -76,7 +76,7 @@ class Nav extends Component {
               display: "grid",
 
               }} >
-            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/paper-charlestonGreen.png?raw=true" key="jobs" className="visible" width="50px" height="auto" style={{
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/paper-charlestonGreen.png?raw=true" key="jobsCharleston" alt="jobsCharleston" className="visible" width="50px" height="auto" style={{
 
               zIndex: "2",
               gridColumn: "1",
@@ -84,7 +84,7 @@ class Nav extends Component {
               opacity: "90%",
 
               }}  />
-            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/paper-sage.png?raw=true" key="jobs" className="hidden" width="50px" height="auto" style={{
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/paper-sage.png?raw=true" key="jobsSage" alt="jobsSage" className="hidden" width="50px" height="auto" style={{
 
               zIndex: "1",
               gridColumn: "1",
@@ -104,7 +104,7 @@ class Nav extends Component {
               display: "grid",
 
               }} >
-            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/bag-charlestonGreen.png?raw=true" key="tracker" className="visible" width="50px" height="50px" style={{
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/bag-charlestonGreen.png?raw=true" key="trackerCharleston" alt="trackerCharleston" className="visible" width="50px" height="50px" style={{
 
               zIndex: "2",
               gridColumn: "1",
@@ -112,7 +112,7 @@ class Nav extends Component {
               opacity: "90%",
 
               }}  />
-            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/bag-sage.png?raw=true" key="tracker" className="hidden" width="50px" height="50px" style={{
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/bag-sage.png?raw=true" key="trackerSage" alt="trackerSage" className="hidden" width="50px" height="50px" style={{
 
               zIndex: "1",
               gridColumn: "1",

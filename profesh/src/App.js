@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link, Route, Switch} from 'react-router-dom';
-import axios from 'axios';
+import { Route, Switch } from 'react-router-dom';
+// import axios from 'axios';
 import './App.css';
 
 import Nav from './Components/Nav';
@@ -20,13 +20,13 @@ function App() {
             <Home />
           </Route>
 
-          {/* <Route path="/jobs">
+          <Route path="/jobs">
             <FindJobs />
           </Route>
 
           <Route path="/track">
             <TrackOpportunities />
-          </Route> */}
+          </Route>
 
         </Switch>
       </main>
