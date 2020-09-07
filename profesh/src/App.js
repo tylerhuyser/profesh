@@ -6,7 +6,7 @@ import './App.css';
 import Nav from './Components/Nav';
 import FindJobs from "./Components/FindJobs";
 import TrackOpportunities from "./Components/TrackOpportunities";
-import Home from "./Components/Home"
+import Home from "./Components/Home";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
             <FindJobs />
           </Route>
 
-          <Route path="/track">
+          <Route path="/tracker">
             <TrackOpportunities />
           </Route>
 

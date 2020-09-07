@@ -27,7 +27,7 @@ class Nav extends Component {
           // Nav Bar Visual Properties
           height: "100px", // Height is 100 Pixels
           width: "100vw", // Width is 100% of the viewport
-          // backgroundColor: "#b0bbbf", // Sets background color to dark gray
+          backgroundColor: "#b0bbbf", // Sets background color to dark gray
           // opacity: "30%", // Sets the opacity
           // zIndex: "0", // Sets the Position on the Z-axis
 
