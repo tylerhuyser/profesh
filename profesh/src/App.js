@@ -3,6 +3,11 @@ import {Link, Router, Switch} from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 
+import Nav from './Components/Nav';
+import FindJobs from "./Components/FindJobs";
+import TrackOpportunities from "./Components/TrackOpportunities";
+import Home from "./Components/Home"
+
 function App() {
   return (
     <div className="App">
