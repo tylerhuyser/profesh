@@ -1,27 +1,127 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class Nav extends Component {
   
+  handleHover (event) {
+      event.target.className = 'hidden';
+      event.target.style.opacity = "0%";
+  }
+
+    handleMouseOut (event) {
+      event.target.className = 'visible';
+      event.target.style.opacity = "100%";
+  }
+
+
   render() {
     return (
       <div className="nav">
 
-        <nav>
+        <nav style={{
+          
+          // Nav Bar Positioning
+          position: "fixed", //Nav Bar position never moves
+          bottom: "0", //Nav Bar is 0px away from the bottom of the page
 
-          <div className="homeIcon">
-            <img src="/Users/tylerhuyser/General_Assembly/Unit_2/Week_5/Friday/homework/profesh/profesh/Icons/home-charlestonGreen.png" key="home" className="visible" />
-            <img src="/Users/tylerhuyser/General_Assembly/Unit_2/Week_5/Friday/homework/profesh/profesh/Icons/home-sage.png" key="home" className="hidden" />
-          </div>
+          // Nav Bar Visual Properties
+          height: "100px", // Height is 100 Pixels
+          width: "100vw", // Width is 100% of the viewport
+          // backgroundColor: "#b0bbbf", // Sets background color to dark gray
+          // opacity: "30%", // Sets the opacity
+          // zIndex: "0", // Sets the Position on the Z-axis
 
-          <div className="jobsIcon">
-            <img src="/Users/tylerhuyser/General_Assembly/Unit_2/Week_5/Friday/homework/profesh/profesh/Icons/bag-charlestonGreen.png" key="jobs" className="visible" />
-            <img src="/Users/tylerhuyser/General_Assembly/Unit_2/Week_5/Friday/homework/profesh/profesh/Icons/bag-sage.png" key="jobs" className="hidden" />
-          </div>
+          // Nav Bar Display Container Properties
+          display: "flex", //Items will display flexbox
+          alignItems: "center", //Items will be center (vertically)
+          justifyContent: "space-around", //Items will distribute equal space around each element.
+          
 
-          <div className="trackerIcon">
-            <img src="/Users/tylerhuyser/General_Assembly/Unit_2/Week_5/Friday/homework/profesh/profesh/Icons/paper-charlestonGreen.png" key="tracker" className="visible" />
-            <img src="/Users/tylerhuyser/General_Assembly/Unit_2/Week_5/Friday/homework/profesh/profesh/Icons/paper-sage.png" key="tracker" className="hidden" />
+        }}>
+
+          <Link to="/">
+          <div className="homeIcon"
+            onMouseOver={(event) => this.handleHover(event)}
+            onMouseOut={(event) => this.handleMouseOut(event)}
+            style={{
+
+            display: "grid",
+            
+          }} >
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/home-charlestonGreen.png?raw=true" key="home" className="visible" width="50px" height="auto" style={{
+
+              zIndex: "2",
+              gridColumn: "1",
+              gridRow: "1",
+              opacity: "90%",
+
+            }} />
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/home-sage.png?raw=true" key="home" className="hidden" width="50px" height="auto" style={{
+
+              zIndex: "1",
+              gridColumn: "1",
+              gridRow: "1",
+              opacity: "100%",
+
+              }} />
           </div>
+          </Link>
+
+          <Link to="/tracker">
+          <div className="trackerIcon"
+            onMouseOver={(event) => this.handleHover(event)}
+            onMouseOut={(event) => this.handleMouseOut(event)}
+            style={{
+
+              display: "grid",
+
+              }} >
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/paper-charlestonGreen.png?raw=true" key="jobs" className="visible" width="50px" height="auto" style={{
+
+              zIndex: "2",
+              gridColumn: "1",
+              gridRow: "1",
+              opacity: "90%",
+
+              }}  />
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/paper-sage.png?raw=true" key="jobs" className="hidden" width="50px" height="auto" style={{
+
+              zIndex: "1",
+              gridColumn: "1",
+              gridRow: "1",
+              opacity: "100%",
+
+              }}  />
+          </div>
+          </Link>
+
+          <Link to="/jobs">
+          <div className="jobsIcon"
+            onMouseOver={(event) => this.handleHover(event)}
+            onMouseOut={(event) => this.handleMouseOut(event)}
+            style={{
+
+              display: "grid",
+
+              }} >
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/bag-charlestonGreen.png?raw=true" key="tracker" className="visible" width="50px" height="50px" style={{
+
+              zIndex: "2",
+              gridColumn: "1",
+              gridRow: "1",
+              opacity: "90%",
+
+              }}  />
+            <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/bag-sage.png?raw=true" key="tracker" className="hidden" width="50px" height="50px" style={{
+
+              zIndex: "1",
+              gridColumn: "1",
+              gridRow: "1",
+              opacity: "100%",
+
+              }}  />
+          </div>
+          </Link>
         
         </nav>
 
