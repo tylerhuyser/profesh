@@ -1,7 +1,7 @@
 import React from 'react';
 // import axios from 'axios';
 
-export default function AddOpportunity () {
+export default function AddOpportunityButton () {
 
   return (
     <div>
@@ -21,7 +21,7 @@ export default function AddOpportunity () {
         // Button Postion Properties
         zIndex: "3",
         position: "fixed",
-        bottom: "100px",
+        bottom: "110px",
         right: "25px",
 
       }}>

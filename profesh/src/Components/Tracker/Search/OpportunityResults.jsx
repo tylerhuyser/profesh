@@ -26,6 +26,8 @@ function OpportunityResults (props) {
           </div>
         {opportunities.filter(opportunity => opportunity.fields.company_name.includes(searchQuery) || opportunity.fields.job_title.includes(searchQuery) ).map((opportunity, idx) => {
           
+          // Documentation for Filter w/ Maps: https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
+
           return (
             <div key={idx} id={idx} style={{
               
