@@ -8,6 +8,7 @@ export default function SearchOpportunities () {
 
   const [opportunities, setOpportunities] = useState([]);
   const [fetchOpportunities, setFetchOpportunities] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     async function apiCall() {
@@ -22,13 +23,13 @@ export default function SearchOpportunities () {
     apiCall();
   }, []);
 
-  console.log(opportunities)
+  console.log(opportunities);
 
   return (
     <div>
       <form className="OpportunitiesSearchForm" style={{
 
-        position: "absolute",
+        position: "fixed",
         top: "0",
         left: "0",
         right: "0",
@@ -36,7 +37,7 @@ export default function SearchOpportunities () {
         background: "gray",
 
       }}>
-        <input type="text" id="opportunitySearchInput" name="opportunitySearchInput" style={{
+        <input type="text" id="opportunitySearchInput" name="opportunitySearchInput" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{
 
           marginTop: "25px",
           marginBottom: "25px",
@@ -44,9 +45,9 @@ export default function SearchOpportunities () {
         }} />
         <button>Submit</button>
       </form>
-      <Link to={`/tracker/opportunities/:${opportunities.id}`} key={opportunities.id} >
-        <OpportunityResults opportunities={opportunities} />
-      </Link>
+      {/* <Link to={`/tracker/opportunities/:${opportunities.id}`} key={opportunities.id} > */}
+        <OpportunityResults opportunities={opportunities} searchQuery={searchQuery} />
+      {/* </Link> */}
     </div>
   )
 }

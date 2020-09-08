@@ -5,7 +5,7 @@ export default function AddOpportunity () {
 
   return (
     <div>
-      <button style={{
+      <button className="addOpportunityButton" id="addOpportunityButton" style={{
 
         //Circle Button Properties
         height: "75px", // defines height
@@ -20,10 +20,9 @@ export default function AddOpportunity () {
 
         // Button Postion Properties
         zIndex: "3",
-        position: "absolute",
+        position: "fixed",
         bottom: "100px",
         right: "25px",
-
 
       }}>
         +
