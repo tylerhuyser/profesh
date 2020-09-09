@@ -7,6 +7,7 @@ import AddOpportunityForm from "./Tracker/AddOpportunityForm";
 function TrackOpportunities() {
 
   const [visibility, setVisibility] = useState(false);
+  const [fetchOpportunities, setFetchOpportunities] = useState(false)
 
   function toggleMenu() {
     setVisibility(!visibility)
@@ -18,11 +19,13 @@ function TrackOpportunities() {
     e.stopPropagation();
   }
 
+  // Documentation: From tutorial: https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm
+
   return (
     <div className="tracker">
-      <OpportunitiesSearch />
+      <OpportunitiesSearch fetchOpportunities={fetchOpportunities} setFetchOpportunities={setFetchOpportunities} />
       <AddOpportunityButton handleMouseDown = { handleMouseDown }  />
-      <AddOpportunityForm handleMouseDown = { handleMouseDown } visibility= { visibility } toggleMenu= { toggleMenu } />
+      <AddOpportunityForm handleMouseDown = { handleMouseDown } visibility= { visibility } toggleMenu= { toggleMenu } fetchOpportunities={fetchOpportunities} setFetchOpportunities={setFetchOpportunities} />
     </div>
   )
 

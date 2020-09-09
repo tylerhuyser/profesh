@@ -4,11 +4,13 @@ import OpportunityResults from "./Search/OpportunityResults"
 import Axios from 'axios';
 import { Link, Route } from 'react-router-dom';
 
-export default function SearchOpportunities () {
+export default function SearchOpportunities (props) {
 
   const [opportunities, setOpportunities] = useState([]);
-  const [fetchOpportunities, setFetchOpportunities] = useState(false);
+  // const [fetchOpportunities, setFetchOpportunities] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const { fetchOpportunities, setFetchOpportunities } = props
 
   useEffect(() => {
     async function apiCall() {
@@ -21,7 +23,7 @@ export default function SearchOpportunities () {
       setOpportunities(response.data.records)
     }
     apiCall();
-  }, []);
+  }, [setFetchOpportunities]);
 
   console.log(opportunities);
 
