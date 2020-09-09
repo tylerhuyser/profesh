@@ -24,7 +24,7 @@ function OpportunityResults (props) {
           }}>
 
           </div>
-        {opportunities.filter(opportunity => opportunity.fields.company_name.includes(searchQuery) || opportunity.fields.job_title.includes(searchQuery) ).map((opportunity, idx) => {
+        {opportunities.filter(opportunity => opportunity.fields.companyName.includes(searchQuery) || opportunity.fields.jobTitle.includes(searchQuery) ).map((opportunity, idx) => {
           
           // Documentation for Filter w/ Maps: https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
 
@@ -43,7 +43,7 @@ function OpportunityResults (props) {
               flexDirection: "column",
             }}>
             
-              <div className="companyInfo" id={opportunity.fields.company_name} style={{
+              <div className="companyInfo" id={opportunity.fields.companyName} style={{
 
                 margin: "10px",
                 display: "flex",
@@ -52,7 +52,7 @@ function OpportunityResults (props) {
                 overflow: "hidden",
                 
               }} >
-                <img src={opportunity.fields.company_logo} id={idx} style={{
+                <img src={opportunity.fields.companyLogo} id={idx} style={{
                 
                   width: "10%",
                   height: "auto",
@@ -71,10 +71,10 @@ function OpportunityResults (props) {
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
           
-                }}> {opportunity.fields.company_name}</h1>
+                }}> {opportunity.fields.companyName}</h1>
               </div>
               
-              <div className="opportunityInfo" id={opportunity.fields.job_title} style={{
+              <div className="opportunityInfo" id={opportunity.fields.jobTitle} style={{
 
                   margin: "10px",
                   display: "flex",
@@ -92,7 +92,7 @@ function OpportunityResults (props) {
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
           
-                }}> {opportunity.fields.job_title}</h3>
+                }}> {opportunity.fields.jobTitle}</h3>
                 <p style={{
 
                   textAlign: "left",
@@ -100,12 +100,12 @@ function OpportunityResults (props) {
                   textWrap: "none",
                   textOverflow: "ellipsis",
                   
-                }}> {(opportunity.fields.job_description.length > 200) ? <span>{`${opportunity.fields.job_description.slice(0, 198)}...`}<button style={{
+                }}> {(opportunity.fields.jobDescription.length > 200) ? <span>{`${opportunity.fields.jobDescription.slice(0, 198)}...`}<button style={{
                   
                   fontSize: "10px",
                   marginLeft: "10px",
 
-                }}>Read More</button></span> : opportunity.fields.job_description }</p>
+                }}>Read More</button></span> : opportunity.fields.jobDescription }</p>
               </div>
 
             </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 // import axios from 'axios';
 
-export default function AddOpportunityButton () {
+export default function AddOpportunityButton (props) {
 
   return (
     <div>
-      <button className="addOpportunityButton" id="addOpportunityButton" style={{
+      <button className="addOpportunityButton" id="addOpportunityButton" onMouseDown = { props.handleMouseDown } style={{
 
         //Circle Button Properties
         height: "75px", // defines height

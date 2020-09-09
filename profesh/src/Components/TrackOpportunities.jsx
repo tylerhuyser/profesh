@@ -12,11 +12,17 @@ function TrackOpportunities() {
     setVisibility(!visibility)
   };
 
+  function handleMouseDown (e) {
+    toggleMenu();
+    console.log("clicked");
+    e.stopPropagation();
+  }
+
   return (
     <div className="tracker">
       <OpportunitiesSearch />
-      <AddOpportunityButton />
-      <AddOpportunityForm />
+      <AddOpportunityButton handleMouseDown = { handleMouseDown }  />
+      <AddOpportunityForm handleMouseDown = { handleMouseDown } visibility= { visibility } toggleMenu= { toggleMenu } />
     </div>
   )
 

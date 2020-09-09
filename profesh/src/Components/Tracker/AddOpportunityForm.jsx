@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
+import "./AddOpportunityForm.css"
 
-function AddOpportunityForm () {
+function AddOpportunityForm (props) {
   
   const [companyName, setCompanyName] = useState("");
   const [jobTitle, setJobTitle] = useState("");
@@ -15,11 +17,69 @@ function AddOpportunityForm () {
   const [contactEmail, setContactEmail] = useState("");
   const [contactPhoneNumber, setContactPhoneNumber] = useState("");
 
+  const [companyLogo, setCompanyLogo] = useState("");
+
+  let visibilityClass = "hidden";
+
+  if (props.visibility) {
+    visibilityClass = "visible";
+  }
+
+  const handlePost = async (e) => {
+    e.preventDefault();
+    setCompanyLogo(`https://logo.clearbit.com/${companyName}`);
+    const fields = {
+      companyName,
+      companyLogo,
+      jobTitle,
+      seniorityLevel,
+      employmentType,
+      location,
+      jobDescription,
+      opportunityStatus,
+      actionItems,
+      dateOfLastContact,
+      contactName,
+      contactEmail,
+      contactPhoneNumber,
+    };
+    const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities`;
+    await Axios.post(
+      airtableURL,
+      { fields },
+      {
+        headers: {
+          "Authorization": `Bearer ${process.env.REACT_APP_KEY}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    props.setFetchReviews(!props.fetchReviews);
+    setCompanyName("");
+    setCompanyLogo("");
+    setSeniorityLevel("");
+    setEmploymentType("");
+    setLocation("");
+    setJobDescription("");
+    setOpportunityStatus("");
+    setActionItems([]);
+    setDateOfLastContact("");
+    setContactName("");
+    setContactEmail("");
+    setContactPhoneNumber("");
+    }
+
 
 
     return (
 
-      <div className={visibility} id="addOpportunityForm" onMouseDown={this.props.handleMouseDown} >
+      <div className={visibilityClass} id="addOpportunityForm" onSubmit={handlePost} style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+      }} >
+        <button onClick={ props.toggleMenu }>X</button>
+        <h2>Add a New Opportunity</h2>
         <label htmlFor="companyName">Company Name:</label>
           <input type="text" name="companyName" value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
         <label htmlFor="jobTitle">Job Title:</label>
@@ -45,6 +105,7 @@ function AddOpportunityForm () {
           </select>
         <label htmlFor="actionItems">Action Item(s):</label>
         <select type="text" name="actionItems" value={actionItems} onChange={(e) => setActionItems(e.target.value)} multiple>
+          <option value="">   </option>
           <option value="Prepare Resume">Prepare Resume</option>
           <option value="Write Cover Letter">Write Cover Letter</option>
           <option value="Submit Application">Submit Application</option>
@@ -61,6 +122,7 @@ function AddOpportunityForm () {
           <input type="text" name="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} />
         <label htmlFor="contactPhoneNumber">Contact Phone Number:</label>
           <input type="text" name="contactPhoneNumber" value={contactPhoneNumber} onChange={(e) => setContactPhoneNumber(e.target.value)} />
+        <button type="submit">Submit</button>
       </div>
   );
  }
