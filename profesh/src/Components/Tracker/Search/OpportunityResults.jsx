@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
+import "./OpportunityResults.css"
 
 function OpportunityResults (props) {
   
-  const [expanded, setExpanded] = useState(null)
+  const { fetchOpportunities, setFetchOpportunities } = props
+  
+  const [expanded, setExpanded] = useState([])
   
   console.log(props)
   const { opportunities } = props;
@@ -10,13 +14,38 @@ function OpportunityResults (props) {
   const { searchQuery } = props
   console.log(searchQuery)
 
-
-  function toggleExpand(e, id) {
-    e.preventDefault();
+  function toggleExpand(id) {
     let opportunitiesContainer = document.getElementById(`${id}`);
     opportunitiesContainer.classList.toggle('expanded');
-    setExpanded(id);
-    }
+    console.log(expanded)
+    if (!expanded.includes(id)) {
+      setExpanded(prevExpand => {
+        // console.log(prevExpand)
+        return [...prevExpand, id]
+      });
+      console.log(expanded)
+    }; 
+    if (expanded.includes(id)) {
+      setExpanded(prevExpand => {
+        console.log(prevExpand);
+        return (prevExpand.filter(e => e !== id))
+      })
+      console.log(expanded)
+    };
+  }
+
+  
+  const handleDelete = async (id) => {
+    const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities/${id}`
+
+    await Axios.delete(airtableURL, {
+      headers: {
+        "Authorization": `Bearer ${process.env.REACT_APP_KEY}`,
+      },
+    });
+    setFetchOpportunities(!fetchOpportunities);
+  };
+
 
 
   return (
@@ -38,7 +67,7 @@ function OpportunityResults (props) {
           // Documentation for Filter w/ Maps: https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
 
           return (
-            <div key={idx} id={idx} onClick={(e) => toggleExpand(e, idx)} style={{
+            <div key={idx} id={idx} onClick={() => toggleExpand(idx)} style={{
               
               // Job Card display properties
               height: "25vh",
@@ -125,7 +154,20 @@ function OpportunityResults (props) {
                 }}> {opportunity.fields.jobTitle}</h3>
                 
                 
-                {( expanded === idx) ? (
+                {(expanded.length === 0 || (!expanded.includes(idx)) ) ? (
+                  <p style={{
+
+                    textAlign: "left",
+                    fontSize: "10px",
+                    textWrap: "none",
+                    textOverflow: "ellipsis",
+
+                    }}> {(opportunity.fields.jobDescription.length > 200) ? <span>{`${opportunity.fields.jobDescription.slice(0, 198)}...`}<button style={{
+
+                    fontSize: "10px",
+                    marginLeft: "10px",
+
+                    }}>Read More</button></span> : opportunity.fields.jobDescription}</p>) :
                     <div name="expandedContainer">
                       <p style={{
 
@@ -142,22 +184,9 @@ function OpportunityResults (props) {
                         <h6>{opportunity.fields.contactPhoneNumber}</h6>
                         <h6>{opportunity.fields.contactEmail}</h6>
                         {/* <UpdateOpportunity /> */}
-                        <button>DELETE</button>
+                        <button onClick={(idx) => handleDelete(idx) }>DELETE</button>
                       </div>
-                  </div>) : 
-                  (<p style={{
-
-                    textAlign: "left",
-                    fontSize: "10px",
-                    textWrap: "none",
-                    textOverflow: "ellipsis",
-                    
-                  }}> {(opportunity.fields.jobDescription.length > 200) ? <span>{`${opportunity.fields.jobDescription.slice(0, 198)}...`}<button style={{
-                    
-                    fontSize: "10px",
-                    marginLeft: "10px",
-  
-                    }}>Read More</button></span> : opportunity.fields.jobDescription}</p>)
+                  </div>
                   }
               </div>
             </div>

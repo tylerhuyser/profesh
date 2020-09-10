@@ -47,7 +47,7 @@ export default function SearchOpportunities (props) {
         <button>Submit</button>
       </form>
       {/* <Link to={`/tracker/opportunities/:${opportunities.id}`} key={opportunities.id} > */}
-        <OpportunityResults opportunities={opportunities} searchQuery={searchQuery} />
+        <OpportunityResults opportunities={opportunities} searchQuery={searchQuery} fetchOpportunities={ fetchOpportunities } setFetchOpportunities={ setFetchOpportunities } />
       {/* </Link> */}
     </div>
   )
