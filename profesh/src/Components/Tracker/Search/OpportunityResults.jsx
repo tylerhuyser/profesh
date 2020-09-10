@@ -1,7 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
 function OpportunityResults (props) {
+  
+  const [expanded, setExpanded] = useState(null)
   
   console.log(props)
   const { opportunities } = props;
@@ -12,8 +13,9 @@ function OpportunityResults (props) {
 
   function toggleExpand(e, id) {
     e.preventDefault();
-    let opportunitiesContainer = document.getElementById(`${id}`)
-    opportunitiesContainer.classList.toggle('expanded')
+    let opportunitiesContainer = document.getElementById(`${id}`);
+    opportunitiesContainer.classList.toggle('expanded');
+    setExpanded(id);
     }
 
 
@@ -80,7 +82,7 @@ function OpportunityResults (props) {
                 overflow: "hidden",
                 
               }} >
-                <img src={opportunity.fields.companyLogo} id={idx} style={{
+                <img src={opportunity.fields.companyLogo} alt={ opportunity.fields.companyName } style={{
                 
                   width: "10%",
                   height: "auto",
@@ -123,21 +125,7 @@ function OpportunityResults (props) {
                 }}> {opportunity.fields.jobTitle}</h3>
                 
                 
-                {( document.getElementById(`${idx}`).hasClass('expanded')) ? (
-
-                <p style={{
-
-                  textAlign: "left",
-                  fontSize: "10px",
-                  textWrap: "none",
-                  textOverflow: "ellipsis",
-                  
-                }}> {(opportunity.fields.jobDescription.length > 200) ? <span>{`${opportunity.fields.jobDescription.slice(0, 198)}...`}<button style={{
-                  
-                  fontSize: "10px",
-                  marginLeft: "10px",
-
-                  }}>Read More</button></span> : opportunity.fields.jobDescription}</p>) : (
+                {( expanded === idx) ? (
                     <div name="expandedContainer">
                       <p style={{
 
@@ -146,24 +134,32 @@ function OpportunityResults (props) {
                         textWrap: "none",
                         textOverflow: "ellipsis",
                         
-                      }}> {opportunity.fields.jobDescription.length}  </p>
+                      }}> {opportunity.fields.jobDescription}  </p>
                     
                       <div name="expandedContents">
-                        <h6>{opportunities.fields.dateOfLastContact}</h6>
-                        <h6>{opportunities.fields.contactName}</h6>
-                        <h6>{opportunities.fields.contactPhoneNumber}</h6>
-                        <h6>{opportunities.fields.contactEmail}</h6>
+                        <h6>{opportunity.fields.dateOfLastContact}</h6>
+                        <h6>{opportunity.fields.contactName}</h6>
+                        <h6>{opportunity.fields.contactPhoneNumber}</h6>
+                        <h6>{opportunity.fields.contactEmail}</h6>
                         {/* <UpdateOpportunity /> */}
                         <button>DELETE</button>
                       </div>
-                    </div>
+                  </div>) : 
+                  (<p style={{
 
-                  )}
+                    textAlign: "left",
+                    fontSize: "10px",
+                    textWrap: "none",
+                    textOverflow: "ellipsis",
+                    
+                  }}> {(opportunity.fields.jobDescription.length > 200) ? <span>{`${opportunity.fields.jobDescription.slice(0, 198)}...`}<button style={{
+                    
+                    fontSize: "10px",
+                    marginLeft: "10px",
+  
+                    }}>Read More</button></span> : opportunity.fields.jobDescription}</p>)
+                  }
               </div>
-
-
-
-
             </div>
           )
         })

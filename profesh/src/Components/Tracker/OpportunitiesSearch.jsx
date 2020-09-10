@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import OpportunityResults from "./Search/OpportunityResults"
 import Axios from 'axios';
-import { Link, Route } from 'react-router-dom';
 
 export default function SearchOpportunities (props) {
 
