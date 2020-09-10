@@ -25,7 +25,7 @@ function TrackOpportunities() {
     <div className="tracker">
       <OpportunitiesSearch fetchOpportunities={fetchOpportunities} setFetchOpportunities={setFetchOpportunities} />
       <AddOpportunityButton handleMouseDown = { handleMouseDown }  />
-      <AddOpportunityForm handleMouseDown = { handleMouseDown } visibility= { visibility } toggleMenu= { toggleMenu } fetchOpportunities={fetchOpportunities} setFetchOpportunities={setFetchOpportunities} />
+      <AddOpportunityForm handleMouseDown = { handleMouseDown } visibility= { visibility } toggleMenu= { toggleMenu } fetchOpportunities={fetchOpportunities} setFetchOpportunities={ setFetchOpportunities } />
     </div>
   )
 

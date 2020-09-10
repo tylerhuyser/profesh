@@ -10,6 +10,13 @@ function OpportunityResults (props) {
   console.log(searchQuery)
 
 
+  function toggleExpand(e, id) {
+    e.preventDefault();
+    let opportunitiesContainer = document.getElementById(`${id}`)
+    opportunitiesContainer.classList.toggle('expanded')
+    }
+
+
   return (
     <div className="opportunitiesResults" style={{
         
@@ -29,7 +36,7 @@ function OpportunityResults (props) {
           // Documentation for Filter w/ Maps: https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
 
           return (
-            <div key={idx} id={idx} style={{
+            <div key={idx} id={idx} onClick={(e) => toggleExpand(e, idx)} style={{
               
               // Job Card display properties
               height: "25vh",
@@ -42,6 +49,27 @@ function OpportunityResults (props) {
               // justifyContent: "flex-start",
               flexDirection: "column",
             }}>
+
+              <div className="trackerAlerts" id="trackerAlerts" style={{
+                display: "flex",
+                flexDirection: "column",
+                position: "absolute",
+                right: "25px",
+                float: "right",
+                textAlign: "right",
+                margin: "10px",
+                width: "50%",
+                backgroundColor: "transparent",
+                fontSize: "10px",
+
+              }}>
+                <div className="opportunityStatus" id={opportunity.fields.opportunityStatus} >
+                  <h5>{opportunity.fields.opportunityStatus}</h5>
+                </div>
+                <div className="actionItems" id={opportunity.fields.actionItems} >
+                  <h5>{opportunity.fields.actionItems}</h5>
+                </div>
+              </div>
             
               <div className="companyInfo" id={opportunity.fields.companyName} style={{
 
@@ -93,6 +121,10 @@ function OpportunityResults (props) {
                   whiteSpace: "nowrap",
           
                 }}> {opportunity.fields.jobTitle}</h3>
+                
+                
+                {( document.getElementById(`${idx}`).hasClass('expanded')) ? (
+
                 <p style={{
 
                   textAlign: "left",
@@ -105,29 +137,32 @@ function OpportunityResults (props) {
                   fontSize: "10px",
                   marginLeft: "10px",
 
-                  }}>Read More</button></span> : opportunity.fields.jobDescription}</p>
+                  }}>Read More</button></span> : opportunity.fields.jobDescription}</p>) : (
+                    <div name="expandedContainer">
+                      <p style={{
+
+                        textAlign: "left",
+                        fontSize: "10px",
+                        textWrap: "none",
+                        textOverflow: "ellipsis",
+                        
+                      }}> {opportunity.fields.jobDescription.length}  </p>
+                    
+                      <div name="expandedContents">
+                        <h6>{opportunities.fields.dateOfLastContact}</h6>
+                        <h6>{opportunities.fields.contactName}</h6>
+                        <h6>{opportunities.fields.contactPhoneNumber}</h6>
+                        <h6>{opportunities.fields.contactEmail}</h6>
+                        {/* <UpdateOpportunity /> */}
+                        <button>DELETE</button>
+                      </div>
+                    </div>
+
+                  )}
               </div>
 
-              <div className="trackerAlerts" id="trackerAlerts" style={{
-                display: "flex",
-                flexDirection: "column",
-                position: "absolute",
-                right: "25px",
-                float: "right",
-                textAlign: "right",
-                margin: "10px",
-                width: "50%",
-                backgroundColor: "transparent",
-                fontSize: "10px",
 
-              }}>
-                <div className="opportunityStatus" id={opportunity.fields.opportunityStatus} >
-                  <h5>{opportunity.fields.opportunityStatus}</h5>
-                </div>
-                <div className="actionItems" id={opportunity.fields.actionItems} >
-                  <h5>{opportunity.fields.actionItems}</h5>
-                </div>
-              </div>
+
 
             </div>
           )
