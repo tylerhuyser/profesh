@@ -105,7 +105,28 @@ function OpportunityResults (props) {
                   fontSize: "10px",
                   marginLeft: "10px",
 
-                }}>Read More</button></span> : opportunity.fields.jobDescription }</p>
+                  }}>Read More</button></span> : opportunity.fields.jobDescription}</p>
+              </div>
+
+              <div className="trackerAlerts" id="trackerAlerts" style={{
+                display: "flex",
+                flexDirection: "column",
+                position: "absolute",
+                right: "25px",
+                float: "right",
+                textAlign: "right",
+                margin: "10px",
+                width: "50%",
+                backgroundColor: "transparent",
+                fontSize: "10px",
+
+              }}>
+                <div className="opportunityStatus" id={opportunity.fields.opportunityStatus} >
+                  <h5>{opportunity.fields.opportunityStatus}</h5>
+                </div>
+                <div className="actionItems" id={opportunity.fields.actionItems} >
+                  <h5>{opportunity.fields.actionItems}</h5>
+                </div>
               </div>
 
             </div>

@@ -27,11 +27,10 @@ function AddOpportunityForm (props) {
     visibilityClass = "visible";
   }
 
-  const handlePost = async (e) => {
-    e.preventDefault();
-    setCompanyLogo(`https://logo.clearbit.com/${companyName}.com`);
+  const handlePost = async () => {
     const fields = {
       companyName,
+      companyLogo,
       jobTitle,
       seniorityLevel,
       employmentType,
@@ -43,9 +42,7 @@ function AddOpportunityForm (props) {
       contactName,
       contactEmail,
       contactPhoneNumber,
-      companyLogo,
     };
-    console.log(companyLogo)
     const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities`;
     await Axios.post(
       airtableURL,
@@ -57,7 +54,7 @@ function AddOpportunityForm (props) {
         },
       }
     )
-    props.setFetchOpportunities(!props.fetchOpportunities);
+    setFetchOpportunities(!fetchOpportunities);
     setCompanyName("");
     setCompanyLogo("");
     setJobTitle("")
@@ -72,8 +69,64 @@ function AddOpportunityForm (props) {
     setContactEmail("");
     setContactPhoneNumber("");
     props.toggleMenu();
+  }
+  
+  function validateForm(e) {
+    e.preventDefault();
+    // setCompanyLogo(`https://logo.clearbit.com/${ companyName }.com`);
+    if (companyName === "") {
+      let companyNameInput = document.querySelector('input[name=companyName]');
+      companyNameInput.classList.add('invalid')
     }
+    if (jobTitle === "") {
+      let jobTitleInput = document.querySelector('input[name=jobTitle]');
+      jobTitleInput.classList.add('invalid')
+    }
+    if (seniorityLevel === "") {
+      let seniorityLevelInput = document.querySelector('select[name=seniorityLevel]');
+      seniorityLevelInput.classList.add('invalid')
+    }
+    if (employmentType === "") {
+      let employmentTypeInput = document.querySelector('select[name=employmentType]');
+      employmentTypeInput.classList.add('invalid')
+    }
+    if (location === "") {
+      let locationInput = document.querySelector('input[name=location]');
+      locationInput.classList.add('invalid')
+    }
+    if (jobDescription === "") {
+      setJobDescription("N/A");
+    }
+    if (opportunityStatus === "") {
+      let opportunityStatusInput = document.querySelector('select[name=opportunityStatus]');
+      opportunityStatusInput.classList.add('invalid')
+    }
+    if (actionItems === "") {
+      let actionItemsInput = document.querySelector('select[name=actionItems]');
+      actionItemsInput.classList.add('invalid')
+    }
+    if (dateOfLastContact === "") {
+      let dateOfLastContactInput = document.querySelector('input[name=dateOfLastContact]');
+      dateOfLastContactInput.classList.add('invalid')
+    }
+    if (contactName === "") {
+      setContactName("N/A");
+    }
+    if (contactPhoneNumber === "") {
+      setContactPhoneNumber("N/A");
+    }
+    if (contactEmail === "") {
+      setContactEmail("N/A");
+    }
+    if (companyName !== "" && jobTitle !== "" && seniorityLevel !== "" && employmentType !== "" && location !== "" && opportunityStatus !== "" && actionItems !== "") {
+      handlePost();
+    }
+  }
 
+  function setNameAndLogo(e) {
+    setCompanyName(e);
+    setCompanyLogo(`https://logo.clearbit.com/${e}.com`);
+  }
 
 
     return (
@@ -87,33 +140,33 @@ function AddOpportunityForm (props) {
       }} >
         <button onClick={ props.toggleMenu }>X</button>
         <h2>Add a New Opportunity</h2>
-        <form id="addOpportunityForm" onSubmit={handlePost} style={{
+        <form id="addOpportunityForm" onSubmit={validateForm} style={{
         display: "flex",
         flexDirection: "column",
       }}  >
           <label htmlFor="companyName">Company Name:</label>
-            <input type="text" name="companyName" value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
+            <input type="text" name="companyName" value={companyName} onChange={(e) => setNameAndLogo(e.target.value)} />
           <label htmlFor="jobTitle">Job Title:</label>
-            <input type="text" name="jobTitle" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} />
+            <input type="text" name="jobTitle" value={ jobTitle } onChange={(e) => setJobTitle(e.target.value)} />
           <label htmlFor="seniorityLevel">Seniority Level:</label>
           <select placeholder="Select option" name="seniorityLevel" value={seniorityLevel} onChange={(e) => setSeniorityLevel(e.target.value)} >
-            <option disabled> -- select an option -- </option>
-            <option value="entryLevel">Entry-Level</option>
-            <option value="associate">Associate</option>
-            <option value="manager">Manager</option>
-            <option value="director">Director</option>
-            <option value="vp">VP</option>
+            <option disabled value="">Select An Option</option>
+            <option value="Entry Level">Entry-Level</option>
+            <option value="Associate">Associate</option>
+            <option value="Manager">Manager</option>
+            <option value="Director">Director</option>
+            <option value="VP">VP</option>
             <option value="CXO">CXO</option>
             </select>
           <label htmlFor="employmentType">Employment Type:</label>
           <select name="employmentType" value={employmentType} onChange={(e) => setEmploymentType(e.target.value)} >
-            <option defaultValue="select an option">select an option</option>
-            <option value="fullTime">Full-Time</option>
-            <option value="partTime">Part-Time</option>
-            <option value="contract">Contract</option>
-            <option value="temp">Temp</option>
-            <option value="internship">Internship</option>
-            <option value="volunteer">Volunteer</option>
+            <option disabled value="">Select An Option</option>
+            <option value="Full-Time">Full-Time</option>
+            <option value="Part-Time">Part-Time</option>
+            <option value="Contract">Contract</option>
+            <option value="Temp">Temp</option>
+            <option value="Internship">Internship</option>
+            <option value="Volunteer">Volunteer</option>
             </select>
           <label htmlFor="location">Location:</label>
             <input type="text" name="location" value={location} onChange={(e) => setLocation(e.target.value)} />
@@ -121,7 +174,7 @@ function AddOpportunityForm (props) {
             <input type="text" name="jobDescription" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} />
           <label htmlFor="opportunityStatus">Opportunity Status</label>
           <select name="opportunityStatus" value={opportunityStatus} onChange={(e) => setOpportunityStatus(e.target.value)}>
-            <option disabled selected value> -- select an option -- </option>
+            <option disabled value=""> Select An Option </option>
             <option value="Applied">Applied</option>
             <option value="Phone Screening">Phone Screening</option>
             <option value="Phone Screening, Pending Decision">Phone Screening, Pending Decision</option>
@@ -132,8 +185,8 @@ function AddOpportunityForm (props) {
             <option value="Negotiation">Negotiation</option>
             </select>
           <label htmlFor="actionItems">Action Item(s):</label>
-          <select type="text" name="actionItems" value={actionItems} onChange={(e) => setActionItems(e.target.value)} >
-            <option disabled selected value> -- select an option -- </option>
+          <select type="text" name="actionItems" value={ actionItems } onChange={(e) => setActionItems(e.target.value)} >
+            <option disabled value=""> Select An Option </option>
             <option value="Prepare Resume">Prepare Resume</option>
             <option value="Write Cover Letter">Write Cover Letter</option>
             <option value="Submit Application">Submit Application</option>

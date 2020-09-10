@@ -23,7 +23,7 @@ export default function SearchOpportunities (props) {
       setOpportunities(response.data.records)
     }
     apiCall();
-  }, [setFetchOpportunities]);
+  }, [fetchOpportunities]);
 
   console.log(opportunities);
 

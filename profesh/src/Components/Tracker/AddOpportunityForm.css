@@ -29,3 +29,7 @@
 #addOpportunityForm h2 a:hover {
   text-decoration: underline;
 }
+
+.invalid {
+  border: 5px solid red;
+}
