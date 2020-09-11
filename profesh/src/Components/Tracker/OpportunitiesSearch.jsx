@@ -38,8 +38,20 @@ export default function SearchOpportunities (props) {
         background: "#2C404B",
         boxShadow: '0px -1px 10px darkgray',
         width: "105vw",
-
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "center",
+      
       }}>
+
+        <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/1a0a047a-c627-4ffb-845d-5215b22f1f78_200x200.png?raw=true" width="100px" height="50px" style={{
+                
+          objectFit: "cover",
+          margin: "10px",
+          marginRight: "10px",
+      
+          }} />
+
         <input type="text" id="opportunitySearchInput" name="opportunitySearchInput" placeholder="Search Opportunities (Company, Job Title, Location, etc.)" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{
 
           marginTop: "25px",
@@ -47,13 +59,20 @@ export default function SearchOpportunities (props) {
           marginRight: "10px",
           width: "40%",
           fontSize: "13px",
+          border: "5px solid #F7116B",
 
         }} />
         <button className="searchOpportunitiesButton" style={{
 
-          borderColor: "#2c404b",
-          border: "5px",
-          borderRadius: "12%",
+          width: "75px",
+          fontSize: "10px",
+          textAlign: "center",
+          border: "5px solid #F7116B",
+          borderRadius: "18px",
+          background: "transparent",
+          color: "#F7116B",
+          padding: "10px",
+          maxHeight: "25px",
 
         }}>Submit</button>
       </form>

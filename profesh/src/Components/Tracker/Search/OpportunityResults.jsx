@@ -60,12 +60,8 @@ function OpportunityResults (props) {
 
 
   return (
-    <div className="opportunitiesResults" style={{
-        
-      textDecoration: "none",
-      textDecorationLine: "none",
-
-      }}>
+    <div className="opportunitiesResults">
+      
         <div className="placeholderTop" style={{
             
           height: "70px",
@@ -188,12 +184,7 @@ function OpportunityResults (props) {
                     textWrap: "none",
                     textOverflow: "ellipsis",
 
-                    }}> {(opportunity.fields.jobDescription.length > 200) ? <span>{`${opportunity.fields.jobDescription.slice(0, 198)}...`}<button style={{
-
-                    fontSize: "10px",
-                    marginLeft: "10px",
-
-                    }}>Read More</button></span> : opportunity.fields.jobDescription}</p>) :
+                    }}> {(opportunity.fields.jobDescription.length > 200) ? <span>{`${opportunity.fields.jobDescription.slice(0, 198)}...`}</span> : opportunity.fields.jobDescription}</p>) :
                     <div name="expandedContainer">
                       <p style={{
 
@@ -204,14 +195,36 @@ function OpportunityResults (props) {
                         
                       }}> {opportunity.fields.jobDescription}  </p>
                     
-                      <div name="expandedContents">
-                        <h6>{opportunity.fields.dateOfLastContact}</h6>
-                        <h6>{opportunity.fields.contactName}</h6>
-                        <h6>{opportunity.fields.contactPhoneNumber}</h6>
-                        <h6>{opportunity.fields.contactEmail}</h6>
+                    <div className="expandedContents" style={{
+                      display: "flex",
+                      flexDirection: "column",
+                    }}>
+                        <label forHTML="dateOfLastContact">Date of Last Contact:</label>
+                          <p name="dateOflastContact">{opportunity.fields.dateOfLastContact}</p>
+                        <label forHTML="contactName">Contact Name:</label>
+                          <p name="contactName">{opportunity.fields.contactName}</p>
+                        <label forHTML="contactPhoneNumber">Contact Phone Number:</label>
+                          <p name="contactPhoneNumber">{opportunity.fields.contactPhoneNumber}</p>
+                        <label forHTML="contactEmail">Contact Email:</label>
+                      <p name="contactEmail">{opportunity.fields.contactEmail}</p>
+                      
+                      <div className="opportunityCRUDButtons" style={{
+                        display: "flex",
+                        justifyContent: "space-evenly",
+                      }}>
                         <UpdateOpportunityButton
                           handleEdit={ (e)=> handleEdit(e) }/>
-                        <button onClick={(e) => handleDelete(e, opportunity.id)} >DELETE</button>
+                        <button onClick={(e) => handleDelete(e, opportunity.id)} style={{
+                          width: "100px",
+                          textAlign: "center",
+                          border: "5px solid #F7116B",
+                          borderRadius: "18px",
+                          background: "white",
+                          color: "#F7116B",
+                          padding: "10px",
+
+                          }} >Delete</button>
+                        </div>
                       </div>
                   </div>
                   }

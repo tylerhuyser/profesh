@@ -33,8 +33,19 @@ export default function SearchJobs (props) {
         zIndex: "3",
         background: "#2C404B",
         boxShadow: '0px -1px 10px darkgray',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
 
       }}>
+
+        <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/1a0a047a-c627-4ffb-845d-5215b22f1f78_200x200.png?raw=true" width="100px" height="50px" style={{
+                
+          objectFit: "cover",
+          margin: "10px",
+
+       }} />
+
         <input type="text" id="JobsSearchInput" name="jobSearchInput" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{
 
           marginTop: "25px",

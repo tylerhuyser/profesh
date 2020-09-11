@@ -131,14 +131,13 @@ function AddOpportunityForm (props) {
 
     return (
 
-      <div className={visibilityClass} id="addOpportunityForm" style={{
+      <div className={visibilityClass} id="addOpportunityFormContainer" style={{
 
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
 
       }} >
-        <button onClick={ props.toggleMenu }>X</button>
         <h2>Add a New Opportunity</h2>
         <form id="addOpportunityForm" onSubmit={validateForm} style={{
         display: "flex",
@@ -203,7 +202,37 @@ function AddOpportunityForm (props) {
             <input type="text" name="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} />
           <label htmlFor="contactPhoneNumber">Contact Phone Number:</label>
             <input type="text" name="contactPhoneNumber" value={contactPhoneNumber} onChange={(e) => setContactPhoneNumber(e.target.value)} />
-          <button type="submit">Submit</button>
+          <div className="addOpportunityButtons" style={{
+            display: "flex",
+            justifyContent: "space-evenly"
+          }}>
+            <button type="submit" style={{
+
+              width: "100px",
+              textAlign: "center",
+              border: "5px solid #F7116B",
+              borderRadius: "18px",
+              background: "white",
+              color: "#F7116B",
+              padding: "10px",
+              margin: "10px 25px",
+              height: "40px",
+              
+            }}>Submit</button>
+            <button onClick={props.toggleMenu} style={{
+            
+            width: "100px",
+            textAlign: "center",
+            border: "5px solid #F7116B",
+            borderRadius: "18px",
+            background: "white",
+            color: "#F7116B",
+            padding: "10px",
+            margin: "10px 25px",
+            height: "40px",
+
+              }}>Cancel</button>
+          </div>
         </form>
       </div>
   );
