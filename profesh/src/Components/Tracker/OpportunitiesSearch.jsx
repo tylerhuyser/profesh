@@ -28,7 +28,7 @@ export default function SearchOpportunities (props) {
 
   return (
     <div>
-      <form className="OpportunitiesSearchForm scale-in-ver-top" style={{
+      <form className="OpportunitiesSearchForm scale-in-ver-top" id="OpportunitiesSearchForm" style={{
 
         position: "fixed",
         top: "0",

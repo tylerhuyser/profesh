@@ -204,7 +204,7 @@ const AddJob = (props) => {
             display: "flex",
             justifyContent: "space-evenly"
           }}>
-            <button type="submit" style={{
+            <button classname="addJobFormButton" type="submit" style={{
               
               width: "100px",
               textAlign: "center",
@@ -217,7 +217,7 @@ const AddJob = (props) => {
               height: "40px",
 
                 }}>Submit</button>
-            <button onClick={props.toggleAddJobMenu} style={{
+            <button classname="addJobFormButton" onClick={props.toggleAddJobMenu} style={{
               
               width: "100px",
               textAlign: "center",

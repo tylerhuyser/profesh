@@ -193,7 +193,7 @@ const UpdateOpportunity = (props) => {
             display: "flex",
             justifyContent: "space-evenly"
           }}>
-              <button type="submit"  style={{
+              <button className="updateOpportunityButton" type="submit"  style={{
 
                 width: "100px",
                 textAlign: "center",
@@ -206,7 +206,7 @@ const UpdateOpportunity = (props) => {
                 height: "40px",
 
                 }}>Submit</button>
-              <button onClick={props.toggleUpdateMenu} style={{
+              <button className="updateOpportunityButton" onClick={props.toggleUpdateMenu} style={{
                 
                 width: "100px",
                 textAlign: "center",

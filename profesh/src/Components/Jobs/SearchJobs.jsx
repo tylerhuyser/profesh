@@ -24,7 +24,7 @@ export default function SearchJobs (props) {
 
   return (
     <div>
-      <form className="JobsSearchForm scale-in-ver-top" style={{
+      <form className="JobsSearchForm scale-in-ver-top" id="jobsSearchForm" style={{
 
         position: "fixed",
         top: "0",

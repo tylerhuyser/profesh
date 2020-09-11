@@ -243,3 +243,300 @@ main {
   text-decoration: underline;
   
 }
+
+@media only screen and (min-width: 600px) {
+  #addOpportunityFormContainer {
+    width: 40vw;
+    height: 100vh;
+    overflow: scroll;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #addOpportunityFormContainer label {
+    text-align: left;
+    margin: 15px 25px;
+    font-size: 16px;
+  }
+  
+  #addOpportunityFormContainer input {
+    text-align: left;
+    width: 200px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+    }
+  
+  #addOpportunityFormContainer select {
+    text-align: left;
+    width: 208px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+  }
+  
+  #addOpportunityFormContainer h2 {
+    text-align: left;
+    width: 200px;
+    margin: 10px 25px 10px 25px;
+    font-weight: bolder;
+  }
+
+  .addOpportunityButton {
+    margin: 25px 25px;
+  }
+
+  #updateFormDiv {
+    width: 40vw;
+    height: 100vh;
+    overflow: scroll;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #updateFormDiv label {
+    text-align: left;
+    margin: 15px 25px;
+    font-size: 16px;
+  }
+  
+  #updateFormDiv input {
+    text-align: left;
+    width: 200px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+    }
+  
+  #updateFormDiv select {
+    text-align: left;
+    width: 208px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+  }
+  
+  #updateFormDiv h2 {
+    text-align: left;
+    width: 200px;
+    margin: 10px 25px 10px 25px;
+    font-weight: bolder;
+  }
+
+  .updateOpportunityButton {
+    margin: 25px 25px;
+  }
+
+  #addJobFormDiv {
+    width: 40vw;
+    height: 100vh;
+    overflow: scroll;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #addJobFormDiv label {
+    text-align: left;
+    margin: 15px 25px;
+    font-size: 16px;
+  }
+  
+  #addJobFormDiv input {
+    text-align: left;
+    width: 200px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+    }
+  
+  #addJobFormDiv select {
+    text-align: left;
+    width: 208px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+  }
+  
+  #addJobFormDiv h2 {
+    text-align: left;
+    width: 200px;
+    margin: 10px 25px 10px 25px;
+    font-weight: bolder;
+  }
+
+  .addJobFormButton {
+    margin: 25px 25px;
+  }
+
+  #jobsSearchForm {
+    display: flex;
+    justify-content: center;
+  }
+
+  .OpportunitiesSearchForm {
+    display: flex;
+    justify-content: center;
+  }
+
+  #welcomeText {
+    border-radius: 40px;
+  }
+
+}
+
+
+
+
+@media only screen and (min-width: 1200px) {
+  #addOpportunityFormContainer {
+    width: 40vw;
+    height: 100vh;
+    overflow: scroll;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #addOpportunityFormContainer label {
+    text-align: left;
+    margin: 15px 25px;
+    font-size: 16px;
+  }
+  
+  #addOpportunityFormContainer input {
+    text-align: left;
+    width: 200px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+    }
+  
+  #addOpportunityFormContainer select {
+    text-align: left;
+    width: 208px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+  }
+  
+  #addOpportunityFormContainer h2 {
+    text-align: left;
+    width: 200px;
+    margin: 10px 25px 10px 25px;
+    font-weight: bolder;
+  }
+
+  .addOpportunityButton {
+    margin: 25px 25px;
+  }
+
+  #updateFormDiv {
+    width: 40vw;
+    height: 100vh;
+    overflow: scroll;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #updateFormDiv label {
+    text-align: left;
+    margin: 15px 25px;
+    font-size: 16px;
+  }
+  
+  #updateFormDiv input {
+    text-align: left;
+    width: 200px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+    }
+  
+  #updateFormDiv select {
+    text-align: left;
+    width: 208px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+  }
+  
+  #updateFormDiv h2 {
+    text-align: left;
+    width: 200px;
+    margin: 10px 25px 10px 25px;
+    font-weight: bolder;
+  }
+
+  .updateOpportunityButton {
+    margin: 25px 25px;
+  }
+
+  #addJobFormDiv {
+    width: 40vw;
+    height: 100vh;
+    overflow: scroll;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #addJobFormDiv label {
+    text-align: left;
+    margin: 15px 25px;
+    font-size: 16px;
+  }
+  
+  #addJobFormDiv input {
+    text-align: left;
+    width: 200px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+    }
+  
+  #addJobFormDiv select {
+    text-align: left;
+    width: 208px;
+    margin: 0px 25px;
+    height: 20px;
+    font-size: 16px;
+  }
+  
+  #addJobFormDiv h2 {
+    text-align: left;
+    width: 200px;
+    margin: 10px 25px 10px 25px;
+    font-weight: bolder;
+  }
+
+  .addJobFormButton {
+    margin: 25px 25px;
+  }
+
+  #jobsSearchForm {
+    display: flex;
+    justify-content: center;
+  }
+
+  .OpportunitiesSearchForm {
+    display: flex;
+    justify-content: center;
+  }
+
+  #welcomeText {
+    border-radius: 12px;
+    height: 40vh;
+  }
+
+
+}

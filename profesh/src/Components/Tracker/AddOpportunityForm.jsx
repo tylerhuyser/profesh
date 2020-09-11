@@ -206,7 +206,7 @@ function AddOpportunityForm (props) {
             display: "flex",
             justifyContent: "space-evenly"
           }}>
-            <button type="submit" style={{
+            <button className="addOpportunityButton" type="submit" style={{
 
               width: "100px",
               textAlign: "center",
@@ -219,7 +219,7 @@ function AddOpportunityForm (props) {
               height: "40px",
               
             }}>Submit</button>
-            <button onClick={props.toggleMenu} style={{
+            <button className="addOpportunityButton" onClick={props.toggleMenu} style={{
             
             width: "100px",
             textAlign: "center",

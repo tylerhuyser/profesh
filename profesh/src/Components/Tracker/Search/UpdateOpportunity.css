@@ -2,6 +2,9 @@
   width: 65vw;
   max-height: 200vh;
   background-color: #A28497;
+  background-image: linear-gradient(rgba(162, 132, 151, 0.95),rgba(162, 132, 151, 0.95)), url('https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/Images/Black&WhiteBackgroundImage.png?raw=true');
+  background-size: cover;
+  background-attachment: fixed;
   color: white;
   position: fixed;
   top: 0;

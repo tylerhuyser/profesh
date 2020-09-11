@@ -214,7 +214,7 @@ function OpportunityResults (props) {
                       }}>
                         <UpdateOpportunityButton
                           handleEdit={ (e)=> handleEdit(e) }/>
-                        <button onClick={(e) => handleDelete(e, opportunity.id)} style={{
+                        <button className="updateOpportunityButton" onClick={(e) => handleDelete(e, opportunity.id)} style={{
                           width: "100px",
                           textAlign: "center",
                           border: "5px solid #F7116B",

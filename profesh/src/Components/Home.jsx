@@ -12,7 +12,7 @@ function Home() {
       height: "86vh",
 
     }}>
-      <div className="fade-in-fwd" id="welcomeText" style={{
+      <div className="fade-in-fwd welcomeText" id="welcomeText" style={{
 
         display: "flex",
         flexDirection: "column",
