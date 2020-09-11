@@ -65,8 +65,9 @@ export default function JobsResults(props) {
                 // Job Card display properties
                 // height: "25vh",
                 padding: "5px",
-                margin: "10px",
+                margin: "10px 5px",
                 boxShadow: '0px 8px 10px darkgray',
+                backgroundColor: "white",
   
                 // Job Card containter properties
                 display: "flex",
@@ -83,6 +84,16 @@ export default function JobsResults(props) {
                   overflow: "hidden",
 
                   }} >
+                    
+    
+                <img src={`https://logo.clearbit.com/${job.company.name}.com`} alt={ job.company.name} style={{
+                
+                  width: "10%",
+                  height: "auto",
+                  alignSelf: "flex-start",
+
+                }} />
+
               
                   <h1 style={{
                 
@@ -128,12 +139,7 @@ export default function JobsResults(props) {
                     textWrap: "none",
                     textOverflow: "ellipsis",
 
-                    }}> {(job.contents.length > 200) ? <span>{`${job.contents.slice(0, 198)}...`}<button style={{
-
-                    fontSize: "10px",
-                    marginLeft: "10px",
-
-                    }}>Read More</button></span> : job.contents}</p>) :
+                    }}> {(job.contents.length > 200) ? <span>{`${job.contents.slice(0, 198)}...`}</span> : job.contents}</p>) :
                     <div name="expandedContainer">
                       <p style={{
 
@@ -144,9 +150,14 @@ export default function JobsResults(props) {
                         
                       }}> {job.contents}  </p>
                     
-                      <div name="expandedContents">
-                        <h6>{job.type}</h6>
-                        <h6>{job.publicaton_date}</h6>
+                      <div className="expandedContents" style={{
+                        display: "flex",
+                        flexDirection: "column",
+                      }}>
+                      <label forHTML="jobType">Job Type:</label>
+                        <p name="jobType">{job.type}</p>
+                      <label forHTML="publicationDate">Posting Date</label>
+                        <p name="publicationDate">{job.publicaton_date}</p>
                         <AddJobButton
                           handleAddJob={ (e)=> handleAddJob(e) }/>
                       </div>
@@ -167,7 +178,8 @@ export default function JobsResults(props) {
       }
       <div className="placeholderBottom" style={{
             
-            height: "70px",
+          height: "70px",
+          marginTop: "40px",
             
             }}>
   

@@ -214,7 +214,7 @@ function AddOpportunityForm (props) {
               borderRadius: "18px",
               background: "white",
               color: "#F7116B",
-              padding: "10px",
+            
               margin: "10px 25px",
               height: "40px",
               
@@ -227,7 +227,7 @@ function AddOpportunityForm (props) {
             borderRadius: "18px",
             background: "white",
             color: "#F7116B",
-            padding: "10px",
+            
             margin: "10px 25px",
             height: "40px",
 

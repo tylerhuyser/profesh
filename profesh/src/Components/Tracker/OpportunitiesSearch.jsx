@@ -52,14 +52,14 @@ export default function SearchOpportunities (props) {
       
           }} />
 
-        <input type="text" id="opportunitySearchInput" name="opportunitySearchInput" placeholder="Search Opportunities (Company, Job Title, Location, etc.)" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{
+        <input type="text" id="opportunitySearchInput" name="opportunitySearchInput" placeholder="Search Saved Opportunities (company, job title, location, etc.)" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{
 
           marginTop: "25px",
           marginBottom: "25px",
           marginRight: "10px",
           width: "40%",
           fontSize: "13px",
-          border: "5px solid #F7116B",
+          // border: "5px solid #F7116B",
 
         }} />
         <button className="searchOpportunitiesButton" style={{
@@ -69,9 +69,8 @@ export default function SearchOpportunities (props) {
           textAlign: "center",
           border: "5px solid #F7116B",
           borderRadius: "18px",
-          background: "transparent",
-          color: "#F7116B",
-          padding: "10px",
+          background: "white",
+          color: "#F7116B",  
           maxHeight: "25px",
 
         }}>Submit</button>

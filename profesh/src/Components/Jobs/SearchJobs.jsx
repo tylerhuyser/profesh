@@ -13,7 +13,7 @@ export default function SearchJobs (props) {
 
   useEffect(() => {
     async function jobsAPICall() {
-      const apiURL = `https://www.themuse.com/api/public/jobs?page=1`
+      const apiURL = `https://www.themuse.com/api/public/jobs?page=75`
       const response = await Axios.get(apiURL);
       setJobs(response.data.results)
     }
@@ -34,7 +34,7 @@ export default function SearchJobs (props) {
         background: "#2C404B",
         boxShadow: '0px -1px 10px darkgray',
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
 
       }}>
@@ -43,16 +43,32 @@ export default function SearchJobs (props) {
                 
           objectFit: "cover",
           margin: "10px",
+          marginRight: "10px",
 
        }} />
 
-        <input type="text" id="JobsSearchInput" name="jobSearchInput" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{
+        <input type="text" id="JobsSearchInput" name="jobSearchInput" placeholder="Find New Jobs (by company, job title, location, etc.)" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{
 
           marginTop: "25px",
           marginBottom: "25px",
+          marginRight: "10px",
+          width: "40%",
+          fontSize: "13px",
+          // border: "5px solid #F7116B",
 
         }} />
-        <button>Submit</button>
+        <button style={{
+
+          width: "75px",
+          fontSize: "10px",
+          textAlign: "center",
+          border: "5px solid #F7116B",
+          borderRadius: "18px",
+          background: "white",
+          color: "#F7116B",
+          maxHeight: "25px",
+
+          }}>Submit</button>
       </form>
       {/* <Link to={`/tracker/opportunities/:${opportunities.id}`} key={opportunities.id} > */}
         <JobsResults  jobs={jobs} searchQuery={searchQuery} fetchJobs={ fetchJobs } setFetchJobs={ setFetchJobs } />

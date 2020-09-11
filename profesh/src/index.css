@@ -228,3 +228,18 @@ main {
   text-decoration: underline;
   
 }
+
+.expandedContents p {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 5px;
+
+}
+
+.expandedContents label {
+  text-align: left;
+  margin-top: 5px;
+  font-weight: bolder;
+  text-decoration: underline;
+  
+}

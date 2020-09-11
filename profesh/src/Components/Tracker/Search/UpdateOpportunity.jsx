@@ -125,7 +125,6 @@ const UpdateOpportunity = (props) => {
         justifyContent: "flex-start",
 
       }} >
-          <button onClick={ props.toggleMenu }>X</button>
           <h2>Update Opportunity</h2>
           <form id="updateOpportunityForm" onSubmit={(e) => validateForm(e)} style={{
           display: "flex",
@@ -190,7 +189,37 @@ const UpdateOpportunity = (props) => {
               <input type="text" name="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} />
             <label htmlFor="contactPhoneNumber">Contact Phone Number:</label>
               <input type="text" name="contactPhoneNumber" value={contactPhoneNumber} onChange={(e) => setContactPhoneNumber(e.target.value)} />
-            <button type="submit">Submit</button>
+          <div className="updateOpportunityButtons" style={{
+            display: "flex",
+            justifyContent: "space-evenly"
+          }}>
+              <button type="submit"  style={{
+
+                width: "100px",
+                textAlign: "center",
+                border: "5px solid #F7116B",
+                borderRadius: "18px",
+                background: "white",
+                color: "#F7116B",
+
+                margin: "10px 25px",
+                height: "40px",
+
+                }}>Submit</button>
+              <button onClick={props.toggleUpdateMenu} style={{
+                
+                width: "100px",
+                textAlign: "center",
+                border: "5px solid #F7116B",
+                borderRadius: "18px",
+                background: "white",
+                color: "#F7116B",
+                
+                margin: "10px 25px",
+                height: "40px",
+
+                  }}>Cancel</button>
+              </div>
           </form>
         </div>
       </div>
