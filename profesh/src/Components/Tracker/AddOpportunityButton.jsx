@@ -5,12 +5,12 @@ export default function AddOpportunityButton (props) {
 
   return (
     <div>
-      <button className="addOpportunityButton" id="addOpportunityButton" onMouseDown = { props.handleMouseDown } style={{
+      <button className="addOpportunityButton fade-in-fwd" id="addOpportunityButton" onMouseDown = { props.handleMouseDown } style={{
 
         //Circle Button Properties
         height: "75px", // defines height
         width: "75px", // defines width
-        backgroundColor: "blue", // makes circle blue
+        backgroundColor: "#F7116B", // makes circle blue
         borderRadius: "50%", //trims edges into circle shape
 
         // Button Text Properties
@@ -24,8 +24,10 @@ export default function AddOpportunityButton (props) {
         bottom: "110px",
         right: "25px",
 
+        boxShadow: '0px 2px 5px darkgray',
+
       }}>
-        +
+        <i className="fas fa-plus"></i>
       </button>
     </div>
   )

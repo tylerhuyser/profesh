@@ -24,14 +24,15 @@ export default function SearchJobs (props) {
 
   return (
     <div>
-      <form className="JobsSearchForm" style={{
+      <form className="JobsSearchForm scale-in-ver-top" style={{
 
         position: "fixed",
         top: "0",
         left: "0",
         right: "0",
         zIndex: "3",
-        background: "gray",
+        background: "#2C404B",
+        boxShadow: '0px -1px 10px darkgray',
 
       }}>
         <input type="text" id="JobsSearchInput" name="jobSearchInput" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{
