@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import "./OpportunityResults.css"
+import UpdateOpportunity from "./UpdateOpportunity"
+import UpdateOpportunityButton from "./UpdateOpportunityButton"
 
 function OpportunityResults (props) {
   
   const { fetchOpportunities, setFetchOpportunities } = props
   
   const [expanded, setExpanded] = useState([])
+  const [updateVisibility, setUpdateVisibility] = useState(false);
   
   console.log(props)
   const { opportunities } = props;
@@ -33,10 +36,11 @@ function OpportunityResults (props) {
       console.log(expanded)
     };
   }
-
   
-  const handleDelete = async (id) => {
-    const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities/${id}`
+  const handleDelete = async (e, idx) => {
+    e.stopPropagation();
+    console.log(idx)
+    const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities/${idx}`
 
     await Axios.delete(airtableURL, {
       headers: {
@@ -45,6 +49,16 @@ function OpportunityResults (props) {
     });
     setFetchOpportunities(!fetchOpportunities);
   };
+
+  function toggleUpdateMenu() {
+    setUpdateVisibility(!updateVisibility)
+  };
+
+  function handleEdit(e) {
+    toggleUpdateMenu();
+    console.log("clicked");
+    e.stopPropagation();
+  }
 
 
 
@@ -70,7 +84,7 @@ function OpportunityResults (props) {
             <div key={idx} id={idx} onClick={() => toggleExpand(idx)} style={{
               
               // Job Card display properties
-              height: "25vh",
+              // height: "25vh",
               padding: "5px",
               margin: "10px",
               boxShadow: '0px 8px 10px darkgray',
@@ -183,12 +197,24 @@ function OpportunityResults (props) {
                         <h6>{opportunity.fields.contactName}</h6>
                         <h6>{opportunity.fields.contactPhoneNumber}</h6>
                         <h6>{opportunity.fields.contactEmail}</h6>
-                        {/* <UpdateOpportunity /> */}
-                        <button onClick={(idx) => handleDelete(idx) }>DELETE</button>
+                        <UpdateOpportunityButton
+                          handleEdit={ (e)=> handleEdit(e) }/>
+                        <button onClick={(e) => handleDelete(e, opportunity.id)} style={{
+                          
+                        zIndex: "2",
+                        
+                        }}>DELETE</button>
                       </div>
                   </div>
                   }
               </div>
+              <UpdateOpportunity
+                          fetchOpportunities={fetchOpportunities}
+                          setFetchOpportunities={setFetchOpportunities}
+                          opportunity={opportunity}
+                          handleEdit={ (e)=> handleEdit(e) }
+                          toggleUpdateMenu={toggleUpdateMenu}
+                          updateVisibility= { updateVisibility } />
             </div>
           )
         })

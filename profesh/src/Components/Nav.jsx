@@ -29,7 +29,7 @@ class Nav extends Component {
           width: "100vw", // Width is 100% of the viewport
           backgroundColor: "#b0bbbf", // Sets background color to dark gray
           // opacity: "30%", // Sets the opacity
-          // zIndex: "0", // Sets the Position on the Z-axis
+          zIndex: "1", // Sets the Position on the Z-axis
 
           // Nav Bar Display Container Properties
           display: "flex", //Items will display flexbox
