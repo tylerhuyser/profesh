@@ -1,0 +1,35 @@
+#addJobFormDiv {
+  width: 100vw;
+  height: 100vh;
+  background-color: purple;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform .3s
+              cubic-bezier(0, .52, 0, 1);
+  overflow: scroll;
+  z-index: 1000;
+}
+ 
+#addJobFormDiv.hidden {
+  transform: translate3d(-100vw, 0, 0);
+}
+ 
+#addJobFormDiv.visible {
+  transform: translate3d(0vw, 0, 0);
+  overflow: hidden;
+}
+ 
+#addJobFormDiv h2 a {
+  color: #333;
+  margin-left: 15px;
+  text-decoration: none;
+}
+ 
+#addJobFormDiv h2 a:hover {
+  text-decoration: underline;
+}
+
+.invalid {
+  border: 5px solid red;
+}

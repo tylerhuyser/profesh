@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function AddOpportunityButton(props) {
+export default function UpdateOpportunityButton(props) {
 
   return(
 

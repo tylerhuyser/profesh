@@ -13,9 +13,7 @@ function OpportunityResults (props) {
   
   console.log(props)
   const { opportunities } = props;
-  console.log(opportunities);
   const { searchQuery } = props
-  console.log(searchQuery)
 
   function toggleExpand(id) {
     let opportunitiesContainer = document.getElementById(`${id}`);
@@ -23,7 +21,6 @@ function OpportunityResults (props) {
     console.log(expanded)
     if (!expanded.includes(id)) {
       setExpanded(prevExpand => {
-        // console.log(prevExpand)
         return [...prevExpand, id]
       });
       console.log(expanded)
@@ -199,11 +196,7 @@ function OpportunityResults (props) {
                         <h6>{opportunity.fields.contactEmail}</h6>
                         <UpdateOpportunityButton
                           handleEdit={ (e)=> handleEdit(e) }/>
-                        <button onClick={(e) => handleDelete(e, opportunity.id)} style={{
-                          
-                        zIndex: "2",
-                        
-                        }}>DELETE</button>
+                        <button onClick={(e) => handleDelete(e, opportunity.id)} >DELETE</button>
                       </div>
                   </div>
                   }

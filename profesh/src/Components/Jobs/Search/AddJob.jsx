@@ -1,31 +1,31 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import "./UpdateOpportunity.css"
+import "./AddJob.css";
 
-const UpdateOpportunity = (props) => {
-  
-  const [companyName, setCompanyName] = useState(props.opportunity.fields.companyName);
-  const [jobTitle, setJobTitle] = useState(props.opportunity.fields.jobTitle);
-  const [seniorityLevel, setSeniorityLevel] = useState(props.opportunity.fields.seniorityLevel);
-  const [employmentType, setEmploymentType] = useState(props.opportunity.fields.employmentType);
-  const [location, setLocation] = useState(props.opportunity.fields.location);
-  const [jobDescription, setJobDescription] = useState(props.opportunity.fields.jobDescription);
-  const [opportunityStatus, setOpportunityStatus] = useState(props.opportunity.fields.opportunityStatus);
-  const [actionItems, setActionItems] = useState(props.opportunity.fields.actionItems);
-  const [dateOfLastContact, setDateOfLastContact] = useState(props.opportunity.fields.dateOfLastContact);
-  const [contactName, setContactName] = useState(props.opportunity.fields.contactName);
-  const [contactEmail, setContactEmail] = useState(props.opportunity.fields.contactEmail);
-  const [contactPhoneNumber, setContactPhoneNumber] = useState(props.opportunity.fields.contactPhoneNumber);
+const AddJob = (props) => {
 
-  const [companyLogo, setCompanyLogo] = useState(props.opportunity.fields.companyLogo);
+  const [companyName, setCompanyName] = useState(props.job.company.name);
+  const [jobTitle, setJobTitle] = useState(props.job.name);
+  const [seniorityLevel, setSeniorityLevel] = useState("");
+  const [employmentType, setEmploymentType] = useState(props.job.type);
+  const [location, setLocation] = useState(props.job.locations.name);
+  const [jobDescription, setJobDescription] = useState(props.job.contents);
+  const [opportunityStatus, setOpportunityStatus] = useState("");
+  const [actionItems, setActionItems] = useState("");
+  const [dateOfLastContact, setDateOfLastContact] = useState("");
+  const [contactName, setContactName] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactPhoneNumber, setContactPhoneNumber] = useState("");
+
+  const [companyLogo, setCompanyLogo] = useState("");
 
   let visibilityClass = "hidden";
 
-  if (props.updateVisibility) {
+  if (props.addJobVisibility) {
     visibilityClass = "visible";
   }
 
-  const handleUpdatePost = async () => {
+  const handleAddJobToTracker = async () => {
     const fields = {
       companyName,
       companyLogo,
@@ -41,9 +41,9 @@ const UpdateOpportunity = (props) => {
       contactEmail,
       contactPhoneNumber,
     };
-    const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities/${props.opportunity.id}`;
+    const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities`;
     console.log(airtableURL)
-    await Axios.put(
+    await Axios.post(
       airtableURL,
       { fields: fields },
       {
@@ -53,10 +53,23 @@ const UpdateOpportunity = (props) => {
         },
       }
     )
-    props.setFetchOpportunities(!props.fetchOpportunities);
-    props.toggleUpdateMenu();
+    props.setFetchJobs(!props.fetchJobs);
+    setCompanyName("");
+    setCompanyLogo("");
+    setJobTitle("")
+    setSeniorityLevel("");
+    setEmploymentType("");
+    setLocation("");
+    setJobDescription("");
+    setOpportunityStatus("");
+    setActionItems("");
+    setDateOfLastContact("");
+    setContactName("");
+    setContactEmail("");
+    setContactPhoneNumber("");
+    props.toggleAddJobMenu();
   }
-  
+
   function validateForm(e) {
     e.preventDefault();
     // setCompanyLogo(`https://logo.clearbit.com/${ companyName }.com`);
@@ -105,7 +118,7 @@ const UpdateOpportunity = (props) => {
       setContactEmail("N/A");
     }
     if (companyName !== "" && jobTitle !== "" && seniorityLevel !== "" && employmentType !== "" && location !== "" && opportunityStatus !== "" && actionItems !== "") {
-      handleUpdatePost();
+      handleAddJobToTracker();
     }
   }
 
@@ -114,24 +127,22 @@ const UpdateOpportunity = (props) => {
     setCompanyLogo(`https://logo.clearbit.com/${e}.com`);
   }
 
-
-
   return (
-    <div id="updateFormDiv">
-      <div className={visibilityClass} id="updateOpportunityForm" style={{
-
+    <div id="addJobFormDiv" className={visibilityClass}>
+      <div  id="addJobFormContainer" style={{
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-
       }} >
-          <button onClick={ props.toggleMenu }>X</button>
-          <h2>Update Opportunity</h2>
-          <form id="updateOpportunityForm" onSubmit={(e) => validateForm(e)} style={{
-          display: "flex",
-          flexDirection: "column",
+        <button onClick={props.toggleAddJobMenu}>X</button>
+        
+        <h2>Add Job to Tracker</h2>
+
+        <form id="addJobForm" onSubmit={(e) => validateForm(e)} style={{
+            display: "flex",
+            flexDirection: "column",
         }}  >
-            <label htmlFor="updateCompanyName">Company Name:</label>
+          <label htmlFor="updateCompanyName">Company Name:</label>
               <input type="text" name="updateCompanyName" value={companyName} onChange={(e) => setNameAndLogo(e.target.value)} />
             <label htmlFor="jobTitle">Job Title:</label>
               <input type="text" name="jobTitle" value={ jobTitle } onChange={(e) => setJobTitle(e.target.value)} />
@@ -191,10 +202,18 @@ const UpdateOpportunity = (props) => {
             <label htmlFor="contactPhoneNumber">Contact Phone Number:</label>
               <input type="text" name="contactPhoneNumber" value={contactPhoneNumber} onChange={(e) => setContactPhoneNumber(e.target.value)} />
             <button type="submit">Submit</button>
-          </form>
-        </div>
+
+
+
+        </form>
       </div>
+    </div>
+
+
   )
+
+
+
 }
 
-export default UpdateOpportunity;
+export default AddJob;
