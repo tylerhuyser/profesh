@@ -37,15 +37,25 @@ export default function SearchOpportunities (props) {
         zIndex: "3",
         background: "#2C404B",
         boxShadow: '0px -1px 10px darkgray',
+        width: "105vw",
 
       }}>
-        <input type="text" id="opportunitySearchInput" name="opportunitySearchInput" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{
+        <input type="text" id="opportunitySearchInput" name="opportunitySearchInput" placeholder="Search Opportunities (Company, Job Title, Location, etc.)" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{
 
           marginTop: "25px",
           marginBottom: "25px",
+          marginRight: "10px",
+          width: "40%",
+          fontSize: "13px",
 
         }} />
-        <button >Submit</button>
+        <button className="searchOpportunitiesButton" style={{
+
+          borderColor: "#2c404b",
+          border: "5px",
+          borderRadius: "12%",
+
+        }}>Submit</button>
       </form>
       {/* <Link to={`/tracker/opportunities/:${opportunities.id}`} key={opportunities.id} > */}
         <OpportunityResults opportunities={opportunities} searchQuery={searchQuery} fetchOpportunities={ fetchOpportunities } setFetchOpportunities={ setFetchOpportunities } />

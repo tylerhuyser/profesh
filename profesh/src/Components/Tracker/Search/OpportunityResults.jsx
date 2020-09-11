@@ -83,8 +83,9 @@ function OpportunityResults (props) {
               // Job Card display properties
               // height: "25vh",
               padding: "5px",
-              margin: "10px",
+              margin: "10px 5px",
               boxShadow: '0px 8px 10px darkgray',
+              backgroundColor: "white",
 
               // Job Card containter properties
               display: "flex",
@@ -106,10 +107,24 @@ function OpportunityResults (props) {
 
               }}>
                 <div className="opportunityStatus" id={opportunity.fields.opportunityStatus} >
-                  <h5>{opportunity.fields.opportunityStatus}</h5>
+                  <h5 style={{
+
+                    marginBottom: "0px",
+                    marginTop: "10px",
+                    fontSize: "12px",
+
+                    
+                  }} >{opportunity.fields.opportunityStatus}</h5>
                 </div>
                 <div className="actionItems" id={opportunity.fields.actionItems} >
-                  <h5>{opportunity.fields.actionItems}</h5>
+                  <h5 style={{
+
+                    marginBottom: "0px",
+                    marginTop: "15px",
+                    fontSize: "12px",
+
+
+                    }}>{opportunity.fields.actionItems}</h5>
                 </div>
               </div>
             
@@ -214,7 +229,8 @@ function OpportunityResults (props) {
       }
       <div className="placeholderBottom" style={{
             
-            height: "70px",
+        height: "70px",
+        marginTop: "40px",
             
             }}>
   
