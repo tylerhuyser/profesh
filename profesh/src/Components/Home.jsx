@@ -50,7 +50,7 @@ function Home() {
 
         }}>Profesh</h1> */}
         
-        <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/1a0a047a-c627-4ffb-845d-5215b22f1f78_200x200.png?raw=true" width="200px" height="75px" style={{
+        <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/1a0a047a-c627-4ffb-845d-5215b22f1f78_200x200.png?raw=true" alt="proFreshLogo" width="200px" height="75px" style={{
           
           objectFit: "cover",
           margin: "20px",

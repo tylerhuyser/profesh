@@ -39,7 +39,7 @@ export default function SearchJobs (props) {
 
       }}>
 
-        <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/1a0a047a-c627-4ffb-845d-5215b22f1f78_200x200.png?raw=true" width="100px" height="50px" style={{
+        <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/1a0a047a-c627-4ffb-845d-5215b22f1f78_200x200.png?raw=true" alt="formBackground" width="100px" height="50px" style={{
                 
           objectFit: "cover",
           margin: "10px",
