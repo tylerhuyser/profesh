@@ -117,8 +117,8 @@ const UpdateOpportunity = (props) => {
 
 
   return (
-    <div id="updateFormDiv">
-      <div className={visibilityClass} id="updateOpportunityForm" style={{
+    <div id="updateFormDiv" className={visibilityClass}>
+      <div  id="updateOpportunityForm" style={{
 
         display: "flex",
         flexDirection: "column",
