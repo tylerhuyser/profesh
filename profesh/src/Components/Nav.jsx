@@ -5,11 +5,10 @@ class Nav extends Component {
   
   render() {
     return (
-      <div className="nav">
+      <div className="nav" id="navContainer">
 
         <nav className="scale-in-ver-bottom" id="nav" style={{
           // The className above enables the onLoad animation linkedin the stylesheet.
-
 
           // Nav Bar Positioning
           position: "fixed", //Nav Bar position never moves
@@ -34,47 +33,25 @@ class Nav extends Component {
 
           {/* Below creates the link for the "home" section */}
           <Link to="/">
-          <div className="homeIcon" style={{
-
-            display: "grid",
+            <div id="homeIconContainer">
             
-              }} >
-              
-              {<i className="fas fa-home" alt="homeIcon" width="50px" height="50px" style={{
+              <i className="fas fa-home" id="homeIcon" alt="homeIcon" width="50px" height="50px" />
 
-                
-                zIndex: "3", //The icon will rest ontop the nav background
-                gridColumn: "1", // Centers icon
-                gridRow: "1",  // Centers icon
-                opacity: "100%", //The Icon will appear with 100% opacity
-                color: "white", //The Icon will be white
-
-              }} />}
-          </div>
+            </div>
           </Link>
 
           <Link to="/tracker">
-          <div className="trackerIcon"
-            style={{
-
-              display: "grid",
-
-              }} >
+            <div id="trackerIconContainer" >
             
-            <i className="fas fa-list-alt"></i>
+            <i className="fas fa-list-alt" id="trackerIcon" alt="trackerIcon" />
 
-          </div>
+            </div>
           </Link>
 
           <Link to="/jobs">
-          <div className="jobsIcon"
-            style={{
-
-              display: "grid",
-
-              }} >
+            <div id="jobsIconContainer" >
               
-              <i className="fas fa-briefcase"></i>
+              <i className="fas fa-briefcase" id="jobsIcon" alt="jobsIcon" />
               
             </div>
           </Link>

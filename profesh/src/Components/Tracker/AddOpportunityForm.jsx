@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import "./AddOpportunityForm.css"
 
+
+// Below function creates and handles submission of the Add Opportunity Form, so that users may track new jobs that they've applied to.
 function AddOpportunityForm (props) {
   
+  // Below destructures the "fetch opportunities" property -- allows the page to automatically refresh after a new opportunity is submitted
   const { fetchOpportunities, setFetchOpportunities } = props
   
+  // Below create state variables for the Add Opportunity Form's various inputs.
   const [companyName, setCompanyName] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [seniorityLevel, setSeniorityLevel] = useState("");
@@ -21,12 +25,15 @@ function AddOpportunityForm (props) {
 
   const [companyLogo, setCompanyLogo] = useState("");
 
+  // Below sets visibility of the form to "hidden". CSS for the "hidden" class is contained the corresponding component stylesheet "AddOpportunityForm.css"
   let visibilityClass = "hidden";
 
+  // Below toggles visibility to "visible" if the visibility prop (from parent Track Opportunities) is true.
   if (props.visibility) {
     visibilityClass = "visible";
   }
 
+  // Below function handles posting Add Opportunity Form Inputs to the AirTable API when they pass validation.
   const handlePost = async () => {
     const fields = {
       companyName,
@@ -54,7 +61,10 @@ function AddOpportunityForm (props) {
         },
       }
     )
+    // Below triggers a refresh of the Opportunties Results
     setFetchOpportunities(!fetchOpportunities);
+
+    // Below resets the state of the form inputs to blank
     setCompanyName("");
     setCompanyLogo("");
     setJobTitle("")
@@ -68,12 +78,17 @@ function AddOpportunityForm (props) {
     setContactName("");
     setContactEmail("");
     setContactPhoneNumber("");
-    props.toggleMenu();
+
+    // Below re-toggles the Add Opportunity Form back to hidden.
+    props.toggleAddOpportunityMenu();
   }
   
+  // Below Function validates the Form Inputs for submission to API. If all tests are passed, the "handlePost" function is triggered.
   function validateForm(e) {
+    
+    // Below prevents the form from automatically refreshing upon hitting "submit".
     e.preventDefault();
-    // setCompanyLogo(`https://logo.clearbit.com/${ companyName }.com`);
+
     if (companyName === "") {
       let companyNameInput = document.querySelector('input[name=companyName]');
       companyNameInput.classList.add('invalid')
@@ -123,8 +138,13 @@ function AddOpportunityForm (props) {
     }
   }
 
+  // The Below function sets the Company Name and Logo depending on Company Name inputs. 
   function setNameAndLogo(e) {
+
+    // Below sets the Company Name when the "Company Name" input changes
     setCompanyName(e);
+
+    // Below parses special characters out of the Company Name in order to obtain a logo from the Clearbit Logo API.
     let companyInput = e
     let parsedCompanyName = companyInput.replace(" ", "").replace("'", "");
     setCompanyLogo(`https://logo.clearbit.com/${parsedCompanyName}.com`);
@@ -133,15 +153,12 @@ function AddOpportunityForm (props) {
 
     return (
 
-      <div className={visibilityClass} id="addOpportunityFormContainer" style={{
-
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "space-evenly",
-      }} >
+      <div className={visibilityClass} id="addOpportunityFormContainer" >
+        
         <h2>Add a New Opportunity</h2>
+
         <form id="addOpportunityForm" onSubmit={validateForm} style={{
+        
         display: "flex",
         flexDirection: "column",
         width: "65vw",
@@ -149,9 +166,11 @@ function AddOpportunityForm (props) {
         
       }}  >
           <label htmlFor="companyName">Company Name:</label>
-            <input type="text" name="companyName" value={companyName} onChange={(e) => setNameAndLogo(e.target.value)} />
+          <input type="text" name="companyName" value={companyName} onChange={(e) => setNameAndLogo(e.target.value)} />
+          
           <label htmlFor="jobTitle">Job Title:</label>
-            <input type="text" name="jobTitle" value={ jobTitle } onChange={(e) => setJobTitle(e.target.value)} />
+          <input type="text" name="jobTitle" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} />
+          
           <label htmlFor="seniorityLevel">Seniority Level:</label>
           <select placeholder="Select option" name="seniorityLevel" value={seniorityLevel} onChange={(e) => setSeniorityLevel(e.target.value)} >
             <option disabled value="">Select An Option</option>
@@ -161,7 +180,8 @@ function AddOpportunityForm (props) {
             <option value="Director">Director</option>
             <option value="VP">VP</option>
             <option value="CXO">CXO</option>
-            </select>
+          </select>
+          
           <label htmlFor="employmentType">Employment Type:</label>
           <select name="employmentType" value={employmentType} onChange={(e) => setEmploymentType(e.target.value)} >
             <option disabled value="">Select An Option</option>
@@ -171,11 +191,14 @@ function AddOpportunityForm (props) {
             <option value="Temp">Temp</option>
             <option value="Internship">Internship</option>
             <option value="Volunteer">Volunteer</option>
-            </select>
+          </select>
+          
           <label htmlFor="location">Location:</label>
             <input type="text" name="location" value={location} onChange={(e) => setLocation(e.target.value)} />
+          
           <label htmlFor="jobDescription">Job Description:</label>
             <input type="text" name="jobDescription" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} />
+          
           <label htmlFor="opportunityStatus">Opportunity Status</label>
           <select name="opportunityStatus" value={opportunityStatus} onChange={(e) => setOpportunityStatus(e.target.value)}>
             <option disabled value=""> Select An Option </option>
@@ -187,7 +210,8 @@ function AddOpportunityForm (props) {
             <option value="Case Study/Exercise">Case Study/Exercise</option>
             <option value="Offer">Offer</option>
             <option value="Negotiation">Negotiation</option>
-            </select>
+          </select>
+          
           <label htmlFor="actionItems">Action Item(s):</label>
           <select type="text" name="actionItems" value={ actionItems } onChange={(e) => setActionItems(e.target.value)} >
             <option disabled value=""> Select An Option </option>
@@ -198,51 +222,36 @@ function AddOpportunityForm (props) {
             <option value="Phone Screen Prep">Phone Screen Prep</option>
             <option value="Interview Prep">Interview Prep</option>
             <option value="Complete Case Study/Project">Complete Case Study/Project</option>
-            </select>
+          </select>
+          
           <label htmlFor="dateOfLastContact">Date of Last Contact:</label>
             <input type="text" name="dateOfLastContact" value={dateOfLastContact} onChange={(e) => setDateOfLastContact(e.target.value)} />
+          
           <label htmlFor="contactName">Contact Name:</label>
-          <input type="text" name="contactName" value={contactName} onChange={(e) => setContactName(e.target.value)} />
+            <input type="text" name="contactName" value={contactName} onChange={(e) => setContactName(e.target.value)} />
+          
           <label htmlFor="contactEmail">Contact E-Mail:</label>
             <input type="text" name="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} />
+          
           <label htmlFor="contactPhoneNumber">Contact Phone Number:</label>
             <input type="text" name="contactPhoneNumber" value={contactPhoneNumber} onChange={(e) => setContactPhoneNumber(e.target.value)} />
-          <div className="addOpportunityButtons" style={{
+      
+        </form>
+
+        <div className="addOpportunityButtons" style={{
+
             display: "flex",
             justifyContent: "space-evenly"
           }}>
-            <button className="addOpportunityButton" type="submit" style={{
 
-              width: "75px",
-              textAlign: "center",
-              border: "5px solid #F7116B",
-              borderRadius: "18px",
-              background: "white",
-              color: "#F7116B",
-              fontSize: "12px",
-            
-              margin: "12px 25px",
-              height: "30px",
-              flexGrow: "1",
-              
-            }}>Submit</button>
-            <button className="addOpportunityButton" onClick={props.toggleMenu} style={{
-            
-            width: "75px",
-            textAlign: "center",
-            border: "5px solid #F7116B",
-            borderRadius: "18px",
-            background: "white",
-            color: "#F7116B",
-            fontSize: "12px",
-            
-            margin: "12px 25px",
-            height: "30px",
-            flexGrow: "1",
+            <button className="addOpportunityFormButton" type="submit" onClick={validateForm} >
+              Submit</button>
 
-              }}>Cancel</button>
-          </div>
-        </form>
+            <button className="addOpportunityFormButton" onClick={props.toggleAddOpportunityMenu}>
+              Cancel</button>
+            
+        </div>
+        
       </div>
   );
  }

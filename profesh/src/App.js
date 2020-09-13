@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-// import axios from 'axios';
 import './App.css';
 
 import Nav from './Components/Nav';

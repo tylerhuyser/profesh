@@ -1,6 +1,6 @@
 import React from 'react';
-// import axios from 'axios';
 
+// Below Function creates the floating Add Opportunity Button, which triggers the Add Opportunity Form/Menu to either hide or display.
 export default function AddOpportunityButton (props) {
 
   return (
@@ -12,6 +12,7 @@ export default function AddOpportunityButton (props) {
         width: "75px", // defines width
         backgroundColor: "#F7116B", // makes circle blue
         borderRadius: "50%", //trims edges into circle shape
+        boxShadow: '0px 2px 5px darkgray',
 
         // Button Text Properties
         color: "white", // Font Color
@@ -19,15 +20,15 @@ export default function AddOpportunityButton (props) {
         fontWeight: "bold", //Font Weight
 
         // Button Postion Properties
-        zIndex: "3",
-        position: "fixed",
-        bottom: "110px",
-        right: "25px",
-
-        boxShadow: '0px 2px 5px darkgray',
+        zIndex: "3", // Allows button to "float" over other elements
+        position: "fixed", // Allows button to stay put, regardless of scroll
+        bottom: "110px", // positions button at the bottom
+        right: "25px", // positions button at the right
 
       }}>
-        <i className="fas fa-plus"></i>
+
+        <i className="fas fa-plus" />
+        
       </button>
     </div>
   )
