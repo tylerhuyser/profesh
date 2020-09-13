@@ -12,8 +12,10 @@ function Home() {
       height: "86vh",
 
     }}>
-      <div className="fade-in-fwd welcomeText" id="welcomeText" style={{
-
+      <div className="fade-in-fwd welcomeText" id="welcomeTextContainer" style={{
+        // The className above enables the stylesheet.
+        
+        
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -29,7 +31,7 @@ function Home() {
         boxShadow: '0px 8px 10px darkgray',
 
       }}>
-        <h2 style={{
+        <h2 id="welcomeBlurb" style={{
 
           width: "40%",
           marginLeft: "0px",
@@ -38,26 +40,15 @@ function Home() {
           marginTop: "20px",
           
         }}>Welcome to</h2>
-
-        {/* <h1 style={{
-
-          width: "40%",
-          marginLeft: "0px",
-          marginRight: "0px",
-          fontFamily: "Roboto Condensed",
-          fontSize: "35px",
-          textAlign: "center",
-
-        }}>Profesh</h1> */}
         
-        <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/1a0a047a-c627-4ffb-845d-5215b22f1f78_200x200.png?raw=true" alt="proFreshLogo" width="200px" height="75px" style={{
+        <img src="https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/1a0a047a-c627-4ffb-845d-5215b22f1f78_200x200.png?raw=true" alt="proFreshLogoHome" id="homeLogo" width="200px" height="75px" style={{
           
           objectFit: "cover",
           margin: "20px",
 
         }} />
 
-        <h4 style={{
+        <h4 id="welcomeSlogan" style={{
 
           width: "50%",
           marginLeft: "0px",

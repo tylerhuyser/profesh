@@ -4,6 +4,8 @@ import "./UpdateOpportunity.css"
 
 const UpdateOpportunity = (props) => {
   
+  const {fetchOpportunities, setFetchOpportunities} = props
+
   const [companyName, setCompanyName] = useState(props.opportunity.fields.companyName);
   const [jobTitle, setJobTitle] = useState(props.opportunity.fields.jobTitle);
   const [seniorityLevel, setSeniorityLevel] = useState(props.opportunity.fields.seniorityLevel);
@@ -19,10 +21,10 @@ const UpdateOpportunity = (props) => {
 
   const [companyLogo, setCompanyLogo] = useState(props.opportunity.fields.companyLogo);
 
-  let visibilityClass = "hidden";
+  let updateVisibilityClass = "hidden";
 
   if (props.updateVisibility) {
-    visibilityClass = "visible";
+    updateVisibilityClass = "visible";
   }
 
   const handleUpdatePost = async () => {
@@ -53,11 +55,11 @@ const UpdateOpportunity = (props) => {
         },
       }
     )
-    props.setFetchOpportunities(!props.fetchOpportunities);
+    setFetchOpportunities(!fetchOpportunities);
     props.toggleUpdateMenu();
   }
   
-  function validateForm(e) {
+  function validateUpdateForm(e) {
     e.preventDefault();
     // setCompanyLogo(`https://logo.clearbit.com/${ companyName }.com`);
     if (companyName === "") {
@@ -117,18 +119,20 @@ const UpdateOpportunity = (props) => {
 
 
   return (
-    <div id="updateFormDiv" className={visibilityClass}>
-      <div  id="updateOpportunityForm" style={{
-
+    <div id="updateFormDiv" className={updateVisibilityClass} style={{
+      
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
         justifyContent: "flex-start",
 
-      }} >
+        }} >
           <h2>Update Opportunity</h2>
-          <form id="updateOpportunityForm" onSubmit={(e) => validateForm(e)} style={{
+          <form id="updateOpportunityForm" onSubmit={(e) => validateUpdateForm(e)} style={{
           display: "flex",
           flexDirection: "column",
+          width: "65vw",
+          alignItems: "center",
         }}  >
             <label htmlFor="updateCompanyName">Company Name:</label>
               <input type="text" name="updateCompanyName" value={companyName} onChange={(e) => setNameAndLogo(e.target.value)} />
@@ -189,38 +193,41 @@ const UpdateOpportunity = (props) => {
               <input type="text" name="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} />
             <label htmlFor="contactPhoneNumber">Contact Phone Number:</label>
               <input type="text" name="contactPhoneNumber" value={contactPhoneNumber} onChange={(e) => setContactPhoneNumber(e.target.value)} />
-          <div className="updateOpportunityButtons" style={{
-            display: "flex",
-            justifyContent: "space-evenly"
-          }}>
-              <button className="updateOpportunityButton" type="submit"  style={{
-
-                width: "100px",
-                textAlign: "center",
-                border: "5px solid #F7116B",
-                borderRadius: "18px",
-                background: "white",
-                color: "#F7116B",
-
-                margin: "10px 25px",
-                height: "40px",
-
-                }}>Submit</button>
-              <button className="updateOpportunityButton" onClick={props.toggleUpdateMenu} style={{
-                
-                width: "100px",
-                textAlign: "center",
-                border: "5px solid #F7116B",
-                borderRadius: "18px",
-                background: "white",
-                color: "#F7116B",
-                
-                margin: "10px 25px",
-                height: "40px",
-
-                  }}>Cancel</button>
-              </div>
           </form>
+            <div className="updateOpportunityButtons" style={{
+              display: "flex",
+              justifyContent: "space-evenly"
+      }}>
+        <button className="updateOpportunityButton" type="submit" onClick={(e) => validateUpdateForm(e)} style={{
+
+          width: "75px",
+          textAlign: "center",
+          border: "5px solid #F7116B",
+          borderRadius: "18px",
+          background: "white",
+          color: "#F7116B",
+          fontSize: "12px",
+
+          margin: "12px 25px",
+          height: "30px",
+          flexGrow: "1",
+
+          }}>Submit</button>
+          <button className="updateOpportunityButton" onClick={props.toggleUpdateMenu} style={{
+                
+                width: "75px",
+                textAlign: "center",
+                border: "5px solid #F7116B",
+                borderRadius: "18px",
+                background: "white",
+                color: "#F7116B",
+                fontSize: "12px",
+                
+                margin: "12px 25px",
+                height: "30px",
+                flexGrow: "1",
+
+        }}>Cancel</button>
         </div>
       </div>
   )

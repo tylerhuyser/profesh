@@ -125,7 +125,9 @@ function AddOpportunityForm (props) {
 
   function setNameAndLogo(e) {
     setCompanyName(e);
-    setCompanyLogo(`https://logo.clearbit.com/${e}.com`);
+    let companyInput = e
+    let parsedCompanyName = companyInput.replace(" ", "").replace("'", "");
+    setCompanyLogo(`https://logo.clearbit.com/${parsedCompanyName}.com`);
   }
 
 
@@ -135,13 +137,16 @@ function AddOpportunityForm (props) {
 
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-start",
-
+        alignItems: "center",
+        justifyContent: "space-evenly",
       }} >
         <h2>Add a New Opportunity</h2>
         <form id="addOpportunityForm" onSubmit={validateForm} style={{
         display: "flex",
         flexDirection: "column",
+        width: "65vw",
+        alignItems: "center",
+        
       }}  >
           <label htmlFor="companyName">Company Name:</label>
             <input type="text" name="companyName" value={companyName} onChange={(e) => setNameAndLogo(e.target.value)} />
@@ -208,28 +213,32 @@ function AddOpportunityForm (props) {
           }}>
             <button className="addOpportunityButton" type="submit" style={{
 
-              width: "100px",
+              width: "75px",
               textAlign: "center",
               border: "5px solid #F7116B",
               borderRadius: "18px",
               background: "white",
               color: "#F7116B",
+              fontSize: "12px",
             
-              margin: "10px 25px",
-              height: "40px",
+              margin: "12px 25px",
+              height: "30px",
+              flexGrow: "1",
               
             }}>Submit</button>
             <button className="addOpportunityButton" onClick={props.toggleMenu} style={{
             
-            width: "100px",
+            width: "75px",
             textAlign: "center",
             border: "5px solid #F7116B",
             borderRadius: "18px",
             background: "white",
             color: "#F7116B",
+            fontSize: "12px",
             
-            margin: "10px 25px",
-            height: "40px",
+            margin: "12px 25px",
+            height: "30px",
+            flexGrow: "1",
 
               }}>Cancel</button>
           </div>

@@ -5,7 +5,7 @@ import "./JobResults.css"
 import "./AddJob.css";
 
 export default function JobsResults(props) {
-  
+
   const { fetchJobs, setFetchJobs } = props
   
   const [expanded, setExpanded] = useState([])
@@ -59,6 +59,9 @@ export default function JobsResults(props) {
         job.locations.name.includes(searchQuery)).map(
           (job, idx) => {
 
+            let jobDescription = job.contents;
+            let formattedDescription = jobDescription.replace(/(<([^>]+)>)/gi, "")
+
             return (
               <div key={idx} id={idx} onClick={() => toggleExpand(idx)} style={{
               
@@ -86,7 +89,8 @@ export default function JobsResults(props) {
                   }} >
                     
     
-                <img src={`https://logo.clearbit.com/${job.company.name}.com`} alt={ job.company.name} style={{
+                  <img src={`https://logo.clearbit.com/${job.company.name}.com`} onError={(e) => { e.target.onerror = null; e.target.src = "https://pbs.twimg.com/profile_images/1082424539492073477/exU8rYn8_400x400.jpg" }}
+                  alt={ job.company.name} style={{
                 
                   width: "10%",
                   height: "auto",
@@ -139,7 +143,7 @@ export default function JobsResults(props) {
                     textWrap: "none",
                     textOverflow: "ellipsis",
 
-                    }}> {(job.contents.length > 200) ? <span>{`${job.contents.slice(0, 198)}...`}</span> : job.contents}</p>) :
+                    }}> {(job.contents.length > 200) ? <span>{`${formattedDescription.slice(0, 198)}...`}</span> : formattedDescription}</p>) :
                     <div name="expandedContainer">
                       <p style={{
 
@@ -148,7 +152,7 @@ export default function JobsResults(props) {
                         textWrap: "none",
                         textOverflow: "ellipsis",
                         
-                      }}> {job.contents}  </p>
+                      }}> {formattedDescription}  </p>
                     
                       <div className="expandedContents" style={{
                         display: "flex",

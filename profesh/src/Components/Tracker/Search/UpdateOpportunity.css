@@ -1,5 +1,6 @@
 #updateFormDiv {
   width: 65vw;
+  min-height: 100vh;
   max-height: 200vh;
   background-color: #A28497;
   background-image: linear-gradient(rgba(162, 132, 151, 0.95),rgba(162, 132, 151, 0.95)), url('https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/Images/Black&WhiteBackgroundImage.png?raw=true');
@@ -42,8 +43,9 @@
 }
 
 #updateFormDiv label {
+  width: 200px;
   text-align: left;
-  margin: 10px 25px;
+  margin: 9px 25px;
   font-size: 12px;
 }
 
@@ -59,7 +61,7 @@
   text-align: left;
   width: 208px;
   margin: 0px 25px;
-  height: 15px;
+  height: 21px;
   font-size: 10px;
 }
 

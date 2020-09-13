@@ -3,23 +3,14 @@ import { Link } from 'react-router-dom'
 
 class Nav extends Component {
   
-  // handleHover (event) {
-  //     event.target.className = 'hidden';
-  //     event.target.style.opacity = "0%";
-  // }
-
-  //   handleMouseOut (event) {
-  //     event.target.className = 'visible';
-  //     event.target.style.opacity = "100%";
-  // }
-
-
   render() {
     return (
       <div className="nav">
 
-        <nav className="scale-in-ver-bottom" style={{
-          
+        <nav className="scale-in-ver-bottom" id="nav" style={{
+          // The className above enables the onLoad animation linkedin the stylesheet.
+
+
           // Nav Bar Positioning
           position: "fixed", //Nav Bar position never moves
           bottom: "0", //Nav Bar is 0px away from the bottom of the page
@@ -31,21 +22,19 @@ class Nav extends Component {
           backgroundColor: "#2c404b", // Sets background color to dark gray
           // opacity: "30%", // Sets the opacity
           zIndex: "1", // Sets the Position on the Z-axis
+          boxShadow: '0px -1px 10px darkgray', //Includes shadows above the nave bar
 
           // Nav Bar Display Container Properties
           display: "flex", //Items will display flexbox
           alignItems: "center", //Items will be center (vertically)
           justifyContent: "space-around", //Items will distribute equal space around each element.
           
-          boxShadow: '0px -1px 10px darkgray',
 
         }}>
 
+          {/* Below creates the link for the "home" section */}
           <Link to="/">
-          <div className="homeIcon"
-            // onMouseOver={(event) => this.handleHover(event)}
-            // onMouseOut={(event) => this.handleMouseOut(event)}
-            style={{
+          <div className="homeIcon" style={{
 
             display: "grid",
             
@@ -53,11 +42,12 @@ class Nav extends Component {
               
               {<i className="fas fa-home" alt="homeIcon" width="50px" height="50px" style={{
 
-                zIndex: "3",
-                gridColumn: "1",
-                gridRow: "1",
-                opacity: "100%",
-                color: "white",
+                
+                zIndex: "3", //The icon will rest ontop the nav background
+                gridColumn: "1", // Centers icon
+                gridRow: "1",  // Centers icon
+                opacity: "100%", //The Icon will appear with 100% opacity
+                color: "white", //The Icon will be white
 
               }} />}
           </div>
@@ -65,8 +55,6 @@ class Nav extends Component {
 
           <Link to="/tracker">
           <div className="trackerIcon"
-            // onMouseOver={(event) => this.handleHover(event)}
-            // onMouseOut={(event) => this.handleMouseOut(event)}
             style={{
 
               display: "grid",
@@ -80,8 +68,6 @@ class Nav extends Component {
 
           <Link to="/jobs">
           <div className="jobsIcon"
-            // onMouseOver={(event) => this.handleHover(event)}
-            // onMouseOut={(event) => this.handleMouseOut(event)}
             style={{
 
               display: "grid",

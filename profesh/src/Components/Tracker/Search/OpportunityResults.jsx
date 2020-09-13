@@ -48,7 +48,7 @@ function OpportunityResults (props) {
   };
 
   function toggleUpdateMenu() {
-    setUpdateVisibility(!updateVisibility)
+    setUpdateVisibility(!updateVisibility);
   };
 
   function handleEdit(e) {
@@ -133,7 +133,7 @@ function OpportunityResults (props) {
                 overflow: "hidden",
                 
               }} >
-                <img src={opportunity.fields.companyLogo} alt={ opportunity.fields.companyName } style={{
+                <img src={opportunity.fields.companyLogo} onError={(e) => { e.target.onerror = null; e.target.src = "https://pbs.twimg.com/profile_images/1082424539492073477/exU8rYn8_400x400.jpg" }} alt={ opportunity.fields.companyName } style={{
                 
                   width: "10%",
                   height: "auto",
@@ -213,7 +213,7 @@ function OpportunityResults (props) {
                         justifyContent: "space-evenly",
                       }}>
                         <UpdateOpportunityButton
-                          handleEdit={ (e)=> handleEdit(e) }/>
+                          handleEdit={handleEdit}/>
                         <button className="updateOpportunityButton" onClick={(e) => handleDelete(e, opportunity.id)} style={{
                           width: "100px",
                           textAlign: "center",

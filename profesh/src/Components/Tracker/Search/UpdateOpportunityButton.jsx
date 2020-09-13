@@ -5,7 +5,7 @@ export default function UpdateOpportunityButton(props) {
 
   return(
 
-    <button className="updateOpportunityButton" id="updateOpportunityButton" onMouseDown={(e) => props.handleEdit(e) } style={{
+    <button className="updateOpportunityButton" id="updateOpportunityButton" onMouseDown={props.handleEdit} style={{
       
       width: "100px",
       textAlign: "center",

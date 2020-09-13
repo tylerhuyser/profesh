@@ -7,7 +7,7 @@ const AddJob = (props) => {
   const [companyName, setCompanyName] = useState(props.job.company.name);
   const [jobTitle, setJobTitle] = useState(props.job.name);
   const [seniorityLevel, setSeniorityLevel] = useState("");
-  const [employmentType, setEmploymentType] = useState(props.job.type);
+  const [employmentType, setEmploymentType] = useState("");
   const [location, setLocation] = useState(props.job.locations.name);
   const [jobDescription, setJobDescription] = useState(props.job.contents);
   const [opportunityStatus, setOpportunityStatus] = useState("");
@@ -118,26 +118,36 @@ const AddJob = (props) => {
       setContactEmail("N/A");
     }
     if (companyName !== "" && jobTitle !== "" && seniorityLevel !== "" && employmentType !== "" && location !== "" && opportunityStatus !== "" && actionItems !== "") {
+      setLogo();
       handleAddJobToTracker();
     }
   }
 
   function setNameAndLogo(e) {
     setCompanyName(e);
-    setCompanyLogo(`https://logo.clearbit.com/${e}.com`);
+    let companyInput = e
+    let parsedCompanyName = companyInput.replace(" ", "").replace("'", "")
+    setCompanyLogo(`https://logo.clearbit.com/${parsedCompanyName}.com`);
   }
 
-  return (
-    <div id="addJobFormDiv" className={visibilityClass}>
-      <div id="addJobFormContainer" style={{
-        
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
+  function setLogo() {
+    let companyInput = { companyName }
+    console.log(companyInput)
+    let parsedCompanyName = companyInput.toString().replace(" ", "").replace("'", "")
+    setCompanyLogo(`https://logo.clearbit.com/${parsedCompanyName}.com`);
+  }
 
-      }} >
+
+  return (
+    <div id="addJobFormDiv" className={visibilityClass} style={{
+        
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "flex-start",
+
+    }} >
         <h2>Add Job to Tracker</h2>
-        <form id="addJobForm" onSubmit={(e) => validateForm(e)} style={{
+        <form id="addJobForm" style={{
             display: "flex",
             flexDirection: "column",
         }}  >
@@ -200,11 +210,12 @@ const AddJob = (props) => {
               <input type="text" name="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} />
             <label htmlFor="contactPhoneNumber">Contact Phone Number:</label>
           <input type="text" name="contactPhoneNumber" value={contactPhoneNumber} onChange={(e) => setContactPhoneNumber(e.target.value)} />
-          <div className="addJobButtons" style={{
+        </form>
+        <div className="addJobButtons" style={{
             display: "flex",
             justifyContent: "space-evenly"
           }}>
-            <button classname="addJobFormButton" type="submit" style={{
+            <button className="addJobFormButton" type="submit" onClick={(e) => validateForm(e)} style={{
               
               width: "100px",
               textAlign: "center",
@@ -217,7 +228,7 @@ const AddJob = (props) => {
               height: "40px",
 
                 }}>Submit</button>
-            <button classname="addJobFormButton" onClick={props.toggleAddJobMenu} style={{
+            <button className="addJobFormButton" onClick={props.toggleAddJobMenu} style={{
               
               width: "100px",
               textAlign: "center",
@@ -231,10 +242,6 @@ const AddJob = (props) => {
 
                 }}>Cancel</button>
           </div>
-
-        
-        </form>
-      </div>
     </div>
 
 

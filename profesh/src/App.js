@@ -10,11 +10,18 @@ import Home from "./Components/Home";
 
 function App() {
   return (
+
+    // The Below builds the router for the Profesh App 
+
     <div className="App">
       
+      {/* As Nav is listed outside of the "main", it will appear on every page. */}
       <Nav />
       
       <main>
+
+        {/* The Main will switch between one of the three routes (home, jobs, or tracker) depending on user selection */}
+
         <Switch>
           <Route exact path="/">
             <Home />
