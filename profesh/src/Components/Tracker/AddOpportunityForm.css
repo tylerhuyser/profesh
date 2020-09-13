@@ -2,19 +2,23 @@
   width: 65vw;
   min-height: 100vh;
   max-height: 200vh;
+
   background-color: #2C404B;
   color: white;
+
   position: fixed;
   top: 0;
   left: 0;
-  transition: transform .3s
-    cubic-bezier(0, .52, 0, 1);
-  overflow: scroll;
   z-index: 1000;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  overflow: scroll;
+
+  transition: transform .3s
+    cubic-bezier(0, .52, 0, 1);
 }
  
 #addOpportunityFormContainer.hidden {
@@ -26,33 +30,6 @@
   overflow: hidden;
 }
 
-.invalid {
-  border: 5px solid red;
-}
-
-#addOpportunityFormContainer label {
-  width: 200px;
-  text-align: left;
-  margin: 9px 25px;
-  font-size: 12px;
-}
-
-#addOpportunityFormContainer input {
-  text-align: left;
-  width: 200px;
-  margin: 0px 25px;
-  height: 15px;
-  font-size: 10px;
-  }
-
-#addOpportunityFormContainer select {
-  text-align: left;
-  width: 208px;
-  margin: 0px 25px;
-  height: 21px;
-  font-size: 10px;
-}
-
 #addOpportunityFormContainer h2 {
   text-align: left;
   width: 200px;
@@ -60,20 +37,51 @@
   font-weight: bolder;
 }
 
-.addOpportunityFormButton {
+#addOpportunityFormContainer label {
+  width: 200px;
+  
+  font-size: 12px;
 
+  text-align: left;
+  
+  margin: 9px 25px;
+}
+
+#addOpportunityFormContainer input {
+  width: 200px;
+  height: 15px;
+  
+  font-size: 10px;
+  
+  text-align: left;
+  
+  margin: 0px 25px;
+  }
+
+#addOpportunityFormContainer select {
+  width: 208px;
+  height: 21px;
+
+  font-size: 10px;
+  
+  text-align: left;
+  
+  margin: 0px 25px;
+}
+
+.addOpportunityFormButton {
+  height: 30px;
   width: 75px;
-  text-align: center;
+
   border: 5px solid #F7116B;
   border-radius: 18px;
   background: white;
+
   color: #F7116B;
+  text-align: center;
   font-size: 12px;
   
   margin: 12px 25px;
-  height: 30px;
-  flex-grow: 1;
-  
 }
 
 @media only screen and (min-width: 600px) {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import AddJobButton from "./AddJobButton"
-import AddJob from "./AddJob";
+import AddJobForm from "./AddJobForm";
 import "./JobResults.css"
-import "./AddJob.css";
+import "./AddJobForm.css";
 
 export default function JobsResults(props) {
 
@@ -168,7 +168,7 @@ export default function JobsResults(props) {
                   </div>
                   }
                 </div>
-                  <AddJob
+                  <AddJobForm
                     fetchJobs={fetchJobs}
                     setFetchJobs={setFetchJobs}
                     job={job}

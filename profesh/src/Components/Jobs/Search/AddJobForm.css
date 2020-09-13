@@ -1,19 +1,16 @@
-#updateOpportunityFormContainer {
+#addJobFormContainer {
   width: 65vw;
   min-height: 100vh;
   max-height: 200vh;
 
-  background-color: #A28497;
-  background-image: linear-gradient(rgba(162, 132, 151, 0.95),rgba(162, 132, 151, 0.95)), url('https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/Images/Black&WhiteBackgroundImage.png?raw=true');
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #9EBC9F;
   color: white;
 
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-
+  
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -21,49 +18,58 @@
   overflow: scroll;
 
   transition: transform .3s
-    cubic-bezier(0, .52, 0, 1);
+  cubic-bezier(0, .52, 0, 1);
 }
  
-#updateOpportunityFormContainer.hidden {
+#addJobFormContainer.hidden {
   transform: translate3d(-100vw, 0, 0);
 }
  
-#updateOpportunityFormContainer.visible {
+#addJobFormContainer.visible {
   transform: translate3d(0vw, 0, 0);
   overflow: hidden;
 }
 
-#updateOpportunityFormContainer h2 {
+#addJobFormContainer h2 {
   text-align: left;
   width: 200px;
   margin: 10px 25px 0px 25px;
   font-weight: bolder;
 }
 
-#updateOpportunityFormContainer label {
+#addJobFormContainer label {
   width: 200px;
-  text-align: left;
-  margin: 9px 25px;
+
   font-size: 12px;
+  
+  text-align: left;
+
+  margin: 10px 25px;
 }
 
-#updateOpportunityFormContainer input {
-  text-align: left;
+#addJobFormContainer input {
   width: 200px;
-  margin: 0px 25px;
   height: 15px;
+  
   font-size: 10px;
+  
+  text-align: left;
+  
+  margin: 0px 25px;
   }
 
-#updateOpportunityFormContainer select {
-  text-align: left;
+#addJobFormContainer select {
   width: 208px;
-  margin: 0px 25px;
   height: 21px;
+
   font-size: 10px;
+  
+  text-align: left;
+  
+  margin: 0px 25px;
 }
 
-.updateOpportunityFormButton {
+.addJobFormButton {
   height: 30px;
   width: 75px;
 
@@ -76,5 +82,4 @@
   font-size: 12px;
   
   margin: 12px 25px;
-
 }

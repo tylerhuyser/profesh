@@ -3,7 +3,7 @@ import Axios from 'axios';
 import "./AddOpportunityForm.css"
 
 
-// Below function creates and handles submission of the Add Opportunity Form, so that users may track new jobs that they've applied to.
+// Below function creates and handles submission (posting) of the Add Opportunity Form, so that users may track new jobs that they've applied to.
 function AddOpportunityForm (props) {
   
   // Below destructures the "fetch opportunities" property -- allows the page to automatically refresh after a new opportunity is submitted
@@ -133,6 +133,8 @@ function AddOpportunityForm (props) {
     if (contactEmail === "") {
       setContactEmail("N/A");
     }
+
+    // If all tests are passed, the Handle Post function, which triggers the AirTable API Call is made.
     if (companyName !== "" && jobTitle !== "" && seniorityLevel !== "" && employmentType !== "" && location !== "" && opportunityStatus !== "" && actionItems !== "") {
       handlePost();
     }
@@ -161,15 +163,16 @@ function AddOpportunityForm (props) {
         
         display: "flex",
         flexDirection: "column",
-        width: "65vw",
         alignItems: "center",
+        justifyContent: "flex-start"
         
       }}  >
+          
           <label htmlFor="companyName">Company Name:</label>
-          <input type="text" name="companyName" value={companyName} onChange={(e) => setNameAndLogo(e.target.value)} />
+            <input type="text" name="companyName" value={companyName} onChange={(e) => setNameAndLogo(e.target.value)} />
           
           <label htmlFor="jobTitle">Job Title:</label>
-          <input type="text" name="jobTitle" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} />
+            <input type="text" name="jobTitle" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} />
           
           <label htmlFor="seniorityLevel">Seniority Level:</label>
           <select placeholder="Select option" name="seniorityLevel" value={seniorityLevel} onChange={(e) => setSeniorityLevel(e.target.value)} >
@@ -242,6 +245,7 @@ function AddOpportunityForm (props) {
 
             display: "flex",
             justifyContent: "space-evenly"
+            
           }}>
 
             <button className="addOpportunityFormButton" type="submit" onClick={validateForm} >

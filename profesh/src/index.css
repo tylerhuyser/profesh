@@ -215,6 +215,9 @@ main {
   }
 }
 
+.invalid {
+  border: 5px solid red;
+}
 
 .expandedContents p {
   text-align: left;
