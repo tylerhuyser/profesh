@@ -6,15 +6,19 @@ import "./AddJobForm.css";
 
 export default function JobsResults(props) {
 
+  // Below deconstructs the fetchJobs state variables
   const { fetchJobs, setFetchJobs } = props
   
+  //Below creates a state variable to store "expanded" job cards
   const [expanded, setExpanded] = useState([])
+
+  //Below creates a state variable to control the visibility of the Add Job Form
   const [addJobVisibility, setAddJobVisibility] = useState(false);
   
-  console.log(props)
   const { jobs } = props;
   const { searchQuery } = props;
 
+  //Below function enables job card expansion. If the id IS contained in the UseState array, it is removed (collapsed), if not, it is added (and expanded)
   function toggleExpand(id) {
     let jobContainer = document.getElementById(`${id}`);
     jobContainer.classList.toggle('expanded');
@@ -31,13 +35,14 @@ export default function JobsResults(props) {
     };
   }
 
+  //Below toggles visibility of the Add Job Menu
   function toggleAddJobMenu() {
     setAddJobVisibility (!addJobVisibility)
   };
 
+    // Below handles selection of the "Add Job" button
   function handleAddJob(e) {
     toggleAddJobMenu();
-    console.log("addJob");
     e.stopPropagation();
   }
 
@@ -65,22 +70,23 @@ export default function JobsResults(props) {
             return (
               <div key={idx} id={idx} onClick={() => toggleExpand(idx)} style={{
               
-                // Job Card display properties
-                // height: "25vh",
+                // Job Card appearance properties
+                backgroundColor: "white",
+                boxShadow: '0px 8px 10px darkgray',
+
+                //Job Card position properties
                 padding: "5px",
                 margin: "10px 5px",
-                boxShadow: '0px 8px 10px darkgray',
-                backgroundColor: "white",
-  
+
                 // Job Card containter properties
                 display: "flex",
-                // justifyContent: "flex-start",
                 flexDirection: "column",
               }}>
               
                 <div className="jobCompanyInfo" id={job.company.name} style={{
 
                   margin: "10px",
+
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
@@ -106,8 +112,6 @@ export default function JobsResults(props) {
                     margin: "0px 0px 0px 10px",
                     textAlign: "left",
                     verticalAlign: "middle",
-                    textDecoration: "none",
-                    textDecorationLine: "none",
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap",
           
@@ -117,6 +121,7 @@ export default function JobsResults(props) {
                 <div className="jobInfo" id={job.name} style={{
 
                     margin: "10px",
+                  
                     display: "flex",
                     flexDirection: "column",
                     overflow: "hidden",
@@ -168,6 +173,7 @@ export default function JobsResults(props) {
                   </div>
                   }
                 </div>
+
                   <AddJobForm
                     fetchJobs={fetchJobs}
                     setFetchJobs={setFetchJobs}
@@ -175,7 +181,8 @@ export default function JobsResults(props) {
                     handleAddJob={ (e)=> handleAddJob(e) }
                     toggleAddJobMenu={toggleAddJobMenu}
                     addJobVisibility= { addJobVisibility }
-                  />
+                />
+                
               </div>
             )
           })

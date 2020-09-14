@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
 import OpportunityResults from "./Search/OpportunityResults"
 import Axios from 'axios';
 
 export default function SearchOpportunities (props) {
 
+  // Below sets a state variable for "opportunities", which will hold the API Data.
   const [opportunities, setOpportunities] = useState([]);
-  // const [fetchOpportunities, setFetchOpportunities] = useState(false);
+
+  // Below sets a state variable for "query", which will hold user's search query.
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Below deconstructs the fetchOpportunities & setFetchOpportunities props (handed down from parent). These props will allow the page to load opportunities on load & upon form submission.
   const { fetchOpportunities, setFetchOpportunities } = props
 
+  // Below calls upon the API to obtain Opportunity Data from the API
   useEffect(() => {
     async function apiCall() {
       const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities`
@@ -24,20 +27,23 @@ export default function SearchOpportunities (props) {
     apiCall();
   }, [fetchOpportunities]);
 
-  console.log(opportunities);
 
   return (
     <div>
       <form className="OpportunitiesSearchForm scale-in-ver-top" id="OpportunitiesSearchForm" style={{
 
+        // Below describes position properties for the Opportunities search bar.
         position: "fixed",
         top: "0",
         left: "0",
         right: "0",
         zIndex: "3",
+
+        // Below describes the physical appearance for the search bar.
         background: "#2C404B",
         boxShadow: '0px -1px 10px darkgray',
-        width: "105vw",
+        
+        // Below describes the display properties of the Opportuntities container.
         display: "flex",
         justifyContent: "flex-start",
         alignItems: "center",
@@ -59,7 +65,6 @@ export default function SearchOpportunities (props) {
           marginRight: "10px",
           width: "40%",
           fontSize: "13px",
-          // border: "5px solid #F7116B",
 
         }} />
         <button className="searchOpportunitiesButton" style={{
@@ -75,9 +80,9 @@ export default function SearchOpportunities (props) {
 
         }}>Submit</button>
       </form>
-      {/* <Link to={`/tracker/opportunities/:${opportunities.id}`} key={opportunities.id} > */}
+
         <OpportunityResults opportunities={opportunities} searchQuery={searchQuery} fetchOpportunities={ fetchOpportunities } setFetchOpportunities={ setFetchOpportunities } />
-      {/* </Link> */}
+   
     </div>
   )
 }

@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
 import JobsResults from "./Search/JobsResults"
 import Axios from 'axios';
 
 export default function SearchJobs (props) {
 
+  // Below sets a state variable for "jobs", which will hold the API Data.
   const [jobs, setJobs] = useState([]);
-  // const [fetchOpportunities, setFetchOpportunities] = useState(false);
+
+  // Below sets a state variable for "query", which will hold user's search query.
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Below deconstructs the fetchJobs & setFetchJobs props (handed down from parent). These props will allow the page to load jobs on load & upon form submission.
   const { fetchJobs, setFetchJobs } = props
 
+  // Below calls upon the API to obtain Jobs data on load. 
   useEffect(() => {
     async function jobsAPICall() {
       const apiURL = `https://www.themuse.com/api/public/jobs?page=75`
@@ -22,17 +25,23 @@ export default function SearchJobs (props) {
 
   console.log(jobs);
 
+
   return (
     <div>
       <form className="JobsSearchForm scale-in-ver-top" id="jobsSearchForm" style={{
 
+        // Below describes position properties for the Jobs search bar.
         position: "fixed",
         top: "0",
         left: "0",
         right: "0",
         zIndex: "3",
+
+        // Below describes the physical appearance for the search bar.
         background: "#2C404B",
         boxShadow: '0px -1px 10px darkgray',
+        
+        // Below describes the display properties of the Jobs container.
         display: "flex",
         justifyContent: "flex-start",
         alignItems: "center",
@@ -54,7 +63,7 @@ export default function SearchJobs (props) {
           marginRight: "10px",
           width: "40%",
           fontSize: "13px",
-          // border: "5px solid #F7116B",
+    
 
         }} />
         <button style={{
@@ -70,9 +79,9 @@ export default function SearchJobs (props) {
 
           }}>Submit</button>
       </form>
-      {/* <Link to={`/tracker/opportunities/:${opportunities.id}`} key={opportunities.id} > */}
+  
         <JobsResults  jobs={jobs} searchQuery={searchQuery} fetchJobs={ fetchJobs } setFetchJobs={ setFetchJobs } />
-      {/* </Link> */}
+
     </div>
   )
 }

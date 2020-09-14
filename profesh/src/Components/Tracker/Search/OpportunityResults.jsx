@@ -6,15 +6,19 @@ import UpdateOpportunityButton from "./UpdateOpportunityButton"
 
 function OpportunityResults (props) {
   
+  // Below deconstructs the fetchOpportunities state variables
   const { fetchOpportunities, setFetchOpportunities } = props
   
+  //Below creates a state variable to store "expanded" opportunity cards
   const [expanded, setExpanded] = useState([])
+
+  //Below creates a state variable to control the visibility of the Update Opportunity Form
   const [updateVisibility, setUpdateVisibility] = useState(false);
   
-  console.log(props)
   const { opportunities } = props;
   const { searchQuery } = props
 
+  //Below function enables opportunity card expansion. If the id IS contained in the UseState array, it is removed (collapsed), if not, it is added (and expanded)
   function toggleExpand(id) {
     let opportunitiesContainer = document.getElementById(`${id}`);
     opportunitiesContainer.classList.toggle('expanded');
@@ -34,6 +38,7 @@ function OpportunityResults (props) {
     };
   }
   
+  //Below function handles deletion of an opportunity from the Airtable API.
   const handleDelete = async (e, idx) => {
     e.stopPropagation();
     console.log(idx)
@@ -47,13 +52,14 @@ function OpportunityResults (props) {
     setFetchOpportunities(!fetchOpportunities);
   };
 
+  // Below toggles visibility of the Update Opportunity Menu
   function toggleUpdateMenu() {
     setUpdateVisibility(!updateVisibility);
   };
 
+  // Below handles selection of the "Add Job" button
   function handleEdit(e) {
     toggleUpdateMenu();
-    console.log("clicked");
     e.stopPropagation();
   }
 
@@ -76,16 +82,16 @@ function OpportunityResults (props) {
           return (
             <div key={idx} id={idx} onClick={() => toggleExpand(idx)} style={{
               
-              // Job Card display properties
-              // height: "25vh",
+              // Opportunity Card appearance properties
+              backgroundColor: "white",
+              boxShadow: '0px 8px 10px darkgray',
+
+              //Opportunity Card position properties
               padding: "5px",
               margin: "10px 5px",
-              boxShadow: '0px 8px 10px darkgray',
-              backgroundColor: "white",
-
-              // Job Card containter properties
+              
+              // Opportunity Card containter properties
               display: "flex",
-              // justifyContent: "flex-start",
               flexDirection: "column",
             }}>
 
@@ -127,6 +133,7 @@ function OpportunityResults (props) {
               <div className="companyInfo" id={opportunity.fields.companyName} style={{
 
                 margin: "10px",
+
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
@@ -142,15 +149,15 @@ function OpportunityResults (props) {
                   }} />
                 <h1 style={{
           
-                width: "50%",
-                maxWidth: "200px",
-                margin: "0px 0px 0px 10px",
-                textAlign: "left",
-                verticalAlign: "middle",
-                textDecoration: "none",
-                textDecorationLine: "none",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
+                  width: "50%",
+                  maxWidth: "200px",
+
+                  margin: "0px 0px 0px 10px",
+
+                  textAlign: "left",
+                  verticalAlign: "middle",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
           
                 }}> {opportunity.fields.companyName}</h1>
               </div>
@@ -158,6 +165,7 @@ function OpportunityResults (props) {
               <div className="opportunityInfo" id={opportunity.fields.jobTitle} style={{
 
                   margin: "10px",
+                
                   display: "flex",
                   flexDirection: "column",
                   overflow: "hidden",
@@ -209,8 +217,10 @@ function OpportunityResults (props) {
                       <p name="contactEmail">{opportunity.fields.contactEmail}</p>
                       
                       <div className="opportunityCRUDButtons" style={{
+                        
                         display: "flex",
                         justifyContent: "space-evenly",
+
                       }}>
                         <UpdateOpportunityButton
                           handleEdit={handleEdit}/>
@@ -229,6 +239,7 @@ function OpportunityResults (props) {
                   </div>
                   }
               </div>
+
               <UpdateOpportunity
                           fetchOpportunities={fetchOpportunities}
                           setFetchOpportunities={setFetchOpportunities}
