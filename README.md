@@ -54,7 +54,7 @@ My Post-MVP will include:
 
 ## Component Hierarchy
 
-![Component Hierarchy](https://github.com/tylerhuyser/profesh/blob/master/Images/README_Images/Profesh_Component_Hierarchy.002.jpeg)
+![Component Hierarchy](https://github.com/tylerhuyser/profesh/blob/master/Images/README_Images/Profesh%20-%20Component%20Hierarchy.002.jpeg?raw=true)
 
 **MVP**:
 
