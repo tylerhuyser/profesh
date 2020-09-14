@@ -38,23 +38,23 @@ My Post-MVP will include:
 
 **Home**
 
-![Home](https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh_Wireframes_(Mobile).001.jpeg)
+![Home](https://github.com/tylerhuyser/profesh/blob/master/Images/Wireframe_Images/Mobile/Profesh_Wireframes_(Mobile).001.jpeg?raw=true)
 
 **Tracker Home**
 
-![Tracker Home](https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh_Wireframes_(Mobile).005.jpeg)
+![Tracker Home](https://github.com/tylerhuyser/profesh/blob/master/Images/Wireframe_Images/Mobile/Profesh_Wireframes_(Mobile).005.jpeg?raw=true)
 
 **Tracker Opportunity Details**
 
-![Opportunity Details](https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh_Wireframes_(Mobile).006.jpeg)
+![Opportunity Details](https://github.com/tylerhuyser/profesh/blob/master/Images/Wireframe_Images/Mobile/Profesh_Wireframes_(Mobile).006.jpeg?raw=true)
 
 **Search**
 
-![Search](https://github.com/tylerhuyser/profesh/blob/master/Mobile/Profesh_Wireframes_(Mobile).002.jpeg)
+![Search](https://github.com/tylerhuyser/profesh/blob/master/Images/Wireframe_Images/Mobile/Profesh_Wireframes_(Mobile).002.jpeg?raw=true)
 
 ## Component Hierarchy
 
-![Component Hierarchy](https://github.com/tylerhuyser/profesh/blob/master/Images/README_Images/Profesh_Component_Hierarchy.001.jpeg)
+![Component Hierarchy](https://github.com/tylerhuyser/profesh/blob/master/Images/README_Images/Profesh_Component_Hierarchy.002.jpeg)
 
 **MVP**:
 
