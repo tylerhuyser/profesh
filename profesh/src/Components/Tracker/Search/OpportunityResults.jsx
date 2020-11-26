@@ -88,36 +88,58 @@ function OpportunityResults (props) {
 
               //Opportunity Card position properties
               padding: "5px",
-              margin: "10px 5px",
+              margin: "10px 20px",
               
               // Opportunity Card containter properties
               display: "flex",
               flexDirection: "column",
             }}>
 
-              <div className="trackerAlerts" id="trackerAlerts" style={{
+              {/* <div className="trackerAlerts" id="trackerAlerts" style={{
                 display: "flex",
                 flexDirection: "column",
+                alignItems: "flex-end",
+
                 position: "absolute",
-                right: "25px",
+                right: "15px",
                 float: "right",
                 textAlign: "right",
-                margin: "10px",
+                // margin: "10px",
                 width: "50%",
                 backgroundColor: "transparent",
                 fontSize: "10px",
 
               }}>
                 <div className="opportunityStatus" id={opportunity.fields.opportunityStatus} >
-                  <h5 style={{
-
-                    marginBottom: "0px",
-                    marginTop: "10px",
-                    fontSize: "12px",
-
                     
-                  }} >{opportunity.fields.opportunityStatus}</h5>
+                  <div className="opportunityRibbon ribbon" style={{
+                    display: "flex",
+                    alignContent: "center",
+
+                    width: "150px",
+                    height: "30px",
+                    top: "150px",
+                    right: "0",
+                    background: "#21759a",
+                    marginTop: "20px"
+                    
+                  }} >
+                    <h5 style={{
+
+                      marginBottom: "0px",
+                      // marginTop: "10px",
+                      fontSize: "12px",
+                      textAlign: "left",
+
+                      height: "20px",
+                      margin: "0px 0px 0px 10px",
+
+                      
+                    }} >{opportunity.fields.opportunityStatus}</h5>
+                  </div>
+
                 </div>
+
                 <div className="actionItems" id={opportunity.fields.actionItems} >
                   <h5 style={{
 
@@ -128,7 +150,7 @@ function OpportunityResults (props) {
 
                     }}>{opportunity.fields.actionItems}</h5>
                 </div>
-              </div>
+              </div> */}
             
               <div className="companyInfo" id={opportunity.fields.companyName} style={{
 
@@ -184,16 +206,32 @@ function OpportunityResults (props) {
                 }}> {opportunity.fields.jobTitle}</h3>
                 
                 
-                {(expanded.length === 0 || (!expanded.includes(idx)) ) ? (
-                  <p style={{
+                {(expanded.length === 0 || (!expanded.includes(idx))) ?
+                  
+                  (
+                    <div className="tracker-container">
+                      <div className="opportunity-status">
+                        {opportunity.fields.opportunityStatus}
+                      </div>
+                      <div className="action-item">
+                        {opportunity.fields.actionItems}
+                      </div>
+                    </div>
+                  )
 
-                    textAlign: "left",
-                    fontSize: "10px",
-                    textWrap: "none",
-                    textOverflow: "ellipsis",
+                  :
 
-                    }}> {(opportunity.fields.jobDescription.length > 200) ? <span>{`${opportunity.fields.jobDescription.slice(0, 198)}...`}</span> : opportunity.fields.jobDescription}</p>) :
-                    <div name="expandedContainer">
+                  <div name="expandedContainer">
+                    
+                    <div className="tracker-container">
+                      <div className="opportunity-status">
+                        {opportunity.fields.opportunityStatus}
+                      </div>
+                      <div className="action-item">
+                        {opportunity.fields.actionItems}
+                      </div>
+                    </div>
+
                       <p style={{
 
                         textAlign: "left",
