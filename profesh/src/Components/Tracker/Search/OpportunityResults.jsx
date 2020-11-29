@@ -209,12 +209,28 @@ function OpportunityResults (props) {
                 {(expanded.length === 0 || (!expanded.includes(idx))) ?
                   
                   (
-                    <div className="tracker-container">
-                      <div className="opportunity-status">
+                    <div className="tracker-container" style={{
+
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+
+                    }}>
+                      <div className="opportunity-status" style={{
+
+                        borderRadius: "12px",
+
+                      }}>
                         {opportunity.fields.opportunityStatus}
                       </div>
-                      <div className="action-item">
+                      <div className="action-item" style={{
+
+                      borderRadius: "12px",
+
+                      }}>
+
                         {opportunity.fields.actionItems}
+
                       </div>
                     </div>
                   )
@@ -223,11 +239,26 @@ function OpportunityResults (props) {
 
                   <div name="expandedContainer">
                     
-                    <div className="tracker-container">
-                      <div className="opportunity-status">
+                    <div className="tracker-container" style={{
+
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+
+                    }}>
+                      <div className="opportunity-status" style={{
+
+                      borderRadius: "12px",
+
+                      }}>
                         {opportunity.fields.opportunityStatus}
                       </div>
-                      <div className="action-item">
+                      <div className="action-item" style={{
+
+                        borderRadius: "12px",
+
+                      }}>
+                        
                         {opportunity.fields.actionItems}
                       </div>
                     </div>
