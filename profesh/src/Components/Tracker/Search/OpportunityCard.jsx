@@ -1,0 +1,248 @@
+import React, { useState } from 'react';
+import Axios from 'axios';
+import "./OpportunityCard.css"
+
+import UpdateOpportunityButton from "./UpdateOpportunityButton"
+
+export default function OpportunityCard(props) {
+
+  const { idx, opportunity, handleEdit } = props
+  const { fetchOpportunities, setFetchOpportunities } = props
+  
+  //Below creates a state variable to store "expanded" opportunity cards
+  const [expanded, setExpanded] = useState([])
+
+  const [opportunityStatus, setOpportunityStatus] = useState(`${opportunity.fields.opportunityStatus }`)
+  const [actionItem, setActionItem] = useState(`${opportunity.fields.actionItem}`)
+
+  // if (`${opportunity.fields.opportunityStatus}` === 'Applied') { 
+  //   setOpportunityStatus('opportunityStatus applied')
+  // } else if (`${opportunity.fields.opportunityStatus}` === 'Phone Screening') { 
+  //   setOpportunityStatus('opportunityStatus phone-screening')
+  // } else if ((`${opportunity.fields.opportunityStatus}` === 'Phone Screening, Pending Decision') || (`${opportunity.fields.opportunityStatus}` === 'Interviewed, Pending Decision')) { 
+  //   setOpportunityStatus('opportunityStatus pending-decision')
+  // } else if (`${opportunity.fields.opportunityStatus}` === 'Interview') { 
+  //   setOpportunityStatus('opportunityStatus phone-screening')
+  // } else if (`${opportunity.fields.opportunityStatus}` === 'Case Study/Exercise') { 
+  //   setOpportunityStatus('opportunityStatus phone-screening')
+  // } else if (`${opportunity.fields.opportunityStatus}` === 'Offer') { 
+  //   setOpportunityStatus('opportunityStatus phone-screening')
+  // } else if (`${opportunity.fields.opportunityStatus}` === 'Negotiation') { 
+  //   setOpportunityStatus('opportunityStatus phone-screening')
+  // } else {
+  //   return
+  // }
+
+    //Below function enables opportunity card expansion. If the id IS contained in the UseState array, it is removed (collapsed), if not, it is added (and expanded)
+    function toggleExpand(id) {
+      let opportunitiesContainer = document.getElementById(`${id}`);
+      opportunitiesContainer.classList.toggle('expanded');
+      console.log(expanded)
+      if (!expanded.includes(id)) {
+        setExpanded(prevExpand => {
+          return [...prevExpand, id]
+        });
+        console.log(expanded)
+      }; 
+      if (expanded.includes(id)) {
+        setExpanded(prevExpand => {
+          console.log(prevExpand);
+          return (prevExpand.filter(e => e !== id))
+        })
+        console.log(expanded)
+      };
+    }
+    
+    //Below function handles deletion of an opportunity from the Airtable API.
+    const handleDelete = async (e, idx) => {
+      e.stopPropagation();
+      console.log(idx)
+      const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities/${idx}`
+  
+      await Axios.delete(airtableURL, {
+        headers: {
+          "Authorization": `Bearer ${process.env.REACT_APP_KEY}`,
+        },
+      });
+      setFetchOpportunities(!fetchOpportunities);
+    };
+
+  return (
+    <div key={idx} id={idx} onClick={() => toggleExpand(idx)} style={{
+              
+      // Opportunity Card appearance properties
+      backgroundColor: "white",
+      boxShadow: '0px 8px 10px darkgray',
+
+      //Opportunity Card position properties
+      padding: "5px",
+      margin: "10px 20px",
+  
+      // Opportunity Card containter properties
+      display: "flex",
+      flexDirection: "column",
+    }}>
+
+      <div className="companyInfo" id={opportunity.fields.companyName} style={{
+
+        margin: "10px",
+
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        overflow: "hidden",
+    
+      }} >
+        <img src={opportunity.fields.companyLogo} onError={(e) => { e.target.onerror = null; e.target.src = "https://pbs.twimg.com/profile_images/1082424539492073477/exU8rYn8_400x400.jpg" }} alt={opportunity.fields.companyName} style={{
+    
+          width: "10%",
+          height: "auto",
+          alignSelf: "flex-start",
+
+        }} />
+        <h1 style={{
+
+          width: "50%",
+          maxWidth: "200px",
+
+          margin: "0px 0px 0px 10px",
+
+          textAlign: "left",
+          verticalAlign: "middle",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+
+        }}> {opportunity.fields.companyName}</h1>
+      </div>
+  
+      <div className="opportunityInfo" id={opportunity.fields.jobTitle} style={{
+
+        margin: "10px",
+    
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+
+      }} >
+        <h3 style={{
+
+          maxWidth: "300px",
+          textAlign: "left",
+          margin: "0px",
+          textDecoration: "none",
+          textDecorationLine: "none",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+
+        }}> {opportunity.fields.jobTitle}</h3>
+    
+    
+        {(expanded.length === 0 || (!expanded.includes(idx))) ?
+      
+          (
+            <div className="tracker-container" style={{
+
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              margin: "5px 0px",
+
+            }}>
+              <div className="opportunity-status" style={{
+
+                borderRadius: "12px",
+
+              }}
+                id={opportunityStatus}>
+                {opportunity.fields.opportunityStatus}
+              </div>
+              <div className="action-item" style={{
+
+                borderRadius: "12px",
+
+              }}
+                id={actionItem}>
+
+                {opportunity.fields.actionItems}
+
+              </div>
+            </div>
+          )
+
+          :
+
+          <div name="expandedContainer">
+        
+            <div className="tracker-container" style={{
+
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+
+            }}>
+              <div className="opportunity-status" style={{
+
+                borderRadius: "12px",
+
+              }}>
+                {opportunity.fields.opportunityStatus}
+              </div>
+              <div className="action-item" style={{
+
+                borderRadius: "12px",
+
+              }}>
+            
+                {opportunity.fields.actionItems}
+              </div>
+            </div>
+
+            <p style={{
+
+              textAlign: "left",
+              fontSize: "10px",
+              textWrap: "none",
+              textOverflow: "ellipsis",
+            
+            }}> {opportunity.fields.jobDescription}  </p>
+        
+            <div className="expandedContents" style={{
+              display: "flex",
+              flexDirection: "column",
+            }}>
+              <label forHTML="dateOfLastContact">Date of Last Contact:</label>
+              <p name="dateOflastContact">{opportunity.fields.dateOfLastContact}</p>
+              <label forHTML="contactName">Contact Name:</label>
+              <p name="contactName">{opportunity.fields.contactName}</p>
+              <label forHTML="contactPhoneNumber">Contact Phone Number:</label>
+              <p name="contactPhoneNumber">{opportunity.fields.contactPhoneNumber}</p>
+              <label forHTML="contactEmail">Contact Email:</label>
+              <p name="contactEmail">{opportunity.fields.contactEmail}</p>
+          
+              <div className="opportunityCRUDButtons" style={{
+            
+                display: "flex",
+                justifyContent: "space-evenly",
+
+              }}>
+                <UpdateOpportunityButton
+                  handleEdit={handleEdit} />
+                <button className="updateOpportunityButton" onClick={(e) => handleDelete(e, opportunity.id)} style={{
+                  width: "100px",
+                  textAlign: "center",
+                  border: "5px solid #F7116B",
+                  borderRadius: "18px",
+                  background: "white",
+                  color: "#F7116B",
+                  padding: "10px",
+
+                }} >Delete</button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  )
+}
+  
