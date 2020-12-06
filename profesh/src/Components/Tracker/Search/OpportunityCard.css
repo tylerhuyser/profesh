@@ -1,22 +1,85 @@
-.opportunity-status {
-  font: white;
+/* Opportunity Status */
 
-  min-width: 30%;
+.opportunity-status {
+  font-size: 12px;
+
+  width: 40%;
   padding: 5px 10px;
   
   border-radius: 12px;
-  border: solid red 2px;
+  /* border: solid red 2px; */
 }
+
+#applied {
+  color: #2D7DD2;
+  border: 2px solid #2D7DD2;
+}
+
+#phone-screening-Pending-Decision, #interviewed-Pending-Decision {
+  color: #9AA0A8;
+  border: 2px solid #9AA0A8;
+}
+
+#interview, #phone-Screening {
+  color: #A30015;
+  border: 2px solid #A30015;
+}
+
+#case-Study {
+  color: #A30015;
+  border: 2px solid #A30015;
+}
+
+#offer {
+  color: green;
+  border: 2px solid green;
+}
+
+#negotation {
+  color :#97CC04;
+  border: 2px solid #97CC04;
+}
+
+
+/* Action Items */
 
 .action-item {
-  font: white;
+  color: white;
+  font-size: 12px;
 
-  min-width: 30%;
+  width: 40%;
   padding: 5px 10px;
 
   border-radius: 12px;
-  border: solid red 2px;
-  
 
 }
 
+#prepare-Resume {
+  background-color: #2D7DD2;
+  border: solid #2D7DD2 2px;
+}
+
+#write-Cover-Letter {
+  background-color: #2D7DD2;
+  border: solid #2D7DD2 2px;
+}
+
+#submit-Application {
+  background-color: #1C3144;
+  border: solid #1C3144 2px;
+}
+
+#follow-Up-E-mail {
+  background-color: #9AA0A8;
+  border: solid #9AA0A8 2px;
+}
+
+#phone-Screen-Prep, #interview-Prep {
+  background-color: #A30015 ;
+  border: solid #A30015 2px;
+}
+
+#case-Study {
+  background-color: #A30015;
+  border: solid #A30015 2px;
+}

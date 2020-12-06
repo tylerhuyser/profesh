@@ -194,7 +194,7 @@ const UpdateOpportunity = (props) => {
           <option value="Phone Screening, Pending Decision">Phone Screening, Pending Decision</option>
           <option value="Interview">Interview</option>
           <option value="Interviewed, Pending Decision">Interviewed, Pending Decision</option>
-          <option value="Case Study/Exercise">Case Study/Exercise</option>
+          <option value="Case Study">Case Study/Exercise</option>
           <option value="Offer">Offer</option>
           <option value="Negotiation">Negotiation</option>
         </select>
