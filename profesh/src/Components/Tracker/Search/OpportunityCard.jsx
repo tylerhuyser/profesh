@@ -4,7 +4,7 @@ import "./OpportunityCard.css"
 
 import UpdateOpportunityButton from "./UpdateOpportunityButton"
 
-export default function OpportunityCard(props) {
+export default function OpportunityCard (props) {
 
   const { idx, opportunity, handleEdit } = props
   const { fetchOpportunities, setFetchOpportunities } = props
@@ -12,25 +12,43 @@ export default function OpportunityCard(props) {
   //Below creates a state variable to store "expanded" opportunity cards
   const [expanded, setExpanded] = useState([])
 
-  const [opportunityStatus, setOpportunityStatus] = useState(`${opportunity.fields.opportunityStatus }`)
-  const [actionItem, setActionItem] = useState(`${opportunity.fields.actionItem}`)
+  const [opportunityStatus, setOpportunityStatus] = useState(`opportunity-status`)
+  const [actionItem, setActionItem] = useState(`action-item`)
 
-  // if (`${opportunity.fields.opportunityStatus}` === 'Applied') { 
-  //   setOpportunityStatus('opportunityStatus applied')
-  // } else if (`${opportunity.fields.opportunityStatus}` === 'Phone Screening') { 
-  //   setOpportunityStatus('opportunityStatus phone-screening')
-  // } else if ((`${opportunity.fields.opportunityStatus}` === 'Phone Screening, Pending Decision') || (`${opportunity.fields.opportunityStatus}` === 'Interviewed, Pending Decision')) { 
-  //   setOpportunityStatus('opportunityStatus pending-decision')
-  // } else if (`${opportunity.fields.opportunityStatus}` === 'Interview') { 
-  //   setOpportunityStatus('opportunityStatus phone-screening')
-  // } else if (`${opportunity.fields.opportunityStatus}` === 'Case Study/Exercise') { 
-  //   setOpportunityStatus('opportunityStatus phone-screening')
-  // } else if (`${opportunity.fields.opportunityStatus}` === 'Offer') { 
-  //   setOpportunityStatus('opportunityStatus phone-screening')
-  // } else if (`${opportunity.fields.opportunityStatus}` === 'Negotiation') { 
-  //   setOpportunityStatus('opportunityStatus phone-screening')
+  // if (opportunity && `${opportunity.fields.opportunityStatus}` === 'Applied') { 
+  //   setOpportunityStatus('opportunity-status applied')
+  // } else if ( opportunity && `${opportunity.fields.opportunityStatus}` === 'Phone Screening') { 
+  //   setOpportunityStatus('opportunity-status phone-screening')
+  // } else if ( opportunity && ((`${opportunity.fields.opportunityStatus}` === 'Phone Screening, Pending Decision') || (`${opportunity.fields.opportunityStatus}` === 'Interviewed, Pending Decision'))) { 
+  //   setOpportunityStatus('opportunity-status pending-decision')
+  // } else if ( opportunity && `${opportunity.fields.opportunityStatus}` === 'Interview') { 
+  //   setOpportunityStatus('opportunity-status phone-screening')
+  // } else if ( opportunity && `${opportunity.fields.opportunityStatus}` === 'Case Study/Exercise') { 
+  //   setOpportunityStatus('opportunity-status phone-screening')
+  // } else if ( opportunity && `${opportunity.fields.opportunityStatus}` === 'Offer') { 
+  //   setOpportunityStatus('opportunity-status phone-screening')
+  // } else if ( opportunity && `${opportunity.fields.opportunityStatus}` === 'Negotiation') { 
+  //   setOpportunityStatus('opportunity-status phone-screening')
   // } else {
-  //   return
+  //   return opportunityStatus
+  // }
+
+  // if (opportunity && `${opportunity.fields.actionItems}` === 'Prepare Resume') { 
+  //   setActionItem('action-item prepare-resume')
+  // } else if ( opportunity && (`${opportunity.fields.actionItems}` === 'Write Cover Letter')) { 
+  //   setActionItem('action-item  write-cover-letter')
+  // } else if ( opportunity && `${opportunity.fields.actionItems}` === 'Submit Application') { 
+  //   setActionItem('action-item  submit-application')
+  // } else if ( opportunity && `${opportunity.fields.actionItems}` === 'Follow-Up E-mail') { 
+  //   setActionItem('action-item  follow-up')
+  // } else if ( opportunity && `${opportunity.fields.actionItems}` === 'Phone Screen Prep') { 
+  //   setActionItem('action-item  phone-screen-prep')
+  // } else if ( opportunity && `${opportunity.fields.actionItems}` === 'Interview Prep') { 
+  //   setActionItem('action-item  interview-prep')
+  // } else if ( opportunity && `${opportunity.fields.actionItems}` === 'Complete Case Study/Project') { 
+  //   setActionItem('action-item  case-study')
+  // } else {
+  //   return actionItem
   // }
 
     //Below function enables opportunity card expansion. If the id IS contained in the UseState array, it is removed (collapsed), if not, it is added (and expanded)
@@ -145,26 +163,14 @@ export default function OpportunityCard(props) {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              margin: "5px 0px",
+              margin: "10px 0px",
 
             }}>
-              <div className="opportunity-status" style={{
-
-                borderRadius: "12px",
-
-              }}
-                id={opportunityStatus}>
+              <div className={opportunityStatus}>
                 {opportunity.fields.opportunityStatus}
               </div>
-              <div className="action-item" style={{
-
-                borderRadius: "12px",
-
-              }}
-                id={actionItem}>
-
+              <div className={actionItem}>
                 {opportunity.fields.actionItems}
-
               </div>
             </div>
           )
@@ -176,23 +182,15 @@ export default function OpportunityCard(props) {
             <div className="tracker-container" style={{
 
               display: "flex",
-              justifyContent: "center",
+              justifyContent: "space-between",
               alignItems: "center",
+              margin: "10px 0px",
 
             }}>
-              <div className="opportunity-status" style={{
-
-                borderRadius: "12px",
-
-              }}>
+              <div className={opportunityStatus}>
                 {opportunity.fields.opportunityStatus}
               </div>
-              <div className="action-item" style={{
-
-                borderRadius: "12px",
-
-              }}>
-            
+              <div className={actionItem}>
                 {opportunity.fields.actionItems}
               </div>
             </div>
