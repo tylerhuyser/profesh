@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import Nav from './Components/Nav';
-import FindJobs from "./Components/FindJobs";
-import TrackOpportunities from "./Components/TrackOpportunities";
-import Home from "./Components/Home";
+import Nav from '../src/components/Nav/Nav';
+import FindJobs from "../src/screens/FindJobs";
+import TrackOpportunities from "../src/screens/TrackOpportunities";
+import Home from "../src/screens/Home";
 
 function App() {
   return (

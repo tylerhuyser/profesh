@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./OpportunityResults.css"
-import UpdateOpportunity from "./UpdateOpportunity"
-import OpportunityCard from "./OpportunityCard"
+import UpdateOpportunity from "../UpdateOpportunity/UpdateOpportunity"
+import OpportunityCard from "../OpportunityResults/OpportunityCard"
 
 function OpportunityResults (props) {
   

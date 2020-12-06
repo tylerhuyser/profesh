@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import OpportunityResults from "./Search/OpportunityResults"
+import OpportunityResults from "../OpportunityResults/OpportunityResults"
 import Axios from 'axios';
 
-export default function SearchOpportunities (props) {
+export default function OpportunitiesSearchBar (props) {
 
   // Below sets a state variable for "opportunities", which will hold the API Data.
   const [opportunities, setOpportunities] = useState([]);

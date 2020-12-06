@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import AddJobButton from "./AddJobButton"
-import AddJobForm from "./AddJobForm";
-import "./JobResults.css"
-import "./AddJobForm.css";
+import AddJobForm from "../AddJob/AddJobForm"
+import AddJobButton from "../AddJob/AddJobButton";
+import "./JobResults.css";
+import "../AddJob/AddJobForm.css";
 
 export default function JobsResults(props) {
 

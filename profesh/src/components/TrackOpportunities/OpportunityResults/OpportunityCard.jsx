@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import "./OpportunityCard.css"
 
-import UpdateOpportunityButton from "./UpdateOpportunityButton"
+import UpdateOpportunityButton from "../UpdateOpportunity/UpdateOpportunityButton"
 
 export default function OpportunityCard(props) {
 

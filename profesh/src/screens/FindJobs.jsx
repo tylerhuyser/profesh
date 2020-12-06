@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchJobs from './Jobs/SearchJobs'
+import SearchJobs from '../components/Jobs/SearchJobs/SearchJobs'
 
 function FindJobs() {
 

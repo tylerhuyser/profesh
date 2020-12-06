@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import OpportunitiesSearch from "./Tracker/OpportunitiesSearch";
-import AddOpportunityButton from "./Tracker/AddOpportunityButton";
-import AddOpportunityForm from "./Tracker/AddOpportunityForm";
+import OpportunitiesSearch from "../components/TrackOpportunities/SearchOpportunities/OpportunitiesSearchBar";
+import AddOpportunityForm from "../components/TrackOpportunities/AddOpportunity/AddOpportunityForm";
+import AddOpportunityButton from "../components/TrackOpportunities/AddOpportunity/AddOpportunityButton";
 
 // Below Function enables the "Tracker" functionality of Profesh.
 function TrackOpportunities() {

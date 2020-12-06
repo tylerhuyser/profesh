@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import JobsResults from "./Search/JobsResults"
+import JobsResults from "../JobResults/JobsResults"
 import Axios from 'axios';
 
 export default function SearchJobs (props) {
