@@ -17,6 +17,7 @@ export default function JobsResults(props) {
   
   const { jobs } = props;
   const { searchQuery } = props;
+  const lowerCaseQuery = searchQuery.toLowerCase()
 
   //Below function enables job card expansion. If the id IS contained in the UseState array, it is removed (collapsed), if not, it is added (and expanded)
   function toggleExpand(id) {
@@ -59,9 +60,9 @@ export default function JobsResults(props) {
       </div>
 
       {jobs.filter(job =>
-        job.company.name.includes(searchQuery) ||
-        job.name.includes(searchQuery) ||
-        job.locations.name.includes(searchQuery)).map(
+        job.company.name.toLowerCase().includes(lowerCaseQuery) ||
+        job.name.toLowerCase().includes(lowerCaseQuery) ||
+        job.locations.name.toLowerCase().includes(lowerCaseQuery)).map(
           (job, idx) => {
 
             let jobDescription = job.contents;

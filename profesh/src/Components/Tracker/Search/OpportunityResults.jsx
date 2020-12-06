@@ -13,6 +13,7 @@ function OpportunityResults (props) {
   
   const { opportunities } = props;
   const { searchQuery } = props
+  const lowerCaseQuery = searchQuery.toLowerCase()
 
 
   // Below handles selection of the "Add Job" button
@@ -38,7 +39,7 @@ function OpportunityResults (props) {
 
         </div>
       
-      {opportunities.filter(opportunity => opportunity.fields.companyName.includes(searchQuery) || opportunity.fields.jobTitle.includes(searchQuery)).map((opportunity, idx) => {
+      {opportunities.filter(opportunity => opportunity.fields.companyName.toLowerCase().includes(lowerCaseQuery) || opportunity.fields.jobTitle.toLowerCase().includes(lowerCaseQuery)).map((opportunity, idx) => {
           
         // Documentation for Filter w/ Maps: https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
 
