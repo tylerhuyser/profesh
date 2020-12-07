@@ -1,12 +1,12 @@
-# .Profesh
+# Profesh
 
-An app that helps job-seekers find jobs and organize their job hunt.
+**Profesh** is an app that helps job-seekers find jobs and organize their job hunt.
 
 ## Description:
 
-.Profesh is an app that assists job seekers throughout their job hunt. The app provides a directory of job listings that users can refine through various search parameters, such as location, title, experience, and company. More importantly, the app provides a system of tools, that enable the user to track the individual journey with each opportunity. 
+Profesh is an app that assists job seekers throughout their job hunt. The app provides a directory of job listings that users can refine using various search parameters, including location, title, experience, and company. More importantly, the app provides a series of tools that enable the user to track their journey with each individual opportunity, from interview to offer. 
 
-Using .Profesh, job-seekers will be able to take the most advantage of opportunitity and land their dream career.
+Using Profesh, job-seekers will be able to take the most advantage of opportunitity and land their dream career.
 
 ## MVP
 
