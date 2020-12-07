@@ -7,7 +7,7 @@ import FindJobs from "../src/screens/FindJobs";
 import TrackOpportunities from "../src/screens/TrackOpportunities";
 import Home from "../src/screens/Home";
 
-function App() {
+function App () {
   return (
 
     // The Below builds the router for the Profesh App 

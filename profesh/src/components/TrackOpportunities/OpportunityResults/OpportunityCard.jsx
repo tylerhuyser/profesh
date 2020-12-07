@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Axios from 'axios';
 import "./OpportunityCard.css"
 
@@ -6,34 +6,13 @@ import UpdateOpportunityButton from "../UpdateOpportunity/UpdateOpportunityButto
 
 export default function OpportunityCard(props) {
 
-  const { idx, opportunity, handleEdit } = props
+  const { idx, opportunity, handleEdit, toggleExpand } = props
   const { fetchOpportunities, setFetchOpportunities } = props
-  
-  //Below creates a state variable to store "expanded" opportunity cards
-  const [expanded, setExpanded] = useState([])
 
-  const opportunityStatus = (opportunity.fields.opportunityStatus.charAt(0).toLowerCase() + opportunity.fields.opportunityStatus.slice(1)).split(" ").join("-")
-  const actionItem = (opportunity.fields.actionItems.charAt(0).toLowerCase() + opportunity.fields.actionItems.slice(1)).split(" ").join("-")
+  const { expanded } = props
 
-    //Below function enables opportunity card expansion. If the id IS contained in the UseState array, it is removed (collapsed), if not, it is added (and expanded)
-    function toggleExpand(id) {
-      let opportunitiesContainer = document.getElementById(`${id}`);
-      opportunitiesContainer.classList.toggle('expanded');
-      console.log(expanded)
-      if (!expanded.includes(id)) {
-        setExpanded(prevExpand => {
-          return [...prevExpand, id]
-        });
-        console.log(expanded)
-      }; 
-      if (expanded.includes(id)) {
-        setExpanded(prevExpand => {
-          console.log(prevExpand);
-          return (prevExpand.filter(e => e !== id))
-        })
-        console.log(expanded)
-      };
-    }
+  const opportunityStatus = (opportunity.fields.opportunityStatus.charAt(0).toLowerCase() + opportunity.fields.opportunityStatus.slice(1)).split("/").join("-").split(" ").join("-")
+  const actionItem = (opportunity.fields.actionItems.charAt(0).toLowerCase() + opportunity.fields.actionItems.slice(1)).split("/").join("-").split(" ").join("-")
     
     //Below function handles deletion of an opportunity from the Airtable API.
     const handleDelete = async (e, idx) => {
@@ -50,7 +29,7 @@ export default function OpportunityCard(props) {
     };
 
   return (
-    <div key={opportunity.id} id={idx} onClick={() => toggleExpand(idx)} style={{
+    <div className={`opportunity-card`} key={opportunity.id} id={idx} onClick={() => toggleExpand(idx)} style={{
               
       // Opportunity Card appearance properties
       backgroundColor: "white",
@@ -141,7 +120,7 @@ export default function OpportunityCard(props) {
 
           :
 
-          <div name="expandedContainer">
+          <div className="expanded-container">
         
             <div className="tracker-container" style={{
 
@@ -159,7 +138,7 @@ export default function OpportunityCard(props) {
               </div>
             </div>
 
-            <p style={{
+            <p className="job-description" style={{
 
               textAlign: "left",
               fontSize: "10px",
@@ -168,7 +147,7 @@ export default function OpportunityCard(props) {
             
             }}> {opportunity.fields.jobDescription}  </p>
         
-            <div className="expandedContents" style={{
+            <div className="expanded-contents" style={{
               display: "flex",
               flexDirection: "column",
             }}>

@@ -8,6 +8,9 @@ function OpportunityResults (props) {
   // Below deconstructs the fetchOpportunities state variables
   const { fetchOpportunities, setFetchOpportunities } = props
 
+  //Below creates a state variable to store "expanded" opportunity cards
+  const [expanded, setExpanded] = useState([])
+
   //Below creates a state variable to control the visibility of the Update Opportunity Form
   const [updateVisibility, setUpdateVisibility] = useState(false);
   
@@ -15,6 +18,25 @@ function OpportunityResults (props) {
   const { searchQuery } = props
   const lowerCaseQuery = searchQuery.toLowerCase()
 
+  //Below function enables opportunity card expansion. If the id IS contained in the UseState array, it is removed (collapsed), if not, it is added (and expanded)
+  function toggleExpand(id) {
+    let opportunitiesContainer = document.getElementById(`${id}`);
+    opportunitiesContainer.classList.toggle('expanded');
+    console.log(expanded)
+    if (!expanded.includes(id)) {
+      setExpanded(prevExpand => {
+        return [...prevExpand, id]
+      });
+      console.log(expanded)
+    }; 
+    if (expanded.includes(id)) {
+      setExpanded(prevExpand => {
+        console.log(prevExpand);
+        return (prevExpand.filter(e => e !== id))
+      })
+        console.log(expanded)
+    };
+  }
 
   // Below handles selection of the "Add Job" button
   function handleEdit(e) {
@@ -53,6 +75,8 @@ function OpportunityResults (props) {
                 updateVisibility={updateVisibility}
                 setUpdateVisibility={setUpdateVisibility}
                 handleEdit={handleEdit}
+                expanded={expanded}
+                toggleExpand={toggleExpand}
               />
 
               <UpdateOpportunity

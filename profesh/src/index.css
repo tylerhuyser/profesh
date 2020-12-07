@@ -219,14 +219,14 @@ main {
   border: 5px solid red;
 }
 
-.expandedContents p {
+.expanded-contents p {
   text-align: left;
   margin-top: 10px;
   margin-bottom: 5px;
 
 }
 
-.expandedContents label {
+.expanded-contents label {
   text-align: left;
   margin-top: 5px;
   font-weight: bolder;
@@ -234,14 +234,14 @@ main {
   
 }
 
-.expandedContents p {
+.expanded-contents p {
   text-align: left;
   margin-top: 10px;
   margin-bottom: 5px;
 
 }
 
-.expandedContents label {
+.expanded-contents label {
   text-align: left;
   margin-top: 5px;
   font-weight: bolder;
