@@ -55,7 +55,7 @@ export default function JobsResults(props) {
 
       <div className="placeholderTop" style={{
             
-            height: "70px",
+            height: "20px",
             
             }}>
   

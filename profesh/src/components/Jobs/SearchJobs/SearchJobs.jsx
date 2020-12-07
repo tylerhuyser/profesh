@@ -27,11 +27,11 @@ export default function SearchJobs (props) {
 
 
   return (
-    <div>
+    <>
       <form className="JobsSearchForm scale-in-ver-top" id="jobsSearchForm" style={{
 
         // Below describes position properties for the Jobs search bar.
-        position: "fixed",
+        position: "sticky",
         top: "0",
         left: "0",
         right: "0",
@@ -39,11 +39,12 @@ export default function SearchJobs (props) {
 
         // Below describes the physical appearance for the search bar.
         background: "#2C404B",
+        width: "100%",
         boxShadow: '0px -1px 10px darkgray',
         
         // Below describes the display properties of the Jobs container.
         display: "flex",
-        justifyContent: "flex-start",
+        justifyContent: "center",
         alignItems: "center",
 
       }}>
@@ -82,6 +83,6 @@ export default function SearchJobs (props) {
   
         <JobsResults  jobs={jobs} searchQuery={searchQuery} fetchJobs={ fetchJobs } setFetchJobs={ setFetchJobs } />
 
-    </div>
+    </>
   )
 }

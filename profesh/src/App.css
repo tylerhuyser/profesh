@@ -2,3 +2,31 @@
   text-align: center;
 }
 
+.desktop-layout {
+  display: none;
+}
+
+.mobile-layout {
+  display: flex;
+  width: 100vw;
+}
+
+main {
+  width: 100vw;
+}
+
+@media only screen and (min-width: 600px) {
+  .mobile-layout {
+    display: none;
+  }
+
+  .desktop-layout{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  main {
+    max-width: 80vw;
+  }
+}

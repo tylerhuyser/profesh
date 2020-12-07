@@ -23,7 +23,7 @@ export default function JobCard(props) {
 
       //Job Card position properties
       padding: "5px",
-      margin: "10px 5px",
+      margin: "10px 20px",
 
       // Job Card containter properties
       display: "flex",

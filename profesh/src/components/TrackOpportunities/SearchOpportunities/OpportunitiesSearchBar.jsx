@@ -29,11 +29,15 @@ export default function OpportunitiesSearchBar (props) {
 
 
   return (
-    <div>
+    <div style={{
+
+      width: "100%",
+
+    }}>
       <form className="OpportunitiesSearchForm scale-in-ver-top" id="OpportunitiesSearchForm" style={{
 
         // Below describes position properties for the Opportunities search bar.
-        position: "fixed",
+        position: "sticky",
         top: "0",
         left: "0",
         right: "0",
@@ -41,11 +45,12 @@ export default function OpportunitiesSearchBar (props) {
 
         // Below describes the physical appearance for the search bar.
         background: "#2C404B",
+        width: "100%",
         boxShadow: '0px -1px 10px darkgray',
         
         // Below describes the display properties of the Opportuntities container.
         display: "flex",
-        justifyContent: "flex-start",
+        justifyContent: "center",
         alignItems: "center",
       
       }}>
