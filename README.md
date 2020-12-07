@@ -8,6 +8,64 @@ Profesh is an app that assists job seekers throughout their job hunt. The app pr
 
 Using Profesh, job-seekers will be able to take the most advantage of opportunitity and land their dream career.
 
+## API & Data Sample
+
+To provide maximum value to the user, Profesh leverages the power of two APIs. 
+
+A curated list of potential jobs provided by *The Muse*'s Jobs API and accessed using a GET request. When a user finds a job that they like, they may save the job as an *opportunity* and begin to track it using the Opportunity Tracker.
+
+Opportunities are stored and accessed using *Airtable*. The Airtable API allows users to perform full CRUD functionality (create, read, update, and destroy) over the course of their job hunt.
+
+## Sample JSON
+
+####The Muse's Jobs API
+
+```
+{
+      "contents": "Facebook's mission is to give people the power to build community and bring the world closer together. Through our family of apps and services, we're building a different kind of company that connects billions of people around the world, gives them ways to share what matters most to them...",
+      "name": "Quantitative UX Researcher, Facebook App",
+      "type": "external",
+      "publication_date": "2020-10-25T23:14:17.278685Z",
+      "short_name": "quantitative-ux-researcher-facebook-app-28afaa",
+      "model_type": "jobs",
+      "id": 4136334,
+      "locations": [
+        {
+          "name": "New York, NY"
+        }
+      ],
+      "categories": [
+        {
+          "name": "Creative & Design"
+        }
+      ],
+      "levels": [
+        {
+          "name": "Mid Level",
+          "short_name": "mid"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Fortune 1000",
+          "short_name": "fortune-1000-companies"
+        }
+      ],
+      "refs": {
+        "landing_page": "https://www.themuse.com/jobs/facebook/quantitative-ux-researcher-facebook-app-28afaa"
+      },
+      "company": {
+        "id": 659,
+        "short_name": "facebook",
+        "name": "Facebook"
+      }
+    },
+
+    ```
+    ####Airtable API
+
+    ![AirtalbeAPI]()
+
 ## MVP
 
 The MVP for my project will focus on building the "tracker" feature of Profesh. Components include:
