@@ -18,7 +18,7 @@ Opportunities are stored and accessed using *Airtable*. The Airtable API allows 
 
 ## Sample JSON
 
-#### The Muse's Jobs API
+#### The Muse's [Jobs API](https://www.themuse.com/developers/api/v2)
 
 ```
 {
@@ -63,9 +63,9 @@ Opportunities are stored and accessed using *Airtable*. The Airtable API allows 
 
 ```
 
-#### Airtable API
+#### Airtable [API](https://airtable.com/)
 
-![AirtalbeAPI](https://i.imgur.com/VZp2auV.png)
+![AirtableAPI](https://i.imgur.com/VZp2auV.png)
 
 ## MVP
 
