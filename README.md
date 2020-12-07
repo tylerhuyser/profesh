@@ -65,7 +65,7 @@ Opportunities are stored and accessed using *Airtable*. The Airtable API allows 
 
 #### Airtable [API](https://airtable.com/)
 
-![AirtableAPI](https://i.imgur.com/VZp2auV.png)
+![AirtableAPI](https://i.imgur.com/VZp2auV.png =200x)
 
 ## MVP
 
