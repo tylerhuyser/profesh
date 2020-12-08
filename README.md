@@ -2,6 +2,8 @@
 
 **Profesh** is an app that helps job-seekers find jobs and organize their job hunt.
 
+![Deployed Site](https://dazzling-bartik-4a9043.netlify.app/) can be accessed here.
+
 ## Description:
 
 Profesh is an app that assists job seekers throughout their job hunt. The app provides a directory of job listings that users can refine using various search parameters, including location, title, experience, and company. More importantly, the app provides a series of tools that enable the user to track their journey with each individual opportunity, from interview to offer. 
