@@ -16,7 +16,7 @@ A curated list of potential jobs provided by *The Muse*'s Jobs API and accessed 
 
 Opportunities are stored and accessed using *Airtable*. The Airtable API allows users to perform full CRUD functionality (create, read, update, and destroy) over the course of their job hunt.
 
-## Sample JSON
+### Sample JSON
 
 #### The Muse's [Jobs API](https://www.themuse.com/developers/api/v2)
 
@@ -65,7 +65,7 @@ Opportunities are stored and accessed using *Airtable*. The Airtable API allows 
 
 #### Airtable [API](https://airtable.com/)
 
-![AirtableAPI](https://i.imgur.com/VZp2auV.png =200x)
+<img src="https://i.imgur.com/VZp2auV.png" width="40%">
 
 ## MVP
 
