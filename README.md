@@ -153,8 +153,6 @@ The following components are required for Profesh to achieve minimum viable prod
 
 The Opportunity Tracker offers users the ability to read, create, edit, and delete opportunities by connecting to the Airtable API.
 
-<img src="" width="80%">
-
 ```
 
 // Below calls upon the API to obtain Jobs data on load.
