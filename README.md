@@ -153,6 +153,8 @@ The following components are required for Profesh to achieve minimum viable prod
 
 The Opportunity Tracker offers users the ability to read, create, edit, and delete opportunities by connecting to the Airtable API.
 
+<img src="https://i.imgur.com/jPde1J5.mp4" width="60%">
+
 ```
 
 // Below calls upon the API to obtain Jobs data on load.
@@ -171,6 +173,8 @@ The Opportunity Tracker offers users the ability to read, create, edit, and dele
 **Search**
 
 The Search Bar allows users to filter opportunity or job results using parameters, such as job title, company name, or keyword.
+
+<img src="" width="60%">
 
 ```
 
@@ -209,6 +213,8 @@ The Search Bar allows users to filter opportunity or job results using parameter
 
 Each job or opportunity card is able to expand on click and toggle between low- and high- detail views.
 
+<img src="" width="60%">
+
 ```
 
 //Below creates a state variable to store "expanded" opportunity cards
@@ -244,6 +250,8 @@ Reach Hooks enable the the Add Opportunity/Job Modals to toggle on click. Levera
 
 A CSS animation is used in order to create the slider-like menu effect.
 
+<img src="https://i.imgur.com/FUZATKQ.gif" width="60%">
+
 ```
 
   // Below sets visibility of the form to "hidden". CSS for the "hidden" class is contained the corresponding component stylesheet "AddOpportunityForm.css"
@@ -268,7 +276,9 @@ A CSS animation is used in order to create the slider-like menu effect.
 
 Profesh uses media queries in order to toggle between a two-column, desktop layout and a condensed mobile display.
 
+<img src="https://i.imgur.com/kLRA8qG.png" width="60%">
 
+<img src="https://i.imgur.com/OpvDsf2.png" width="40%">
 
 
 
