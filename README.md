@@ -2,7 +2,7 @@
 
 **Profesh** is an app that helps job-seekers find jobs and organize their job hunt.
 
-![Deployed Site](https://dazzling-bartik-4a9043.netlify.app/) can be accessed here.
+[Deployed Site](https://dazzling-bartik-4a9043.netlify.app/) can be accessed here.
 
 ## Description:
 
