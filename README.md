@@ -77,29 +77,29 @@ The following components are required for Profesh to achieve minimum viable prod
 
 *  Opportunity Tracker (connects to Airtable API and offers full CRUD functionality)
 
-** Opportunity Search Bar (allows users to search saved opportunities)
+  * Opportunity Search Bar (allows users to search saved opportunities)
 
-** Opportunity Results (displays a filtered list of saved opportunities using search parameters)
+  * Opportunity Results (displays a filtered list of saved opportunities using search parameters)
 
-** Opportunity Cards (expandable cards that display low- and high-detail views for each opportunity)
+  * Opportunity Cards (expandable cards that display low- and high-detail views for each opportunity)
 
-** Add Opportunity Menu Toggle Button  (toggles visibility of the "Add Opportunity Menu" -- a form that allows users to save new opportunities)
+  * Add Opportunity Menu Toggle Button  (toggles visibility of the "Add Opportunity Menu" -- a form that allows users to save new opportunities)
 
-** Add Opportunity Menu (a form that contains allows users to "Post" a new opportunity to the Airtable API)
+  * Add Opportunity Menu (a form that contains allows users to "Post" a new opportunity to the Airtable API)
 
 ## Post-MVP
 
 * Jobs List (connects to The Muse's API)
 
-** Jobs Search Bar (allows users to search saved jobs)
+  * Jobs Search Bar (allows users to search saved jobs)
 
-** Jobs Results (displays a filtered list of saved jobs using search parameters)
+  * Jobs Results (displays a filtered list of saved jobs using search parameters)
 
-** Job Cards (expandable cards that display low- and high-detail views for each job)
+  * Job Cards (expandable cards that display low- and high-detail views for each job)
 
-** Add Job Menu Toggle Button (toggles visibility of the "Save Job Menu" -- a form that allows users to save new jobs and add them to the Opportunities Tracker)
+  * Add Job Menu Toggle Button (toggles visibility of the "Save Job Menu" -- a form that allows users to save new jobs and add them to the Opportunities Tracker)
 
-** Add Job Menu (a form that contains allows users to "Post" to the Airtable API by converting a job to a new opportunity for the tracker)
+  * Add Job Menu (a form that contains allows users to "Post" to the Airtable API by converting a job to a new opportunity for the tracker)
 
 ## Wireframes
 
@@ -124,6 +124,44 @@ The following components are required for Profesh to achieve minimum viable prod
 ## Component Hierarchy
 
 ![Component Hierarchy](https://github.com/tylerhuyser/profesh/blob/master/Images/README_Images/Profesh%20-%20Component%20Hierarchy.002.jpeg?raw=true)
+
+## Repo Structure
+
+```
+|_src
+     |_app.js
+     |_screens
+                 |_Home.jsx
+                 |_OpportunityTracker.jsx
+                 |_FindJobs
+     |_components
+                 |_layout
+                                     |_Footer.jsx
+                                     |_Nav.jsx
+                                     |_Sidebar.jsx                                        
+                 |_Jobs
+                                     |_AddJob
+                                                 |_AddJobForm.jsx
+                                                 |_AddJobButton.jsx
+                                     |_JobResults
+                                                 |_JobCard.jsx
+                                                 |_JobResults.jsx
+                                     |_SearchJobs
+                                                 |_SearchJobs.jsx
+                 |_TrackOpportunities
+                                     |_AddOpportunity
+                                                          |_AddOpportunityForm.jsx
+                                                          |_AddOpportunityButton.jsx
+                                     |_OpportunityResults
+                                                          |_OpportunityCard.jsx
+                                                          |_OpportunityResults.jsx
+                                     |_SearchOpportunities
+                                                          |_OpportunitiesSearchBar.jsx
+                                     |_UpdateOpportunity
+                                                          |_UpdateOpportunity.jsx
+                                                          |_UpdateOpportunityButton.jsx
+
+```
 
 **MVP**:
 
