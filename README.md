@@ -147,7 +147,7 @@ The following components are required for Profesh to achieve minimum viable prod
 
 ```
 
-## Functionality
+## Functionality & Sample Code
 
 **Opportunity Tracker w/ Full CRUD Functionality**
 
@@ -155,7 +155,8 @@ The Opportunity Tracker offers users the ability to read, create, edit, and dele
 
 ```
 
-// Below calls upon the API to obtain Jobs data on load. 
+// Below calls upon the API to obtain Jobs data on load.
+
   useEffect(() => {
     async function jobsAPICall() {
       const apiURL = `https://www.themuse.com/api/public/jobs?page=75`
@@ -174,8 +175,6 @@ The Search Bar allows users to filter opportunity or job results using parameter
 ```
 
 {opportunities.filter(opportunity => opportunity.fields.companyName.toLowerCase().includes(lowerCaseQuery) || opportunity.fields.jobTitle.toLowerCase().includes(lowerCaseQuery)).map((opportunity, idx) => {
-          
-        // Documentation for Filter w/ Maps: https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
 
         return (
           <div className="opportunity-card-container" key={opportunity.id}>
@@ -213,9 +212,11 @@ Each job or opportunity card is able to expand on click and toggle between low- 
 ```
 
 //Below creates a state variable to store "expanded" opportunity cards
+
 const [expanded, setExpanded] = useState([])
 
 //Below function enables opportunity card expansion. If the id IS contained in the UseState array, it is removed (collapsed), if not, it is added (and expanded)
+
   function toggleExpand(id) {
     let opportunitiesContainer = document.getElementById(`${id}`);
     opportunitiesContainer.classList.toggle('expanded');
@@ -234,40 +235,41 @@ const [expanded, setExpanded] = useState([])
         console.log(expanded)
     };
   }
-  
+
 ```
 
 **Add Job/Add Opportunitiy Form Modals**
 
-The Add & Update Job or Opportunity 
+Reach Hooks enable the the Add Opportunity/Job Modals to toggle on click. Leveraging UseState, I created a "switch" that changed the modal's class from either "visible" or "hidden".
+
+A CSS animation is used in order to create the slider-like menu effect.
+
+```
+
+  // Below sets visibility of the form to "hidden". CSS for the "hidden" class is contained the corresponding component stylesheet "AddOpportunityForm.css"
+  
+  let visibilityClass = "hidden";
+
+  // Below toggles visibility to "visible" if the visibility prop (from parent Track Opportunities) is true.
+  
+  if (props.visibility) {
+    visibilityClass = "visible";
+  }
+
+  <div className={visibilityClass} id="addOpportunityFormContainer" >
+
+  [...]
+
+  </div>
+
+```
 
 **Desktop vs. Mobile Layout**
 
-Profehs 
+Profesh uses media queries in order to toggle between a two-column, desktop layout and a condensed mobile display.
 
 
-## SWOT Analysis
 
-* *Strengths*:
 
-    * Ability to work independently
- 
-    * Understanding of CRUD
- 
-    * Understanding of FlexBox
-
-* *Weaknesses*:
-
-    * Difficult to reign in scope
- 
-    * Prioritization of MVP
-
-* *Opportunities*:
-
-    * To create an app that can provide realistic value
-
-* *Threats*:
-
-    * Large Scope
 
 
