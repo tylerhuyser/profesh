@@ -147,6 +147,105 @@ The following components are required for Profesh to achieve minimum viable prod
 
 ```
 
+## Functionality
+
+**Opportunity Tracker w/ Full CRUD Functionality**
+
+The Opportunity Tracker offers users the ability to read, create, edit, and delete opportunities by connecting to the Airtable API.
+
+```
+
+// Below calls upon the API to obtain Jobs data on load. 
+  useEffect(() => {
+    async function jobsAPICall() {
+      const apiURL = `https://www.themuse.com/api/public/jobs?page=75`
+      const response = await Axios.get(apiURL);
+      setJobs(response.data.results)
+    }
+    jobsAPICall();
+  }, [fetchJobs]);
+
+```
+
+**Search**
+
+The Search Bar allows users to filter opportunity or job results using parameters, such as job title, company name, or keyword.
+
+```
+
+{opportunities.filter(opportunity => opportunity.fields.companyName.toLowerCase().includes(lowerCaseQuery) || opportunity.fields.jobTitle.toLowerCase().includes(lowerCaseQuery)).map((opportunity, idx) => {
+          
+        // Documentation for Filter w/ Maps: https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
+
+        return (
+          <div className="opportunity-card-container" key={opportunity.id}>
+              <OpportunityCard 
+                idx={idx}
+                opportunity={opportunity}
+                fetchOpportunities={fetchOpportunities}
+                setFetchOpportunities={setFetchOpportunities}
+                updateVisibility={updateVisibility}
+                setUpdateVisibility={setUpdateVisibility}
+                handleEdit={handleEdit}
+                expanded={expanded}
+                toggleExpand={toggleExpand}
+              />
+
+              <UpdateOpportunity
+                fetchOpportunities={fetchOpportunities}
+                setFetchOpportunities={setFetchOpportunities}
+                opportunity={opportunity}
+                handleEdit={ (e)=> handleEdit(e) }
+                toggleUpdateMenu={toggleUpdateMenu}
+                updateVisibility={updateVisibility}
+              />
+          </div>
+          )
+        })
+      }
+
+```
+
+**Expandable Cards**
+
+Each job or opportunity card is able to expand on click and toggle between low- and high- detail views.
+
+```
+
+//Below creates a state variable to store "expanded" opportunity cards
+const [expanded, setExpanded] = useState([])
+
+//Below function enables opportunity card expansion. If the id IS contained in the UseState array, it is removed (collapsed), if not, it is added (and expanded)
+  function toggleExpand(id) {
+    let opportunitiesContainer = document.getElementById(`${id}`);
+    opportunitiesContainer.classList.toggle('expanded');
+    console.log(expanded)
+    if (!expanded.includes(id)) {
+      setExpanded(prevExpand => {
+        return [...prevExpand, id]
+      });
+      console.log(expanded)
+    }; 
+    if (expanded.includes(id)) {
+      setExpanded(prevExpand => {
+        console.log(prevExpand);
+        return (prevExpand.filter(e => e !== id))
+      })
+        console.log(expanded)
+    };
+  }
+  
+```
+
+**Add Job/Add Opportunitiy Form Modals**
+
+The Add & Update Job or Opportunity 
+
+**Desktop vs. Mobile Layout**
+
+Profehs 
+
+
 ## SWOT Analysis
 
 * *Strengths*:
