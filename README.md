@@ -67,29 +67,39 @@ Opportunities are stored and accessed using *Airtable*. The Airtable API allows 
 
 <img src="https://i.imgur.com/VZp2auV.png" width="40%">
 
-## MVP
+## Key Components & MVP
 
-The MVP for my project will focus on building the "tracker" feature of Profesh. Components include:
+The following components are required for Profesh to achieve minimum viable product (MVP):
 
-* Search bar (to search saved opportunities)
+*  Home (acts as the app's landing page)
 
-* Opportunity cards (displaying high-level information on the tracked opportunity)
+*  Navigation Bar (allows users to navigate around the app)
 
-* Opportunity Details (displaying detailed information on the opportunity)
+*  Opportunity Tracker (connects to Airtable API and offers full CRUD functionality)
 
-* "Add" Button (allowing users to Post a new opportunity to AirTable API)
+** Opportunity Search Bar (allows users to search saved opportunities)
 
-* "Add" Form (a form containing various fields concerning the new opportunity)
+** Opportunity Results (displays a filtered list of saved opportunities using search parameters)
 
-* Bottom Navigation Bar (allowing users to navigate to other pages in the app)
+** Opportunity Cards (expandable cards that display low- and high-detail views for each opportunity)
+
+** Add Opportunity Menu Toggle Button  (toggles visibility of the "Add Opportunity Menu" -- a form that allows users to save new opportunities)
+
+** Add Opportunity Menu (a form that contains allows users to "Post" a new opportunity to the Airtable API)
 
 ## Post-MVP
 
-My Post-MVP will include:
+* Jobs List (connects to The Muse's API)
 
-* Home Page
+** Jobs Search Bar (allows users to search saved jobs)
 
-* Job Search Page
+** Jobs Results (displays a filtered list of saved jobs using search parameters)
+
+** Job Cards (expandable cards that display low- and high-detail views for each job)
+
+** Add Job Menu Toggle Button (toggles visibility of the "Save Job Menu" -- a form that allows users to save new jobs and add them to the Opportunities Tracker)
+
+** Add Job Menu (a form that contains allows users to "Post" to the Airtable API by converting a job to a new opportunity for the tracker)
 
 ## Wireframes
 
