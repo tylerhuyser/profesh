@@ -18,11 +18,11 @@ export default function validateForm(e, opportunityId, inputValues, fetchOpportu
     jobTitleInput.classList.add('invalid')
   }
   if (inputValues.seniorityLevel === "") {
-    let seniorityLevelInput = document.querySelector(`seniority-level-input-${opportunityId}`);
+    let seniorityLevelInput = document.querySelector(`seniority-level-select-${opportunityId}`);
     seniorityLevelInput.classList.add('invalid')
   }
   if (inputValues.employmentType === "") {
-    let employmentTypeInput = document.querySelector(`employment-type-input-${opportunityId}`);
+    let employmentTypeInput = document.querySelector(`employment-type-select-${opportunityId}`);
     employmentTypeInput.classList.add('invalid')
   }
   if (inputValues.location === "") {
