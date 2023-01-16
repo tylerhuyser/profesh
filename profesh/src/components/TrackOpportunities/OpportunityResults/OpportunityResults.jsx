@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./OpportunityResults.css"
+
 import UpdateOpportunity from "../UpdateOpportunity/UpdateOpportunity"
 import OpportunityCard from "../OpportunityResults/OpportunityCard"
 
@@ -12,43 +13,10 @@ function OpportunityResults (props) {
   const [expanded, setExpanded] = useState([])
 
   //Below creates a state variable to control the visibility of the Update Opportunity Form
-  const [updateVisibility, setUpdateVisibility] = useState(false);
+  // const [updateVisibility, setUpdateVisibility] = useState(false);
   
-  const { opportunities } = props;
-  const { searchQuery } = props
+  const { opportunities, searchQuery } = props;
   const lowerCaseQuery = searchQuery.toLowerCase()
-
-  //Below function enables opportunity card expansion. If the id IS contained in the UseState array, it is removed (collapsed), if not, it is added (and expanded)
-  function toggleExpand(id) {
-    let opportunitiesContainer = document.getElementById(`${id}`);
-    opportunitiesContainer.classList.toggle('expanded');
-    console.log(expanded)
-    if (!expanded.includes(id)) {
-      setExpanded(prevExpand => {
-        return [...prevExpand, id]
-      });
-      console.log(expanded)
-    }; 
-    if (expanded.includes(id)) {
-      setExpanded(prevExpand => {
-        console.log(prevExpand);
-        return (prevExpand.filter(e => e !== id))
-      })
-        console.log(expanded)
-    };
-  }
-
-  // Below handles selection of the "Add Job" button
-  function handleEdit(e) {
-    toggleUpdateMenu();
-       e.stopPropagation();
-  }
-
-  // Below toggles visibility of the Update Opportunity Menu
-  function toggleUpdateMenu() {
-    setUpdateVisibility(!updateVisibility);
-  };
-
 
   return (
     <div className="opportunitiesResults">
@@ -72,21 +40,19 @@ function OpportunityResults (props) {
                 opportunity={opportunity}
                 fetchOpportunities={fetchOpportunities}
                 setFetchOpportunities={setFetchOpportunities}
-                updateVisibility={updateVisibility}
-                setUpdateVisibility={setUpdateVisibility}
-                handleEdit={handleEdit}
+                // updateVisibility={updateVisibility}
+                // setUpdateVisibility={setUpdateVisibility}
                 expanded={expanded}
-                toggleExpand={toggleExpand}
+                setExpanded={setExpanded}
               />
 
-              <UpdateOpportunity
+            {/* <UpdateOpportunity
+                opportunity={opportunity}
                 fetchOpportunities={fetchOpportunities}
                 setFetchOpportunities={setFetchOpportunities}
-                opportunity={opportunity}
-                handleEdit={ (e)=> handleEdit(e) }
-                toggleUpdateMenu={toggleUpdateMenu}
                 updateVisibility={updateVisibility}
-              />
+                setUpdateVisibility={setUpdateVisibility}
+              /> */}
           </div>
           )
         })

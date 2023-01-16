@@ -1,35 +1,26 @@
-import React from 'react';
-import Axios from 'axios';
+import React, {useState} from 'react';
 import "./OpportunityCard.css"
 
+import UpdateOpportunity from '../UpdateOpportunity/UpdateOpportunity';
 import UpdateOpportunityButton from "../UpdateOpportunity/UpdateOpportunityButton"
+import toggleExpand from '../../../functions/toggleExpand';
+import deleteOpportunity from '../../../functions/deleteOpportunity';
 
 export default function OpportunityCard(props) {
 
-  const { idx, opportunity, handleEdit, toggleExpand } = props
   const { fetchOpportunities, setFetchOpportunities } = props
+  // const { updateVisibility, setUpdateVisibility } = props
+  const { expanded, setExpanded } = props
+  const { idx, opportunity } = props
 
-  const { expanded } = props
+  const [updateVisibility, setUpdateVisibility] = useState(false);
 
   const opportunityStatus = (opportunity.fields.opportunityStatus.charAt(0).toLowerCase() + opportunity.fields.opportunityStatus.slice(1)).split("/").join("-").split(" ").join("-")
   const actionItem = (opportunity.fields.actionItems.charAt(0).toLowerCase() + opportunity.fields.actionItems.slice(1)).split("/").join("-").split(" ").join("-")
-    
-    //Below function handles deletion of an opportunity from the Airtable API.
-    const handleDelete = async (e, idx) => {
-      e.stopPropagation();
-      console.log(idx)
-      const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities/${idx}`
-  
-      await Axios.delete(airtableURL, {
-        headers: {
-          "Authorization": `Bearer ${process.env.REACT_APP_KEY}`,
-        },
-      });
-      setFetchOpportunities(!fetchOpportunities);
-    };
 
   return (
-    <div className={`opportunity-card`} key={opportunity.id} id={idx} onClick={() => toggleExpand(idx)} style={{
+    <>
+    <div className={`opportunity-card`} key={opportunity.id} id={idx} onClick={() => toggleExpand(idx, expanded, setExpanded)} style={{
               
       // Opportunity Card appearance properties
       backgroundColor: "white",
@@ -166,9 +157,8 @@ export default function OpportunityCard(props) {
                 justifyContent: "space-evenly",
 
               }}>
-                <UpdateOpportunityButton
-                  handleEdit={handleEdit} />
-                <button className="updateOpportunityButton" onClick={(e) => handleDelete(e, opportunity.id)} style={{
+                <UpdateOpportunityButton updateVisibility={updateVisibility} setUpdateVisibility={setUpdateVisibility} />
+                <button className="updateOpportunityButton" onClick={() => deleteOpportunity(opportunity.id, fetchOpportunities, setFetchOpportunities)} style={{
                   width: "100px",
                   textAlign: "center",
                   border: "5px solid #F7116B",
@@ -184,6 +174,16 @@ export default function OpportunityCard(props) {
         }
       </div>
     </div>
+      
+    <UpdateOpportunity
+      opportunity={opportunity}
+      fetchOpportunities={fetchOpportunities}
+      setFetchOpportunities={setFetchOpportunities}
+      updateVisibility={updateVisibility}
+      setUpdateVisibility={setUpdateVisibility}
+    />
+  </>
+    
   )
 }
   

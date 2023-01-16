@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import OpportunityResults from "../OpportunityResults/OpportunityResults"
-import Axios from 'axios';
+
+import getOpportunities from '../../../functions/getOpportunities';
 
 export default function OpportunitiesSearchBar (props) {
 
@@ -15,16 +16,12 @@ export default function OpportunitiesSearchBar (props) {
 
   // Below calls upon the API to obtain Opportunity Data from the API
   useEffect(() => {
-    async function apiCall() {
-      const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities`
-      const response = await Axios.get(airtableURL, {
-        headers: {
-          "Authorization": `Bearer ${process.env.REACT_APP_KEY}`,
-        },
-      });
-      setOpportunities(response.data.records)
+    const getOpportunitiesData = async () => {
+      const opportunitiesData = await getOpportunities()
+      console.log(opportunitiesData)
+      setOpportunities(opportunitiesData)
     }
-    apiCall();
+    getOpportunitiesData()
   }, [fetchOpportunities]);
 
 

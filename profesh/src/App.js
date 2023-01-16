@@ -15,7 +15,7 @@ function App () {
 
     // The Below builds the router for the Profesh App 
 
-    <div className="App">
+    <div className="app">
       <div className="desktop-layout">
 
         <Sidebar />

@@ -1,11 +1,15 @@
 import React from 'react';
 
+import handleMouseDown from '../../../functions/handleMouseDown';
+
 // Below Function creates the floating Add Opportunity Button, which triggers the Add Opportunity Form/Menu to either hide or display.
-export default function AddOpportunityButton (props) {
+export default function AddOpportunityButton(props) {
+  
+  const {visibility, setVisibility} = props
 
   return (
     <div>
-      <button className="addOpportunityButton fade-in-fwd" id="addOpportunityButton" onMouseDown = { props.handleMouseDown } style={{
+      <button className="addOpportunityButton fade-in-fwd" id="addOpportunityButton" onMouseDown = {(e) => handleMouseDown(visibility, setVisibility, 'Add Opportunity Open Menu Button')} style={{
 
         //Circle Button Properties
         height: "75px", // defines height

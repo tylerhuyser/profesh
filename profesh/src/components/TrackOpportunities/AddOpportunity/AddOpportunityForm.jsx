@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
+
+import handleMouseDown from '../../../functions/handleMouseDown';
+
 import "./AddOpportunityForm.css"
 
 
@@ -32,6 +35,8 @@ function AddOpportunityForm (props) {
   if (props.visibility) {
     visibilityClass = "visible";
   }
+
+  const {visibility, setVisibility} = props
 
   // Below function handles posting Add Opportunity Form Inputs to the AirTable API when they pass validation.
   const handlePost = async () => {
@@ -80,7 +85,7 @@ function AddOpportunityForm (props) {
     setContactPhoneNumber("");
 
     // Below re-toggles the Add Opportunity Form back to hidden.
-    props.toggleAddOpportunityMenu();
+    handleMouseDown(visibility, setVisibility, "Add Opportunity Submit Button");
   }
   
   // Below Function validates the Form Inputs for submission to API. If all tests are passed, the "handlePost" function is triggered.
@@ -251,7 +256,7 @@ function AddOpportunityForm (props) {
             <button className="addOpportunityFormButton" type="submit" onClick={validateForm} >
               Submit</button>
 
-            <button className="addOpportunityFormButton" onClick={props.toggleAddOpportunityMenu}>
+            <button className="addOpportunityFormButton" onClick={(e)=> handleMouseDown(visibility, setVisibility, "Add Opportunity Cancel Button")}>
               Cancel</button>
             
         </div>
