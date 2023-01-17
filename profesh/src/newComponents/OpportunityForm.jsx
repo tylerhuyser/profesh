@@ -10,9 +10,9 @@ import validateForm from '../../../functions/validateForm';
 export default function OpportunityForm (props) {
 
    // Below destructures the "fetch opportunities" property -- allows the page to automatically refresh after a new opportunity is submitted
-  const { fetchOpportunities, setFetchOpportunities } = props
-  const { updateVisibility, setUpdateVisibility } = props
   const { opportunity, mode } = props
+  const { fetchOpportunities, setFetchOpportunities } = props
+  const { visibility, setVisibility } = props
 
   const [inputValues, setInputValues] = useState(() => initializeInputValues(opportunity, mode))
 
@@ -21,7 +21,7 @@ export default function OpportunityForm (props) {
   let visibilityClass = "hidden";
 
   // Below toggles visibility to "visible" if the visibility prop (from parent Track Opportunities) is true.
-  if (updateVisibility) {
+  if (visibility) {
     visibilityClass = "visible";
   }
 
@@ -82,7 +82,7 @@ export default function OpportunityForm (props) {
           <option className='opportunity-form-select-option' id={`action-items-disabled-value-${opportunity.id}`} disabled value=""> Select An Option </option>
           <option className='opportunity-form-select-option' id={`action-items-prepare-resume-${opportunity.id}`} value="Prepare Resume">Prepare Resume</option>
           <option className='opportunity-form-select-option' id={`action-items-write-cover-letter-${opportunity.id}`} value="Write Cover Letter">Write Cover Letter</option>
-          <option className='opportunity-form-select-option' id={`submit-application-complete-project-${opportunity.id}`} value="Submit Application">Submit Application</option>
+          <option className='opportunity-form-select-option' id={`action-items-submit-application-${opportunity.id}`} value="Submit Application">Submit Application</option>
           <option className='opportunity-form-select-option' id={`action-items-followup-email-${opportunity.id}`} value="Follow-Up E-mail">Follow-Up E-mail</option>
           <option className='opportunity-form-select-option' id={`action-items-phone-screen-prep-${opportunity.id}`} value="Phone Screen Prep">Phone Screen Prep</option>
           <option className='opportunity-form-select-option' id={`action-items-interview-prep-${opportunity.id}`} value="Interview Prep">Interview Prep</option>
@@ -103,10 +103,10 @@ export default function OpportunityForm (props) {
       
       
       <div className="opportunity-form-buttons-container">
-        <button className="opportunity-form-button" id="opportunity-form-submit-button" type="submit" onClick={(e) => validateForm(e, opportunity.id, inputValues, fetchOpportunities, setFetchOpportunities, updateVisibility, setUpdateVisibility)} >
+        <button className="opportunity-form-button" id="opportunity-form-submit-button" type="submit" onClick={(e) => validateForm(e, opportunity.id, inputValues, fetchOpportunities, setFetchOpportunities, visibility, setVisibility)} >
           Submit</button>
         
-        <button className="opportunity-form-button" id="opportunity-form-cancel-button" onClick={() => toggleMenu(updateVisibility, setUpdateVisibility)} >
+        <button className="opportunity-form-button" id="opportunity-form-cancel-button" onClick={() => toggleMenu(visibility, setVisibility)} >
           Cancel</button>
         
       </div>

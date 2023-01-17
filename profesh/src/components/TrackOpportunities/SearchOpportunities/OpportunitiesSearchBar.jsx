@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import OpportunityResults from "../OpportunityResults/OpportunityResults"
 
-import getOpportunities from '../../../functions/getOpportunities';
+import getOpportunities from '../../../functions/getTrackedJobs';
 
 export default function OpportunitiesSearchBar (props) {
 

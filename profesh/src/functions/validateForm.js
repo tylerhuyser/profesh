@@ -1,7 +1,7 @@
 import gatherInputValues from "./gatherInputValues";
 import updateOpportunity from "./updateOpportunity";
 
-export default function validateForm(e, opportunityId, inputValues, fetchOpportunities, setFetchOpportunities, updateVisibility, setUpdateVisibility) {
+export default function validateForm(e, opportunityId, inputValues, fetchOpportunities, setFetchOpportunities, visibility, setVisibility) {
     
   console.log(opportunityId)
   console.log(inputValues)
@@ -56,6 +56,6 @@ export default function validateForm(e, opportunityId, inputValues, fetchOpportu
 
   // If all tests are passed, the Handle Post function, which triggers the AirTable API Call is made.
   if (inputValues.companyName !== "" && inputValues.jobTitle !== "" && inputValues.seniorityLevel !== "" && inputValues.employmentType !== "" && inputValues.location !== "" && inputValues.opportunityStatus !== "" && inputValues.actionItems !== "") {
-    updateOpportunity(opportunityId, inputValues, fetchOpportunities, setFetchOpportunities, updateVisibility, setUpdateVisibility);
+    updateOpportunity(opportunityId, inputValues, fetchOpportunities, setFetchOpportunities, visibility, setVisibility);
   }
 }

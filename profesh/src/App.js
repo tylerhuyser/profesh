@@ -1,70 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
+import Layout from "./newComponents/shared/Layout"
 import Home from "../src/screens/Home";
 import FindJobs from "../src/screens/FindJobs";
 import TrackOpportunities from "../src/screens/TrackOpportunities";
 
-import Nav from './components/layout/Nav';
-import Sidebar from './components/layout/Sidebar'
-import Footer from './components/layout/Footer';
+function App() {
+  
+  const [activePage, setActivePage] = useState("home")
+  const [searchQuery, setSearchQuery] = useState("")
 
-function App () {
   return (
-
-    // The Below builds the router for the Profesh App 
-
-    <div className="app">
-      <div className="desktop-layout">
-
-        <Sidebar />
-
-        <main>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-
-            <Route path="/jobs">
-              <FindJobs />
-            </Route>
-
-            <Route path="/tracker">
-              <TrackOpportunities />
-            </Route>
-
-          </Switch>
-        </main>
-
-        <Footer />
-
-      </div>
-      
-      <div className="mobile-layout">
-      {/* As Nav is listed outside of the "main", it will appear on every page. */}
-      <Nav />
-      
-      <main>
-
-        {/* The Main will switch between one of the three routes (home, jobs, or tracker) depending on user selection */}
+    <div className='app'>
+      <Layout activePage={activePage}>
 
         <Switch>
+
           <Route exact path="/">
-            <Home />
+            <Home activePage={activePage} setActivePage={setActivePage} />
           </Route>
 
           <Route path="/jobs">
-            <FindJobs />
+            <FindJobs activePage={"find new jobs"} setActivePage={setActivePage} searchQuery={searchQuery} />
           </Route>
 
           <Route path="/tracker">
-            <TrackOpportunities />
+            <TrackOpportunities activePage={"job tracker"} setActivePage={setActivePage} searchQuery={searchQuery} />
           </Route>
 
         </Switch>
-        </main>
-      </div>
+
+      </Layout>
     </div>
   );
 }

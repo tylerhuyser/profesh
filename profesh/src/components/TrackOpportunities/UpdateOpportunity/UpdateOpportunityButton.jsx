@@ -8,7 +8,7 @@ export default function UpdateOpportunityButton(props) {
 
   return(
 
-    <button className="updateOpportunityButton" id="updateOpportunityButton" onMouseDown={(e) => toggleMenu(updateVisibility, setUpdateVisibility)} style={{
+    <button className="updateOpportunityButton" id="updateOpportunityButton" onMouseDown={() => toggleMenu(updateVisibility, setUpdateVisibility)} style={{
       
       width: "100px",
       textAlign: "center",

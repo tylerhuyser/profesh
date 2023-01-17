@@ -9,7 +9,7 @@ export default function AddOpportunityButton(props) {
 
   return (
     <div>
-      <button className="addOpportunityButton fade-in-fwd" id="addOpportunityButton" onMouseDown = {(e) => handleMouseDown(visibility, setVisibility, 'Add Opportunity Open Menu Button')} style={{
+      <button className="addOpportunityButton fade-in-fwd" id="addOpportunityButton" onMouseDown = {() => handleMouseDown(visibility, setVisibility, 'Add Opportunity Open Menu Button')} style={{
 
         //Circle Button Properties
         height: "75px", // defines height

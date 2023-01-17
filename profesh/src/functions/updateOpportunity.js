@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import toggleMenu from "./toggleMenu";
 
-export default async function updateOpportunity(opportunityID, inputValues, fetchOpportunities, setFetchOpportunities, updateVisibility, setUpdateVisibility) {
+export default async function updateOpportunity(opportunityID, inputValues, fetchOpportunities, setFetchOpportunities, visibility, setVisibility) {
 
   const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities/${opportunityID}`;
   console.log(airtableURL)
@@ -19,5 +19,5 @@ export default async function updateOpportunity(opportunityID, inputValues, fetc
   setFetchOpportunities(!fetchOpportunities);
   
   // Below re-toggles the Update Opportunity Form back to hidden.
-  toggleMenu(updateVisibility, setUpdateVisibility);
+  toggleMenu(visibility, setVisibility);
 }
