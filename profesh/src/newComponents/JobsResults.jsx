@@ -23,6 +23,7 @@ export default function JobsResults(props) {
   const jobCardsJSX = filteredJobsData?.map((job, idx) => {
     if (location.pathname === "/jobs") {
       let jobData = {
+        id: job.id,
         fields: {
           companyName: job.company.name,
           jobTitle: job.name,
@@ -35,11 +36,11 @@ export default function JobsResults(props) {
         }
       }
       return (
-        <JobCard idx={idx} job={jobData} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} />
+        <JobCard job={jobData} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} />
       )
     } else if (location.pathname === "/tracker") {
       return (
-        <JobCard idx={idx} job={job} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} />
+        <JobCard job={job} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} />
       )
     }
   })

@@ -2,13 +2,13 @@ import React from "react"
 import { useLocation } from 'react-router-dom'
 
 import toggleExpand from "../functions/toggleExpand.js"
-import createExpandedJSX from "./createExpandedJSX"
+import ExpandedJobCard from "./ExpandedJobCard"
 
 import "./JobCard.css"
 
 export default function JobCard (props) {
   
-  const { idx, job } = props
+  const {job } = props
   const { visibility, setVisibility } = props
   const { expanded, setExpanded } = props
   const location = useLocation()
@@ -16,10 +16,10 @@ export default function JobCard (props) {
   const opportunityStatus = (job.fields.opportunityStatus.charAt(0).toLowerCase() + job.fields.opportunityStatus.slice(1)).split("/").join("-").split(" ").join("-")
   const actionItem = (job.fields.actionItems.charAt(0).toLowerCase() + job.fields.actionItems.slice(1)).split("/").join("-").split(" ").join("-")
 
-  const expandedJSX = createExpandedJSX(idx, job, location.pathname, expanded, setExpanded, visibility, setVisibility)
+  const expandedJSX = ExpandedJobCard(job, location.pathname, expanded, setExpanded, visibility, setVisibility)
 
   return (
-    <div className={location.pathname === "/tracker" ? "tracked-job-card" : "new-job-card"} key={job.id} id={job.id} onClick={() => toggleExpand(idx, expanded, setExpanded)}>
+    <div className={location.pathname === "/tracker" ? "tracked-job-card" : "new-job-card"} key={job.id} id={job.id} onClick={() => toggleExpand(job.id, expanded, setExpanded)}>
 
       <div className="company-information-container">
 
@@ -46,13 +46,13 @@ export default function JobCard (props) {
       
       :
         
-        <div className="abbreviated-job-description-container">
-          {(job.fields.jobDescription.length > 200 && !expanded.includes(idx)) ? job.fields.jobDescription.substring(0,197) + "..." : job.fields.jobDescription}
+        <div className={expanded.includes(job.id) ? "job-description" : "abbreviated-job-description"}>
+          {(job.fields.jobDescription.length > 200 && !expanded.includes(job.id)) ? job.fields.jobDescription.substring(0,197) + "..." : job.fields.jobDescription}
         </div>
         
       }
-
-      {expandedJSX}
+      
+      { expandedJSX}
 
     </div>
   )

@@ -35,10 +35,7 @@
   object-fit: cover;
 }
 
-.job-title {
-  font-size: clamp(12px, 1.5em, 20px);
-  margin: 10px 0px 5px 0px;
-}
+/*  */
 
 .job-information-container {
   display: flex;
@@ -46,23 +43,53 @@
   overflow: hidden;
 }
 
-.job-description, .abbreviated-job-description-container {
+.job-title {
+  font-size: clamp(12px, 1.5em, 20px);
+  margin: 10px 0px 5px 0px;
+}
+
+.job-description, .abbreviated-job-description {
   text-align: left;
   /* font-size: 10px; */
   /* word-wrap: none; */
   text-overflow: ellipsis;
 
-  font-size: clamp(12px, 1em, 16px)
+  font-size: clamp(12px, 1em, 16px);
 }
 
-.expanded-contents {
+/*  */
+
+.expanded-container {
   display: flex;
   flex-direction: column;
+  font-size: clamp(12px, 1em, 16px);
 }
 
-.opportunityCRUDbuttons {
+.expanded-label {
+  font-size: clamp(12px, 1em, 16px);
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.expanded-copy {
+  font-size: clamp(12px, 1em, 16px);
+  margin-top: 5px;
+}
+
+.expanded-job-card-buttons-container {
   display: flex;
   justify-content: space-evenly;
+}
+
+.expanded-job-card-button {
+  width: 30%;
+  padding: 10px;
+  margin-top: 10px;
+
+  text-align: center;
+  background: white;
+  border: 5px solid #F7116B;
+  border-radius: 18px;
 }
 
 
