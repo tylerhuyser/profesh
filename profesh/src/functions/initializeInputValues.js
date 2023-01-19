@@ -1,5 +1,5 @@
-export default function initializeInputValues (opportunity, mode) {
-  if (mode == "new") {
+export default function initializeInputValues (job, formMode) {
+  if (formMode === "new") {
     let initialValues = {
       companyName: null,
       jobTitle: null,
@@ -16,21 +16,21 @@ export default function initializeInputValues (opportunity, mode) {
       companyLogo: null
     }
     return initialValues
-  } else if (mode == "update") {
+  } else if (formMode === "update") {
     let initialValues = {
-      companyName: opportunity.companyName,
-      jobTitle: opportunity.jobTitle,
-      seniorityLevel: opportunity.seniorityLevel,
-      employmentName: opportunity.employmentName,
-      location: opportunity.location,
-      jobDescription: opportunity.jobDescription,
-      opportunityStatus: opportunity.opportunityStatus,
-      actionItems: opportunity.actionItems,
-      dateOfLastContact: opportunity.dateOfLastContact,
-      contactName: opportunity.className,
-      contactEmail: opportunity.contactEmail,
-      contactPhoneNumber: opportunity.contactPhoneNumber,
-      companyLogo: opportunity.companyLogo
+      companyName: job.companyName,
+      jobTitle: job.jobTitle,
+      seniorityLevel: job.seniorityLevel,
+      employmentName: job.employmentName,
+      location: job.location,
+      jobDescription: job.jobDescription,
+      opportunityStatus: job.opportunityStatus,
+      actionItems: job.actionItems,
+      dateOfLastContact: job.dateOfLastContact,
+      contactName: job.className,
+      contactEmail: job.contactEmail,
+      contactPhoneNumber: job.contactPhoneNumber,
+      companyLogo: job.companyLogo
     }
   }
 }

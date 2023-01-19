@@ -1,11 +1,11 @@
-.tracked-job-card {
+.tracked-job-card, .new-job-card {
   display: flex;
   flex-direction: column;
 
   background-color: white;
   box-shadow: 0px 8px 10px darkgray;
 
-  padding: 5px;
+  padding: 10px;
   margin: 10px 20px;
 }
 
@@ -13,8 +13,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   overflow: hidden;
-  margin: 10px;
+  margin: 10px 0px;
 }
 
 .company-name {
@@ -25,10 +26,137 @@
 
   width: 50%;
   margin: 0px 0px 0px 10px;
+
+  font-size: clamp(12px, 1.5em, 20px);
+}
+
+.company-logo {
+  width: 20%;
+  object-fit: cover;
+}
+
+.job-title {
+  font-size: clamp(12px, 1.5em, 20px);
+  margin: 10px 0px 5px 0px;
 }
 
 .job-information-container {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.job-description, .abbreviated-job-description-container {
+  text-align: left;
+  /* font-size: 10px; */
+  /* word-wrap: none; */
+  text-overflow: ellipsis;
+
+  font-size: clamp(12px, 1em, 16px)
+}
+
+.expanded-contents {
+  display: flex;
+  flex-direction: column;
+}
+
+.opportunityCRUDbuttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+/* Opportunity Status */
+
+.tracker-container {
+  display:  flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0px 15px 0px;
+
+  font-size: clamp(12px, 1em, 16px)
+}
+
+.opportunity-status-container {
+  font-size: 12px;
+
+  width: 40%;
+  padding: 5px 10px;
+  
+  border-radius: 12px;
+  /* border: solid red 2px; */
+}
+
+.applied {
+  color: #2D7DD2;
+  border: 2px solid #2D7DD2;
+}
+
+.phone-screening-Pending-Decision, .interviewed-Pending-Decision {
+  color: #9AA0A8;
+  border: 2px solid #9AA0A8;
+}
+
+.interview, .phone-Screening {
+  color: #A30015;
+  border: 2px solid #A30015;
+}
+
+.case-Study-Exercise {
+  color: #A30015;
+  border: 2px solid #A30015;
+}
+
+.offer {
+  color: green;
+  border: 2px solid green;
+}
+
+.negotation {
+  color :#97CC04;
+  border: 2px solid #97CC04;
+}
+
+
+/* Action Items */
+
+.action-item-container {
+  color: white;
+  font-size: 12px;
+
+  width: 40%;
+  padding: 5px 10px;
+
+  border-radius: 12px;
+
+}
+
+.prepare-Resume {
+  background-color: #2D7DD2;
+  border: solid #2D7DD2 2px;
+}
+
+.write-Cover-Letter {
+  background-color: #2D7DD2;
+  border: solid #2D7DD2 2px;
+}
+
+.submit-Application {
+  background-color: #1C3144;
+  border: solid #1C3144 2px;
+}
+
+.follow-Up-E-mail {
+  background-color: #9AA0A8;
+  border: solid #9AA0A8 2px;
+}
+
+.phone-Screen-Prep, .interview-Prep {
+  background-color: #A30015 ;
+  border: solid #A30015 2px;
+}
+
+.case-Study-Exercise {
+  background-color: #A30015;
+  border: solid #A30015 2px;
 }

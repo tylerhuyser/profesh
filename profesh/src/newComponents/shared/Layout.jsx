@@ -8,13 +8,12 @@ export default function Layout(props) {
 
   const [viewNav, setViewNav] = useState(false)
 
-  const { activePage } = props
   const { searchQuery, setSearchQuery} = props
   
   return (
     <div className='layout-container'>
 
-      <SearchBar activePage={activePage} viewNav={viewNav} setViewNav={setViewNav} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <SearchBar viewNav={viewNav} setViewNav={setViewNav} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
       <div className='body-container'>
         {props.children}

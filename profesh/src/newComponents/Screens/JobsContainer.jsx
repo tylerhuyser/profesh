@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom'
 
 import JobsResults from "../JobsResults"
 import OpportunityForm from "../OpportunityForm"
@@ -9,30 +10,38 @@ import getTrackedJobs from "../../functions/getTrackedJobs.js"
 
 export default function JobsContainer (props) {
 
-  const { searchQuery } = props
-  const { activePage, setActivePage } = props
-  
+  const { searchQuery, setSearchQuery } = props
+
   const [jobs, setJobs] = useState([])
-  const [visibility, setVisibility] = useState(false);
-  const [fetchOpportunities, setFetchOpportunities] = useState(false)
+  const [activeJob, setActiveJob] = useState(null)
+  const [mount, setMount] = useState(false)
   
-  useEffect(() => {
-    if (activePage == "find new jobs") {
-      setActivePage("new jobs")
-    } else if (activePage == "jobs tracker") {
-      setActivePage("track jobs")
-    }
-  }, [])
+  const [formMode, setFormMode] = useState("")
+
+  const [visibility, setVisibility] = useState(false);
+
+  const location = useLocation()
 
   useEffect(() => {
-    if (activePage == "find new jobs" || " new jobs") {
+    setMount(false)
+  }, [location.pathname])
+
+  useEffect(() => {
+    setSearchQuery("")
+  }, [location.pathname])
+
+  useEffect(() => {
+    console.log(`inside useEffect #1 -- (App.js)`)
+    if (location.pathname === "/jobs") {
+      console.log(`getting new jobs data from LINKEDIN`)
       const getNewJobsData = async () => {
         const newJobsData = await getNewJobs()
         console.log(newJobsData)
         setJobs(newJobsData)
       }
-    }
-    else if (activePage == "jobs tracker" || "track jobs") {
+      getNewJobsData()
+    } else if (location.pathname === "/tracker") {
+      console.log(`getting tracked jobs data from AIRTABLE`)
       const getTrackedJobsData = async () => {
         const trackedJobsData = await getTrackedJobs()
         console.log(trackedJobsData)
@@ -40,20 +49,46 @@ export default function JobsContainer (props) {
       }
       getTrackedJobsData()
     }
-  }, [fetchOpportunities]);
+  }, [location.pathname])
+
+  useEffect(() => {
+    console.log(`inside useEffect #2 -- (App.js)`)
+    console.log(`jobs value below`)
+    console.log(jobs)
+    console.log(jobs[0])
+    console.log(jobs.length === 0)
+    if (jobs[0]) {
+      console.log(jobs)
+      console.log('setting mount value true')
+      setMount(true)
+    }
+  }, [jobs])
 
   return (
 
-    // Below passes props to the three child components, "Opportunities Search", "Add Opportunity Button", and "Add Opportunity Form"
-    <div className="job-tracker-container">
-
-      <JobsResults activePage={activePage} jobs={jobs} searchQuery={searchQuery} fetchOpportunities={fetchOpportunities} setFetchOpportunities={setFetchOpportunities} />
+    <>
+      { (jobs.length > 0) && (location.pathname === "/jobs" || "/tracker") && mount ?
       
-      <OpportunityForm opportunity={opportunity} mode={mode} visibility={visibility} setVisibility={setVisibility} fetchOpportunities={fetchOpportunities} setFetchOpportunities={setFetchOpportunities} />
+        <div className="job-tracker-container">
 
-      <TrackNewJobButton visibility={visibility} setVisibility={setVisibility} />
+          <JobsResults jobs={jobs} mount={mount} setActiveJob={setActiveJob} setFormMode={setFormMode} searchQuery={searchQuery} visibility={visibility} setVisibility={setVisibility} />
+        
+          {visibility ?
+            <OpportunityForm activeJob={activeJob} formMode={formMode} visibility={visibility} setVisibility={setVisibility} />
+            
+            :
+            <></>
+          }
 
-    </div>
+          <TrackNewJobButton setFormMode={setFormMode} visibility={visibility} setVisibility={setVisibility} />
+
+        </div>
+    :
+     
+      <p>LOADING</p>
+    
+    }
+    
+  </>
   )
-
 }

@@ -1,69 +1,68 @@
-import React, { useState } from "./react"
+import React, { useState } from "react"
+import { useLocation } from 'react-router-dom'
 
-import JobCard from "./JobCard"
+import JobCard from './JobCard'
+import filterJobs from "../functions/filterJobs.js"
+
+import "./JobResults.css"
 
 export default function JobsResults(props) {
 
-  const { activePage, jobs, searchQuery } = props
-  const { fetchOpportunities, setFetchOpportunities } = props
-  const lowerCaseQuery = searchQuery.toLowerCase()
+  const { mount, jobs, searchQuery, setActiveJob, setFormMode } = props
+  const { visibility, setVisibility } = props
   
   const [expanded, setExpanded] = useState([])
+  const location = useLocation()
 
-  function createJobCardsJSX() {
-    if (activePage == "new jobs" || "find new jobs") {
-      {jobs.filter(job =>
-        job.company.name.toLowerCase().includes(lowerCaseQuery) ||
-        job.name.toLowerCase().includes(lowerCaseQuery) ||
-        job.locations.name.toLowerCase().includes(lowerCaseQuery)).map(
-          (job, idx) => {
-
-            let jobDescription = job.contents;
-            let formattedDescription = jobDescription.replace(/(<([^>]+)>)/gi, "")
-
-            return (
-              <div className="job-card-container">
-                <JobCard
-                  idx={idx}
-                  job={job}
-                  fetchJobs={fetchJobs}
-                  setFetchJob={setFetchJobs}
-                  formattedDescription={formattedDescription}
-                  expanded={expanded}
-                  toggleExpand={toggleExpand}
-                  handleAddJob={handleAddJob}
-                  addJobVisibility={addJobVisibility}
-                
-                />
-              </div>
-
-            )
-          })
-      }
-    } else if (activePage == "jobs tracker" || "track jobs")
-    {
-      {jobs.filter(job => job.fields.companyName.toLowerCase().includes(lowerCaseQuery) || job.fields.jobTitle.toLowerCase().includes(lowerCaseQuery)).map((job, idx) => {
-        return (
-          <JobCard
-            idx={idx}
-            job={job}
-            activePage={activePage}
-            fetchOpportunities={fetchOpportunities}
-            setFetchOpportunities={setFetchOpportunities}
-            expanded={expanded}
-            setExpanded={setExpanded}
-          />
-        )
-      })}
-}  }
-
-  const jobCardsJSX = createJobCardsJSX()
+  console.log(props)
+  console.log("inside JobResults component")
+  console.log(`The Value of Mount is ${mount}`)
   
-  return (
-    <div className="jobs-container" id={activePage == "jobs tracker" ? "tracked-jobs-container" : "new-jobs-container"}>
+  let filteredJobsData = filterJobs(jobs, mount, searchQuery.toLowerCase(), location.pathname)
+  
+  const jobCardsJSX = filteredJobsData?.map((job, idx) => {
+    if (location.pathname === "/jobs") {
+      let jobData = {
+        fields: {
+          companyName: job.company.name,
+          jobTitle: job.name,
+          jobDescription: job.contents.replace(/(<([^>]+)>)/gi, ""),
+          location: job.locations[0].name,
+          postingDate: job.publication_date.slice(0,10),
+          jobType: job.type,
+          actionItems: "",
+          opportunityStatus: ""
+        }
+      }
+      return (
+        <JobCard idx={idx} job={jobData} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} />
+      )
+    } else if (location.pathname === "/tracker") {
+      return (
+        <JobCard idx={idx} job={job} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} />
+      )
+    }
+  })
+  
+  console.log(jobCardsJSX)
 
-      {jobCardsJSX}
+  return (
+    <div className="jobs-container" id={location.pathname === "/tracker" ? "tracked-jobs-container" : "new-jobs-container"}>
+
+      {mount ?
+
+        <>
       
+          {jobCardsJSX}
+          
+        </>
+
+        :
+        
+        <p>Loading...</p>
+        
+      }
+
     </div>
   )
 }

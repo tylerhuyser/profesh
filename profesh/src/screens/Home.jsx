@@ -7,11 +7,11 @@ export default function Home(props) {
 
   const {activePage, setActivePage} = props
 
-  useEffect(() => {
-    if (activePage !== "home") {
-      setActivePage("home")
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (activePage !== "/home") {
+  //     setActivePage("/home")
+  //   }
+  // }, [])
 
   return (
     <div className="home-container">
