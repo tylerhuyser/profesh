@@ -71,9 +71,9 @@ export default function JobsContainer (props) {
       
         <div className="job-tracker-container">
 
-          <JobsResults jobs={jobs} mount={mount} setActiveJob={setActiveJob} setFormMode={setFormMode} searchQuery={searchQuery} visibility={visibility} setVisibility={setVisibility} />
+          <JobsResults jobs={jobs} mount={mount} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode} searchQuery={searchQuery} visibility={visibility} setVisibility={setVisibility} />
         
-          {visibility ?
+          {visibility && activeJob ?
             <OpportunityForm activeJob={activeJob} formMode={formMode} visibility={visibility} setVisibility={setVisibility} />
             
             :

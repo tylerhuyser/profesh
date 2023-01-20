@@ -8,15 +8,13 @@ import "./JobCard.css"
 
 export default function JobCard (props) {
   
-  const {job } = props
+  const { job, setFormMode } = props
+  const { activeJob, setActiveJob } = props
   const { visibility, setVisibility } = props
   const { expanded, setExpanded } = props
   const location = useLocation()
 
-  const opportunityStatus = (job.fields.opportunityStatus.charAt(0).toLowerCase() + job.fields.opportunityStatus.slice(1)).split("/").join("-").split(" ").join("-")
-  const actionItem = (job.fields.actionItems.charAt(0).toLowerCase() + job.fields.actionItems.slice(1)).split("/").join("-").split(" ").join("-")
-
-  const expandedJSX = ExpandedJobCard(job, location.pathname, expanded, setExpanded, visibility, setVisibility)
+  const expandedJSX = ExpandedJobCard(job, location.pathname, expanded, visibility, setVisibility, activeJob, setActiveJob, setFormMode)
 
   return (
     <div className={location.pathname === "/tracker" ? "tracked-job-card" : "new-job-card"} key={job.id} id={job.id} onClick={() => toggleExpand(job.id, expanded, setExpanded)}>
@@ -36,11 +34,11 @@ export default function JobCard (props) {
       {location.pathname === "/tracker" ?
         
         <div className="tracker-container">
-          <div className={`opportunity-status-container ${opportunityStatus}`}>
-            {job.fields.opportunityStatus}
+          <div className={`opportunity-status-container ${(job.fields.opportunityStatus.charAt(0).toLowerCase() + job.fields.opportunityStatus.slice(1)).split("/").join("-").split(" ").join("-")}`}>
+            {(job.fields.opportunityStatus.charAt(0).toUpperCase() + job.fields.opportunityStatus.slice(1)).split("/").join("-").split(" ").join("-")}
           </div>
-          <div className={`action-item-container ${actionItem}`}>
-            {job.fields.actionItems}
+          <div className={`action-item-container ${(job.fields.actionItems.charAt(0).toLowerCase() + job.fields.actionItems.slice(1)).split("/").join("-").split(" ").join("-")}`}>
+            {(job.fields.actionItems.charAt(0).toUpperCase() + job.fields.actionItems.slice(1)).split("/").join("-").split(" ").join("-")}
           </div>
         </div>
       

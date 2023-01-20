@@ -10,7 +10,7 @@ export default function TrackNewJobButton(props) {
 
   return (
 
-    <button className="track-new-job-button" onMouseDown={() => handleMouseDown("new", setFormMode, visibility, setVisibility)}>
+    <button className="track-new-job-button" onMouseDown={() => handleMouseDown("manually add new job", setFormMode, visibility, setVisibility, null, null)}>
       <i className="fas fa-plus" />
     </button>
     

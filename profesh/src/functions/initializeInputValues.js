@@ -1,6 +1,7 @@
 export default function initializeInputValues (job, formMode) {
-  if (formMode === "new") {
+  if (formMode === "manually add new job") {
     let initialValues = {
+      id: Math.random(),
       companyName: null,
       jobTitle: null,
       seniorityLevel: null,
@@ -16,21 +17,24 @@ export default function initializeInputValues (job, formMode) {
       companyLogo: null
     }
     return initialValues
-  } else if (formMode === "update") {
+  } else if (formMode === "update tracked job" || formMode === "add new job from LinkedIn") {
+    console.log(job)
     let initialValues = {
-      companyName: job.companyName,
-      jobTitle: job.jobTitle,
-      seniorityLevel: job.seniorityLevel,
-      employmentName: job.employmentName,
-      location: job.location,
-      jobDescription: job.jobDescription,
-      opportunityStatus: job.opportunityStatus,
-      actionItems: job.actionItems,
-      dateOfLastContact: job.dateOfLastContact,
-      contactName: job.className,
-      contactEmail: job.contactEmail,
-      contactPhoneNumber: job.contactPhoneNumber,
-      companyLogo: job.companyLogo
+      id: job.id,
+      companyName: job.fields.companyName,
+      jobTitle: job.fields.jobTitle,
+      seniorityLevel: job.fields.seniorityLevel,
+      employmentName: job.fields.employmentName,
+      location: job.fields.location,
+      jobDescription: job.fields.jobDescription,
+      opportunityStatus: job.fields.opportunityStatus,
+      actionItems: job.fields.actionItems,
+      dateOfLastContact: job.fields.dateOfLastContact,
+      contactName: job.fields.className,
+      contactEmail: job.fields.contactEmail,
+      contactPhoneNumber: job.fields.contactPhoneNumber,
+      companyLogo: job.fields.companyLogo
     }
+    return initialValues
   }
 }
