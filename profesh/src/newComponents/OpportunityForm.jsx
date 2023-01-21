@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./OpportunityForm.css"
 
 import initializeInputValues from '../functions/initializeInputValues';
-import toggleMenu from '../functions/toggleMenu';
+import handleCloseForm from '../functions/handleCloseForm';
 import handleInputChange from '../functions/handleInputChange'
 import validateForm from '../functions/validateForm';
 
@@ -10,7 +10,9 @@ import validateForm from '../functions/validateForm';
 export default function OpportunityForm (props) {
 
    // Below destructures the "fetch opportunities" property -- allows the page to automatically refresh after a new job is submitted
-  const { activeJob, formMode } = props
+  const { activeJob, setActiveJob } = props
+
+  const { formMode, setFormMode } = props
 
   const { fetchOpportunities, setFetchOpportunities } = props
   const { visibility, setVisibility } = props
@@ -104,10 +106,10 @@ export default function OpportunityForm (props) {
         
         
         <div className="job-form-buttons-container">
-          <button className="job-form-button" id="job-form-submit-button" type="submit" onClick={(e) => validateForm(e, inputValues, fetchOpportunities, setFetchOpportunities, visibility, setVisibility)} >
+          <button className="job-form-button" id="job-form-submit-button" type="submit" onClick={(e) => validateForm(e, activeJob.ID, inputValues, fetchOpportunities, setFetchOpportunities, visibility, setVisibility)} >
             Submit</button>
           
-          <button className="job-form-button" id="job-form-cancel-button" onClick={() => toggleMenu(visibility, setVisibility)} >
+          <button className="job-form-button" id="job-form-cancel-button" onClick={() => handleCloseForm(setFormMode, visibility, setVisibility, setActiveJob)} >
             Cancel</button>
           
         </div>

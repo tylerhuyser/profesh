@@ -23,11 +23,23 @@ export default function JobsContainer (props) {
   const location = useLocation()
 
   useEffect(() => {
+    setSearchQuery("")
+  }, [location.pathname])
+
+  useEffect(() => {
     setMount(false)
   }, [location.pathname])
 
   useEffect(() => {
-    setSearchQuery("")
+    setActiveJob(null)
+  }, [location.pathname])
+
+  useEffect(() => {
+    setFormMode("")
+  }, [location.pathname])
+
+  useEffect(() => {
+    setVisibility(false)
   }, [location.pathname])
 
   useEffect(() => {
@@ -73,8 +85,8 @@ export default function JobsContainer (props) {
 
           <JobsResults jobs={jobs} mount={mount} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode} searchQuery={searchQuery} visibility={visibility} setVisibility={setVisibility} />
         
-          {visibility && activeJob ?
-            <OpportunityForm activeJob={activeJob} formMode={formMode} visibility={visibility} setVisibility={setVisibility} />
+          {visibility && formMode ?
+            <OpportunityForm activeJob={activeJob} setActiveJob={setActiveJob} formMode={formMode} setFormMode={setFormMode} visibility={visibility} setVisibility={setVisibility} />
             
             :
             <></>

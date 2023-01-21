@@ -2,7 +2,7 @@ import React from "react"
 
 import toggleMenu from "../functions/toggleMenu"
 import deleteOpportunity from "../functions/deleteOpportunity.js"
-import handleMouseDown from "../functions/handleMouseDown"
+import handleOpenForm from "../functions/handleOpenForm"
 
 export default function ExpandedJobCard(job, location, expanded, visibility, setVisibility, activeJob, setActiveJob, setFormMode) {
 
@@ -24,7 +24,7 @@ export default function ExpandedJobCard(job, location, expanded, visibility, set
           <p className="expanded-copy" id="contact-email" name="contactEmail">{job.fields.contactEmail}</p>
     
           <div className="expanded-job-card-buttons-container">
-            <button className="expanded-job-card-button" id="update-tracked-job-button" onMouseDown={() => handleMouseDown("update tracked job", setFormMode, visibility, setVisibility, job, setActiveJob)}> Edit </button>
+            <button className="expanded-job-card-button" id="update-tracked-job-button" onMouseDown={() => handleOpenForm("update tracked job", setFormMode, visibility, setVisibility, job, setActiveJob)}> Edit </button>
             <button className="expanded-job-card-button" id="delete-tracked-job-button" onClick={() => deleteOpportunity(job.id)} >Delete</button>
           </div>
         
@@ -37,7 +37,7 @@ export default function ExpandedJobCard(job, location, expanded, visibility, set
           <p className="expanded-copy" id="job-type" name="jobType">{job.fields.jobType}</p>
           <label className="expanded-label" id="posting-date-label" forhtml="positing-date">Posting Date</label>
           <p className="expanded-copy" id="posting-date" name="posting-date">{job.fields.postingDate}</p>
-          <button className="expanded-job-card-button" id="add-tracked-job-button" onMouseDown={() => handleMouseDown("add new job from LinkedIn", setFormMode, visibility, setVisibility, job, setActiveJob)}> Add Job </button>
+          <button className="expanded-job-card-button" id="add-tracked-job-button" onMouseDown={() => handleOpenForm("add new job from LinkedIn", setFormMode, visibility, setVisibility, job, setActiveJob)}> Add Job </button>
       </div>
     )
   }

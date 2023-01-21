@@ -1,7 +1,7 @@
 import React from 'react'
 import "./TrackNewJobsButton.css"
 
-import handleMouseDown from "../functions/handleMouseDown.js"
+import handleOpenForm from "../functions/handleOpenForm.js"
 
 export default function TrackNewJobButton(props) {
 
@@ -10,7 +10,7 @@ export default function TrackNewJobButton(props) {
 
   return (
 
-    <button className="track-new-job-button" onMouseDown={() => handleMouseDown("manually add new job", setFormMode, visibility, setVisibility, null, null)}>
+    <button className="track-new-job-button" onMouseDown={() => handleOpenForm("manually add new job", setFormMode, visibility, setVisibility, null, null)}>
       <i className="fas fa-plus" />
     </button>
     

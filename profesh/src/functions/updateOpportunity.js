@@ -1,9 +1,9 @@
 import Axios from 'axios';
 import toggleMenu from "./toggleMenu";
 
-export default async function updateOpportunity(opportunityID, inputValues, fetchOpportunities, setFetchOpportunities, visibility, setVisibility) {
+export default async function updateOpportunity(jobID, inputValues, fetchOpportunities, setFetchOpportunities, visibility, setVisibility) {
 
-  const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities/${opportunityID}`;
+  const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities/${jobID}`;
   console.log(airtableURL)
   await Axios.put(
     airtableURL,

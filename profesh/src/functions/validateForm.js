@@ -10,38 +10,38 @@ export default function validateForm(e, jobID, inputValues, fetchOpportunities, 
   e.preventDefault();
   
   if (inputValues.companyName === "") {
-    let companyNameInput = document.querySelector(`company-name-input-${jobID}`);
+    let companyNameInput = document.querySelector(`company-name-input`);
     companyNameInput.classList.add('invalid')
   }
   if (inputValues.jobTitle === "") {
-    let jobTitleInput = document.querySelector(`job-title-input-${jobID}`);
+    let jobTitleInput = document.querySelector(`job-title-input`);
     jobTitleInput.classList.add('invalid')
   }
   if (inputValues.seniorityLevel === "") {
-    let seniorityLevelInput = document.querySelector(`seniority-level-select-${jobID}`);
+    let seniorityLevelInput = document.querySelector(`seniority-level-select`);
     seniorityLevelInput.classList.add('invalid')
   }
   if (inputValues.employmentType === "") {
-    let employmentTypeInput = document.querySelector(`employment-type-select-${jobID}`);
+    let employmentTypeInput = document.querySelector(`employment-type-select`);
     employmentTypeInput.classList.add('invalid')
   }
   if (inputValues.location === "") {
-    let locationInput = document.querySelector(`location-input-${jobID}`);
+    let locationInput = document.querySelector(`location-input`);
     locationInput.classList.add('invalid')
   }
   if (inputValues.jobDescription === "") {
     inputValues.jobDescription ="N/A";
   }
   if (inputValues.opportunityStatus === "") {
-    let opportunityStatusInput = document.querySelector(`opportunity-status-input-${jobID}`);
+    let opportunityStatusInput = document.querySelector(`opportunity-status-input`);
     opportunityStatusInput.classList.add('invalid')
   }
   if (inputValues.actionItems === "") {
-    let actionItemsInput = document.querySelector(`action-items-input-${jobID}`);
+    let actionItemsInput = document.querySelector(`action-items-input`);
     actionItemsInput.classList.add('invalid')
   }
   if (inputValues.dateOfLastContact === "") {
-    let dateOfLastContactInput = document.querySelector(`date-of-last-contact-input-${jobID}`);
+    let dateOfLastContactInput = document.querySelector(`date-of-last-contact-input`);
     dateOfLastContactInput.classList.add('invalid')
   }
   if (inputValues.contactName === "") {
