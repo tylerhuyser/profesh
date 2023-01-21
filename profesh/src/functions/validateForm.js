@@ -1,61 +1,66 @@
-import gatherInputValues from "./gatherInputValues";
-import updateOpportunity from "./updateOpportunity";
+import addJob from "./CRUD/addJob"
+import updateJob from "./CRUD/updateJob";
 
-export default function validateForm(e, jobID, inputValues, fetchOpportunities, setFetchOpportunities, visibility, setVisibility) {
+export default function validateForm(e, inputValues, formMode, setFormMode, visibility, setVisibility, setActiveJob) {
     
-  console.log(jobID)
   console.log(inputValues)
+  console.log(inputValues.id)
+  console.log(inputValues.fields)
 
   // Below prevents the form from automatically refreshing upon hitting "submit".
   e.preventDefault();
   
-  if (inputValues.companyName === "") {
+  if (inputValues.fields.companyName === "") {
     let companyNameInput = document.querySelector(`company-name-input`);
     companyNameInput.classList.add('invalid')
   }
-  if (inputValues.jobTitle === "") {
+  if (inputValues.fields.jobTitle === "") {
     let jobTitleInput = document.querySelector(`job-title-input`);
     jobTitleInput.classList.add('invalid')
   }
-  if (inputValues.seniorityLevel === "") {
+  if (inputValues.fields.seniorityLevel === "") {
     let seniorityLevelInput = document.querySelector(`seniority-level-select`);
     seniorityLevelInput.classList.add('invalid')
   }
-  if (inputValues.employmentType === "") {
+  if (inputValues.fields.employmentType === "") {
     let employmentTypeInput = document.querySelector(`employment-type-select`);
     employmentTypeInput.classList.add('invalid')
   }
-  if (inputValues.location === "") {
+  if (inputValues.fields.location === "") {
     let locationInput = document.querySelector(`location-input`);
     locationInput.classList.add('invalid')
   }
-  if (inputValues.jobDescription === "") {
-    inputValues.jobDescription ="N/A";
+  if (inputValues.fields.jobDescription === "") {
+    inputValues.fields.jobDescription ="N/A";
   }
-  if (inputValues.opportunityStatus === "") {
+  if (inputValues.fields.opportunityStatus === "") {
     let opportunityStatusInput = document.querySelector(`opportunity-status-input`);
     opportunityStatusInput.classList.add('invalid')
   }
-  if (inputValues.actionItems === "") {
+  if (inputValues.fields.actionItems === "") {
     let actionItemsInput = document.querySelector(`action-items-input`);
     actionItemsInput.classList.add('invalid')
   }
-  if (inputValues.dateOfLastContact === "") {
+  if (inputValues.fields.dateOfLastContact === "") {
     let dateOfLastContactInput = document.querySelector(`date-of-last-contact-input`);
     dateOfLastContactInput.classList.add('invalid')
   }
-  if (inputValues.contactName === "") {
-    inputValues.contactName ="N/A";
+  if (inputValues.fields.contactName === "") {
+    inputValues.fields.contactName ="N/A";
   }
-  if (inputValues.contactPhoneNumber === "") {
-    inputValues.contactPhoneNumber ="N/A";
+  if (inputValues.fields.contactPhoneNumber === "") {
+    inputValues.fields.contactPhoneNumber ="N/A";
   }
-  if (inputValues.contactEmail === "") {
-    inputValues.contactEmail ="N/A";
+  if (inputValues.fields.contactEmail === "") {
+    inputValues.fields.contactEmail ="N/A";
   }
 
   // If all tests are passed, the Handle Post function, which triggers the AirTable API Call is made.
-  if (inputValues.companyName !== "" && inputValues.jobTitle !== "" && inputValues.seniorityLevel !== "" && inputValues.employmentType !== "" && inputValues.location !== "" && inputValues.opportunityStatus !== "" && inputValues.actionItems !== "") {
-    updateOpportunity(jobID, inputValues, fetchOpportunities, setFetchOpportunities, visibility, setVisibility);
+  if (inputValues.fields.companyName !== "" && inputValues.fields.jobTitle !== "" && inputValues.fields.seniorityLevel !== "" && inputValues.fields.employmentType !== "" && inputValues.fields.location !== "" && inputValues.fields.opportunityStatus !== "" && inputValues.fields.actionItems !== "") {
+    if (formMode === "add new job from LinkedIn" || formMode === "manually add new job") {
+      addJob(inputValues, setFormMode, visibility, setVisibility, setActiveJob)
+    } else if (formMode === "update tracked job") {
+      updateJob(inputValues, setFormMode, visibility, setVisibility, setActiveJob);
+    }
   }
 }

@@ -5,8 +5,8 @@ import JobsResults from "../JobsResults"
 import OpportunityForm from "../OpportunityForm"
 import TrackNewJobButton from "../TrackNewJobButton"
 
-import getNewJobs from "../../functions/getNewJobs"
-import getTrackedJobs from "../../functions/getTrackedJobs.js"
+import getNewJobs from "../../functions/CRUD/getNewJobs"
+import getTrackedJobs from "../../functions/CRUD/getTrackedJobs.js"
 
 export default function JobsContainer (props) {
 
@@ -17,7 +17,6 @@ export default function JobsContainer (props) {
   const [mount, setMount] = useState(false)
   
   const [formMode, setFormMode] = useState("")
-
   const [visibility, setVisibility] = useState(false);
 
   const location = useLocation()
