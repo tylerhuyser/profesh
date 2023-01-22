@@ -2,12 +2,7 @@ import addJob from "./CRUD/addJob"
 import updateJob from "./CRUD/updateJob";
 
 export default function validateForm(e, inputValues, jobs, setJobs, formMode, setFormMode, visibility, setVisibility, setActiveJob) {
-    
-  console.log(inputValues)
-  console.log(inputValues.id)
-  console.log(inputValues.fields)
 
-  // Below prevents the form from automatically refreshing upon hitting "submit".
   e.preventDefault();
   
   if (inputValues.fields.companyName === "") {
