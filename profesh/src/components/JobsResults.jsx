@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useLocation } from 'react-router-dom'
 
+import Loader from "./shared/Loader"
 import JobCard from './JobCard'
 import filterJobs from "../functions/filterJobs.js"
 
@@ -61,7 +62,7 @@ export default function JobsResults(props) {
 
         :
         
-        <p>Loading...</p>
+        <Loader />
         
       }
 

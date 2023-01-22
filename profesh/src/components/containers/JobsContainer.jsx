@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom'
 
+import Loader from "../shared/Loader"
 import JobsResults from "../JobsResults"
 import OpportunityForm from "../OpportunityForm"
 import TrackNewJobButton from "../TrackNewJobButton"
@@ -94,7 +95,7 @@ export default function JobsContainer (props) {
         </div>
     :
      
-      <p>LOADING</p>
+      <Loader />
     
     }
     
