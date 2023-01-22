@@ -18,17 +18,10 @@ export default async function updateJob(inputValues, jobs, setJobs, formMode, se
 
   console.log(updatedJob)
 
-  setJobs(prevState => {
-    let newState = []
-    prevState.map((job) => {
-      if (job.id !== updatedJob.data.id) {
-        newState.push(job)
-      } else if (job.id === updatedJob.data.id) {
-        newState.push(updatedJob.data)
-      }
-    })
-    return newState
-  })
+  setJobs(prevState => 
+    prevState.map((job) => { return job.id === updatedJob.data.id ? updatedJob.data : job}
+  ))
+
 
   handleCloseForm(formMode, setFormMode, visibility, setVisibility, setActiveJob)
 }
