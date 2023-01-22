@@ -7,7 +7,5 @@ export default async function getTrackedJobs() {
       "Authorization": `Bearer ${process.env.REACT_APP_KEY}`,
     },
   });
-  console.log(response)
-
   return response.data.records
 }

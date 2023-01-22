@@ -1,17 +1,8 @@
 import React from 'react';
-import { useEffect } from 'react';
 
 import "./Home.css"
 
-export default function Home(props) {
-
-  const {activePage, setActivePage} = props
-
-  // useEffect(() => {
-  //   if (activePage !== "/home") {
-  //     setActivePage("/home")
-  //   }
-  // }, [])
+export default function Home() {
 
   return (
     <div className="home-container">

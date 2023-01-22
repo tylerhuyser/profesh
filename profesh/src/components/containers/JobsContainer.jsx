@@ -24,40 +24,42 @@ export default function JobsContainer (props) {
   console.log(jobs)
 
   useEffect(() => {
+    console.log('Resetting "Search Query" state to "" (EMPTY STRING)')
     setSearchQuery("")
   }, [location.pathname])
 
   useEffect(() => {
+    console.log('Resetting "Mount" state to FALSE')
     setMount(false)
   }, [location.pathname])
 
   useEffect(() => {
+    console.log('Resetting "Active Job" state to NULL')
     setActiveJob(null)
   }, [location.pathname])
 
   useEffect(() => {
+    console.log('Resetting "Form Mode" state to "" (EMPTY STRING)')
     setFormMode("")
   }, [location.pathname])
 
   useEffect(() => {
+    console.log('Resetting "Visibility" state to FALSE')
     setVisibility(false)
   }, [location.pathname])
 
   useEffect(() => {
-    console.log(`inside useEffect #1 -- (App.js)`)
     if (location.pathname === "/jobs") {
-      console.log(`getting new jobs data from LINKEDIN`)
+      console.log(`GET request -- new jobs data from LINKEDIN API`)
       const getNewJobsData = async () => {
         const newJobsData = await getNewJobs()
-        console.log(newJobsData)
         setJobs(newJobsData)
       }
       getNewJobsData()
     } else if (location.pathname === "/tracker") {
-      console.log(`getting tracked jobs data from AIRTABLE`)
+      console.log(`GET request -- tracked jobs data from AIRTABLE API`)
       const getTrackedJobsData = async () => {
         const trackedJobsData = await getTrackedJobs()
-        console.log(trackedJobsData)
         setJobs(trackedJobsData)
       }
       getTrackedJobsData()
@@ -65,13 +67,8 @@ export default function JobsContainer (props) {
   }, [location.pathname])
 
   useEffect(() => {
-    console.log(`inside useEffect #2 -- (App.js)`)
-    console.log(`jobs value below`)
-    console.log(jobs)
-    console.log(jobs && jobs.length === 0)
     if (jobs && jobs.length === 0) {
-      console.log(jobs)
-      console.log('setting mount value true')
+      console.log('Setting "Mount" state from FALSE to TRUE')
       setMount(true)
     }
   }, [jobs])
@@ -83,7 +80,7 @@ export default function JobsContainer (props) {
       
         <div className="job-tracker-container">
 
-          <JobsResults jobs={jobs} setJobs={setJobs} mount={mount} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode} searchQuery={searchQuery} visibility={visibility} setVisibility={setVisibility} />
+          <JobsResults jobs={jobs} setJobs={setJobs} mount={mount} setActiveJob={setActiveJob} setFormMode={setFormMode} searchQuery={searchQuery} visibility={visibility} setVisibility={setVisibility} />
         
           {visibility && formMode ?
             <OpportunityForm jobs={jobs} setJobs={setJobs} activeJob={activeJob} setActiveJob={setActiveJob} formMode={formMode} setFormMode={setFormMode} visibility={visibility} setVisibility={setVisibility} />

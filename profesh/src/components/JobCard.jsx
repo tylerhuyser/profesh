@@ -8,14 +8,13 @@ import "./JobCard.css"
 
 export default function JobCard (props) {
   
-  const { job, setFormMode } = props
-  const { jobs, setJobs } = props
-  const { activeJob, setActiveJob } = props
+  const { job, setJobs, setFormMode } = props
+  const { setActiveJob } = props
   const { visibility, setVisibility } = props
   const { expanded, setExpanded } = props
   const location = useLocation()
 
-  const expandedJSX = ExpandedJobCard(job, jobs, setJobs, location.pathname, expanded, visibility, setVisibility, activeJob, setActiveJob, setFormMode)
+  const expandedJSX = ExpandedJobCard(job, setJobs, location.pathname, expanded, visibility, setVisibility, setActiveJob, setFormMode)
 
   return (
     <div className={location.pathname === "/tracker" ? "tracked-job-card" : "new-job-card"} key={job.id} id={job.id} onClick={() => toggleExpand(job.id, expanded, setExpanded)}>

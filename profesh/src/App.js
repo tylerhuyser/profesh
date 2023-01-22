@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import Layout from "./newComponents/shared/Layout"
+import Layout from "./components/shared/Layout"
 import Home from "../src/screens/Home";
-import JobsContainer from './newComponents/Screens/JobsContainer';
+import JobsContainer from './components/containers/JobsContainer';
 
 function App() {
   

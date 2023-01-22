@@ -6,10 +6,8 @@ import handleCloseForm from '../functions/handleCloseForm';
 import handleInputChange from '../functions/handleInputChange'
 import validateForm from '../functions/validateForm';
 
-// Below function creates and handles the an update (push) to an opporunity using the "Update Opportunity Form"
 export default function OpportunityForm (props) {
 
-   // Below destructures the "fetch opportunities" property -- allows the page to automatically refresh after a new job is submitted
   const { jobs, setJobs } = props
   const { activeJob, setActiveJob } = props
   const { formMode, setFormMode } = props
@@ -17,11 +15,8 @@ export default function OpportunityForm (props) {
 
   const [inputValues, setInputValues] = useState(() => initializeInputValues(activeJob, formMode))
 
-
-  // Below sets visibility of the form to "hidden". CSS for the "hidden" class is contained the corresponding component stylesheet "UpdateOpportunityForm.css"
   let visibilityClass = "hidden";
 
-  // Below toggles visibility to "visible" if the visibility prop (from parent Track Opportunities) is true.
   if (visibility) {
     visibilityClass = "visible";
   }

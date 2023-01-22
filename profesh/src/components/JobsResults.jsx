@@ -8,21 +8,16 @@ import "./JobResults.css"
 
 export default function JobsResults(props) {
 
-  const { mount, searchQuery, setFormMode } = props
+  const { mount, searchQuery, setFormMode, setActiveJob } = props
   const { jobs, setJobs } = props
-  const { activeJob, setActiveJob } = props
   const { visibility, setVisibility } = props
   
   const [expanded, setExpanded] = useState([])
   const location = useLocation()
-
-  console.log(props)
-  console.log("inside JobResults component")
-  console.log(`The Value of Mount is ${mount}`)
   
   let filteredJobsData = filterJobs(jobs, mount, searchQuery.toLowerCase(), location.pathname)
   
-  const jobCardsJSX = filteredJobsData?.map((job, idx) => {
+  const jobCardsJSX = filteredJobsData?.map((job) => {
     if (location.pathname === "/jobs") {
       let jobData = {
         id: job.id,
@@ -44,16 +39,14 @@ export default function JobsResults(props) {
         }
       }
       return (
-        <JobCard job={jobData} jobs={jobs} setJobs={setJobs} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode} key={jobData.id} />
+        <JobCard job={jobData} setJobs={setJobs} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} setActiveJob={setActiveJob} setFormMode={setFormMode} key={jobData.id} />
       )
     } else if (location.pathname === "/tracker") {
       return (
-        <JobCard job={job} jobs={jobs} setJobs={setJobs} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode}  key={job.id} />
+        <JobCard job={job} setJobs={setJobs} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} setActiveJob={setActiveJob} setFormMode={setFormMode}  key={job.id} />
       )
     }
   })
-  
-  console.log(jobCardsJSX)
 
   return (
     <div className="jobs-container" id={location.pathname === "/tracker" ? "tracked-jobs-container" : "new-jobs-container"}>
