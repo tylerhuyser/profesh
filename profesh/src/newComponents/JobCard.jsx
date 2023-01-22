@@ -9,12 +9,13 @@ import "./JobCard.css"
 export default function JobCard (props) {
   
   const { job, setFormMode } = props
+  const { jobs, setJobs } = props
   const { activeJob, setActiveJob } = props
   const { visibility, setVisibility } = props
   const { expanded, setExpanded } = props
   const location = useLocation()
 
-  const expandedJSX = ExpandedJobCard(job, location.pathname, expanded, visibility, setVisibility, activeJob, setActiveJob, setFormMode)
+  const expandedJSX = ExpandedJobCard(job, jobs, setJobs, location.pathname, expanded, visibility, setVisibility, activeJob, setActiveJob, setFormMode)
 
   return (
     <div className={location.pathname === "/tracker" ? "tracked-job-card" : "new-job-card"} key={job.id} id={job.id} onClick={() => toggleExpand(job.id, expanded, setExpanded)}>
@@ -38,7 +39,7 @@ export default function JobCard (props) {
             {(job.fields.opportunityStatus.charAt(0).toUpperCase() + job.fields.opportunityStatus.slice(1)).split("/").join("-").split(" ").join("-")}
           </div>
           <div className={`action-item-container ${(job.fields.actionItems.charAt(0).toLowerCase() + job.fields.actionItems.slice(1)).split("/").join("-").split(" ").join("-")}`}>
-            {(job.fields.actionItems.charAt(0).toUpperCase() + job.fields.actionItems.slice(1)).split("/").join("-").split(" ").join("-")}
+            {job.fields.actionItems}
           </div>
         </div>
       

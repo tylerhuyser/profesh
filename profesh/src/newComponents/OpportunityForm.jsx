@@ -10,6 +10,7 @@ import validateForm from '../functions/validateForm';
 export default function OpportunityForm (props) {
 
    // Below destructures the "fetch opportunities" property -- allows the page to automatically refresh after a new job is submitted
+  const { jobs, setJobs } = props
   const { activeJob, setActiveJob } = props
   const { formMode, setFormMode } = props
   const { visibility, setVisibility } = props
@@ -91,7 +92,7 @@ export default function OpportunityForm (props) {
           <input className="job-form-input" id={`contact-phone-number-input`} type="text" name="contactPhoneNumber" placeholder='Contact Phone Number'  value={inputValues.fields.contactPhoneNumber} onChange={(e) => handleInputChange(e, setInputValues)} />
         
         <div className="job-form-buttons-container">
-          <button className="job-form-button" id="job-form-submit-button" type="submit" onClick={(e) => validateForm(e, inputValues, formMode, setFormMode, visibility, setVisibility, setActiveJob)} >
+          <button className="job-form-button" id="job-form-submit-button" type="submit" onClick={(e) => validateForm(e, inputValues, jobs, setJobs, formMode, setFormMode, visibility, setVisibility, setActiveJob)} >
             Submit</button>
           
           <button className="job-form-button" id="job-form-cancel-button" onClick={() => handleCloseForm(setFormMode, visibility, setVisibility, setActiveJob)} >

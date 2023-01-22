@@ -3,7 +3,7 @@ import React from "react"
 import deleteJob from "../functions/CRUD/deleteJob.js"
 import handleOpenForm from "../functions/handleOpenForm"
 
-export default function ExpandedJobCard(job, location, expanded, visibility, setVisibility, activeJob, setActiveJob, setFormMode) {
+export default function ExpandedJobCard(job, jobs, setJobs, location, expanded, visibility, setVisibility, activeJob, setActiveJob, setFormMode) {
 
   console.log(expanded)
   
@@ -24,7 +24,7 @@ export default function ExpandedJobCard(job, location, expanded, visibility, set
     
           <div className="expanded-job-card-buttons-container">
             <button className="expanded-job-card-button" id="update-tracked-job-button" onMouseDown={() => handleOpenForm("update tracked job", setFormMode, visibility, setVisibility, job, setActiveJob)}> Edit </button>
-            <button className="expanded-job-card-button" id="delete-tracked-job-button" onClick={() => deleteJob(job.id)} >Delete</button>
+            <button className="expanded-job-card-button" id="delete-tracked-job-button" onClick={() => deleteJob(job.id, jobs, setJobs)} >Delete</button>
           </div>
         
       </div>

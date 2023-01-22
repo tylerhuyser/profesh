@@ -6,7 +6,7 @@ export default function initializeInputValues (job, formMode) {
         companyName: null,
         jobTitle: null,
         seniorityLevel: null,
-        employmentName: null,
+        employmentType: null,
         location: null,
         jobDescription: null,
         opportunityStatus: null,
@@ -15,7 +15,6 @@ export default function initializeInputValues (job, formMode) {
         contactName: null,
         contactEmail: null,
         contactPhoneNumber: null,
-        companyLogo: null
       }
     }
     return initialValues
@@ -36,7 +35,6 @@ export default function initializeInputValues (job, formMode) {
         contactName: job.fields.contactName,
         contactEmail: job.fields.contactEmail,
         contactPhoneNumber: job.fields.contactPhoneNumber,
-        companyLogo: job.fields.companyLogo
       }
     }
     return initialValues

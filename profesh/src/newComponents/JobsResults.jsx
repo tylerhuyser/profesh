@@ -8,7 +8,8 @@ import "./JobResults.css"
 
 export default function JobsResults(props) {
 
-  const { mount, jobs, searchQuery, setFormMode } = props
+  const { mount, searchQuery, setFormMode } = props
+  const { jobs, setJobs } = props
   const { activeJob, setActiveJob } = props
   const { visibility, setVisibility } = props
   
@@ -43,11 +44,11 @@ export default function JobsResults(props) {
         }
       }
       return (
-        <JobCard job={jobData} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode} key={jobData.id} />
+        <JobCard job={jobData} jobs={jobs} setJobs={setJobs} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode} key={jobData.id} />
       )
     } else if (location.pathname === "/tracker") {
       return (
-        <JobCard job={job} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode}  key={job.id} />
+        <JobCard job={job} jobs={jobs} setJobs={setJobs} expanded={expanded} setExpanded={setExpanded} visibility={visibility} setVisibility={setVisibility} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode}  key={job.id} />
       )
     }
   })

@@ -21,6 +21,8 @@ export default function JobsContainer (props) {
 
   const location = useLocation()
 
+  console.log(jobs)
+
   useEffect(() => {
     setSearchQuery("")
   }, [location.pathname])
@@ -66,9 +68,8 @@ export default function JobsContainer (props) {
     console.log(`inside useEffect #2 -- (App.js)`)
     console.log(`jobs value below`)
     console.log(jobs)
-    console.log(jobs[0])
-    console.log(jobs.length === 0)
-    if (jobs[0]) {
+    console.log(jobs && jobs.length === 0)
+    if (jobs && jobs.length === 0) {
       console.log(jobs)
       console.log('setting mount value true')
       setMount(true)
@@ -78,14 +79,14 @@ export default function JobsContainer (props) {
   return (
 
     <>
-      { (jobs.length > 0) && (location.pathname === "/jobs" || "/tracker") && mount ?
+      { jobs && (jobs.length > 0) && (location.pathname === "/jobs" || "/tracker") && mount ?
       
         <div className="job-tracker-container">
 
-          <JobsResults jobs={jobs} mount={mount} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode} searchQuery={searchQuery} visibility={visibility} setVisibility={setVisibility} />
+          <JobsResults jobs={jobs} setJobs={setJobs} mount={mount} activeJob={activeJob} setActiveJob={setActiveJob} setFormMode={setFormMode} searchQuery={searchQuery} visibility={visibility} setVisibility={setVisibility} />
         
           {visibility && formMode ?
-            <OpportunityForm activeJob={activeJob} setActiveJob={setActiveJob} formMode={formMode} setFormMode={setFormMode} visibility={visibility} setVisibility={setVisibility} />
+            <OpportunityForm jobs={jobs} setJobs={setJobs} activeJob={activeJob} setActiveJob={setActiveJob} formMode={formMode} setFormMode={setFormMode} visibility={visibility} setVisibility={setVisibility} />
             
             :
             <></>

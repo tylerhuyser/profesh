@@ -1,7 +1,7 @@
 import addJob from "./CRUD/addJob"
 import updateJob from "./CRUD/updateJob";
 
-export default function validateForm(e, inputValues, formMode, setFormMode, visibility, setVisibility, setActiveJob) {
+export default function validateForm(e, inputValues, jobs, setJobs, formMode, setFormMode, visibility, setVisibility, setActiveJob) {
     
   console.log(inputValues)
   console.log(inputValues.id)
@@ -58,9 +58,9 @@ export default function validateForm(e, inputValues, formMode, setFormMode, visi
   // If all tests are passed, the Handle Post function, which triggers the AirTable API Call is made.
   if (inputValues.fields.companyName !== "" && inputValues.fields.jobTitle !== "" && inputValues.fields.seniorityLevel !== "" && inputValues.fields.employmentType !== "" && inputValues.fields.location !== "" && inputValues.fields.opportunityStatus !== "" && inputValues.fields.actionItems !== "") {
     if (formMode === "add new job from LinkedIn" || formMode === "manually add new job") {
-      addJob(inputValues, setFormMode, visibility, setVisibility, setActiveJob)
+      addJob(inputValues, setJobs, setFormMode, visibility, setVisibility, setActiveJob)
     } else if (formMode === "update tracked job") {
-      updateJob(inputValues, setFormMode, visibility, setVisibility, setActiveJob);
+      updateJob(inputValues, jobs, setJobs, setFormMode, visibility, setVisibility, setActiveJob);
     }
   }
 }

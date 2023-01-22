@@ -111,7 +111,10 @@
   padding: 5px 10px;
   
   border-radius: 12px;
-  /* border: solid red 2px; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 .applied {
@@ -155,7 +158,13 @@
   padding: 5px 10px;
 
   border-radius: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
+  /* -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; */
 }
 
 .prepare-Resume {
@@ -183,7 +192,7 @@
   border: solid #A30015 2px;
 }
 
-.case-Study-Exercise {
+.case-Study-Exercise, .complete-Case-Study-Project {
   background-color: #A30015;
   border: solid #A30015 2px;
 }
