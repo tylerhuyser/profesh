@@ -16,7 +16,6 @@ export default function JobsContainer (props) {
   const [jobs, setJobs] = useState([])
   const [activeJob, setActiveJob] = useState(null)
   const [mount, setMount] = useState(false)
-  
   const [formMode, setFormMode] = useState("")
   const [visibility, setVisibility] = useState(false);
 
@@ -68,7 +67,7 @@ export default function JobsContainer (props) {
   }, [location.pathname])
 
   useEffect(() => {
-    if (jobs && jobs.length === 0) {
+    if (jobs && jobs.length !== 0) {
       console.log('Setting "Mount" state from FALSE to TRUE')
       setMount(true)
     }
