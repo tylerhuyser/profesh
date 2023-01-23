@@ -15,18 +15,26 @@ main {
   width: 100vw;
 }
 
-@media only screen and (min-width: 600px) {
-  .mobile-layout {
-    display: none;
-  }
+@media only screen and (min-width: 375px) {
 
-  .desktop-layout{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
+}
 
-  main {
-    max-width: 80vw;
-  }
+@media only screen and (min-width: 481px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+@media only screen and (min-width: 1600px) {
+
 }

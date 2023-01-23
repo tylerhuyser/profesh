@@ -130,3 +130,34 @@
   text-align: center;
   font-size: clamp(16px, 1.25em, 24px);
 }
+
+@media only screen and (min-width: 375px) {
+
+}
+
+@media only screen and (min-width: 481px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .job-form-inputs-container {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #job-form-title {
+    font-size: clamp(48px, 2em, 72px)
+  }
+  .job-form-input, .job-form-select, .job-form-button {
+    font-size: clamp(16px, 1.5em, 24px);
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+
+}

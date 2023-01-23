@@ -19,7 +19,7 @@ export default function Layout(props) {
         {props.children}
       </div>
 
-      <Navigation />
+      <Navigation viewNav={viewNav} setViewNav={setViewNav} />
 
     </div>
   )

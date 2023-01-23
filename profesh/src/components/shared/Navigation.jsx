@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 
 import "./Navigation.css"
 
-export default function Navigation() {
+export default function Navigation(props) {
   
+  const { viewNav, setViewNav } = props
+
   return (
-    <div className='navigation-container'>
+    <div className='navigation-container'  id={viewNav ? 'desktop-nav-visible' : 'nav-hidden'}>
 
       <Link className="mobile-navigation" to="/">
         <i className="fas fa-home" id="home-navigation-icon" alt="home-navigation-icon" width="50px" height="50px" />
@@ -20,18 +22,19 @@ export default function Navigation() {
          <i className="fas fa-briefcase" id="jobs-navigation-icon" alt="jobs-navigation-icon" />
       </Link>
 
-      <Link className="desktop-navigation" to="/">
+
+      <Link className="desktop-navigation" to="/" onMouseUp={() => setViewNav(false)}>
         Home
       </Link>
-      
-      <Link className="desktop-navigation" to="/tracker">
+          
+      <Link className="desktop-navigation" to="/tracker" onMouseUp={() => setViewNav(false)}>
         Track Opportunities
       </Link>
 
-      <Link className="desktop-navigation" to="/jobs">
-         Browse Jobs
+      <Link className="desktop-navigation" to="/jobs" onMouseUp={() => setViewNav(false)}>
+        Browse Jobs
       </Link>
-
+      
     </div>
   )
 }

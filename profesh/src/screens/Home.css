@@ -14,7 +14,7 @@
   width: clamp(200px, 70vw, 400px);
   background-color: #2c404b;
   color: white;
-  border-radius: 12%;
+  border-radius: 18px;
   box-shadow: 0px 8px 10px darkgray;
   padding: 25px 10px;
 
@@ -22,8 +22,9 @@
 }
 
 .home-copy {
-  font-size: clamp(24px, 2em 48px);
-  margin-top: 20px;
+  font-size: clamp(24px, 2em, 36px);
+  margin: 20px 0px;
+  text-align: center;
 }
 
 #home-logo {
@@ -36,3 +37,37 @@
   font-size: clamp(16px, 1em 32px)
 }
 
+@media only screen and (min-width: 375px) {
+
+}
+
+@media only screen and (min-width: 481px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .home-title-container {
+    width: 60%;
+  }
+
+  .home-copy {
+    margin-top: 20px;
+  }
+
+  #home-logo {
+    width: 300px;
+    height: 150px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+@media only screen and (min-width: 1600px) {
+
+}
