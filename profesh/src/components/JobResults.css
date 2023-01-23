@@ -9,6 +9,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @media only screen and (min-width: 375px) {
@@ -27,8 +31,12 @@
 
 @media only screen and (min-width: 1024px) {
   .jobs-container {
-    top: 125px;
+    top: 100px;
     padding-bottom: 50px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
 }
 

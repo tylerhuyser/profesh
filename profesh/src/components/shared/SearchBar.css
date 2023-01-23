@@ -66,7 +66,7 @@
   }
 
   .search-bar-container {
-    height: 125px;
+    height: 100px;
     padding: 10px 50px;
     justify-content: space-between;
     box-shadow: none;
@@ -79,7 +79,7 @@
 
   #search-bar-logo {
     width: 175px;
-    height: 105px;
+    height: 80px;
     object-fit: cover;
   }
 
