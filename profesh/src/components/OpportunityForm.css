@@ -1,0 +1,163 @@
+.job-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  padding: 50px 25px;
+  overflow-y: scroll;
+
+  background-image: linear-gradient(rgba(44, 64, 75, 0.95),rgba(44, 64, 75, 0.95)), url('https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/Images/Black&WhiteBackgroundImage.png?raw=true');
+  background-size: cover;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  color: white;
+
+  transition: transform .3s cubic-bezier(0, .52, 0, 1);
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.job-form-container.hidden {
+  transform: translate3d(-100vw, 0, 0);
+}
+
+.job-form-container.visible {
+  transform: translate3d(0vw, 0, 0);
+  /* overflow: hidden; */
+}
+
+.job-form-copy {
+  text-align: left;
+  font-size: clamp(24px, 1.5em, 36px)
+}
+ 
+#job-form-title {
+  text-align: center;
+  width: 100%;
+  font-size: clamp(36px, 2em, 54px);
+  font-weight: bold;
+
+  padding: 25px 0px;
+
+}
+
+.job-form-inputs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+  background-color: #2c404b;
+}
+
+.job-form-input-label, .job-form-select-label {
+  width: calc(100% - 20px);
+  font-size: clamp(16px, 1.25em, 24px);
+  margin-bottom: 10px;
+
+}
+
+.job-form-input {
+  width: calc(100% - 20px);
+  height: clamp(16px, 1.25em, 24px);
+  padding: 10px 0px;
+  margin: 0px 10px 15px 10px;
+
+  background: transparent;
+  border: none;
+  border-bottom: solid 1px grey;
+
+  color: white;
+  font-size: clamp(16px, 1.25em, 24px);
+  font-style: italic;
+  letter-spacing: 0.9px;
+
+  text-indent: 5px;
+  }
+
+  .job-form-input::placeholder {
+    color: white;
+  }
+
+.job-form-select {
+
+  width: calc(100% - 20px);
+  margin: 0px 10px 15px 10px;
+  padding: 10px 0px;
+  background: transparent;
+  border: none;
+  border-bottom: solid 1px grey;
+
+  color: white;
+  font-size: clamp(16px, 1.25em, 24px);
+  font-style: italic;
+  letter-spacing: 0.9px;
+  /* line-height: 44px; */
+  
+}
+
+.job-form-select::placeholder {
+  color: white;
+}
+
+.job-form-buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+
+  padding: 25px 0px;
+  width: 100%;
+}
+
+.job-form-button {
+  width: 40%;
+  padding: 5px 20px;
+  border: 5px solid #F7116B;
+  border-radius: 18px;
+  background: white;
+
+  color: #F7116B;
+  text-align: center;
+  font-size: clamp(16px, 1.25em, 24px);
+}
+
+@media only screen and (min-width: 375px) {
+
+}
+
+@media only screen and (min-width: 481px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .job-form-inputs-container {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #job-form-title {
+    font-size: clamp(48px, 2em, 72px)
+  }
+  .job-form-input, .job-form-select, .job-form-button {
+    font-size: clamp(16px, 1.5em, 24px);
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+
+}

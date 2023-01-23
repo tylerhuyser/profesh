@@ -1,0 +1,54 @@
+.loader-container {
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 125px;
+  z-index: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-image: linear-gradient(rgba(44, 64, 75, 0.95),rgba(44, 64, 75, 0.95)), url('https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/Images/Black&WhiteBackgroundImage.png?raw=true');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader-logo {
+  width: 40vw;
+  height: 40vw;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 375px) {
+  .loader-container {
+    padding-bottom: 100px;
+  }
+}
+
+@media only screen and (min-width: 481px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .loader-container {
+    padding-bottom: 50px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+@media only screen and (min-width: 1600px) {
+
+}

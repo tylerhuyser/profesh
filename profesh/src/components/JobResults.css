@@ -1,22 +1,20 @@
-.App {
-  text-align: center;
-}
+.jobs-container {
+  position: absolute;
+  top: 125px;
 
-.desktop-layout {
-  display: none;
-}
+  width: 100%;
+  padding-bottom: 125px;
 
-.mobile-layout {
   display: flex;
-  width: 100vw;
-}
-
-main {
-  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 @media only screen and (min-width: 375px) {
-
+  .jobs-container {
+    top: 100px;
+  }
 }
 
 @media only screen and (min-width: 481px) {
@@ -28,7 +26,10 @@ main {
 }
 
 @media only screen and (min-width: 1024px) {
-
+  .jobs-container {
+    top: 125px;
+    padding-bottom: 50px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {

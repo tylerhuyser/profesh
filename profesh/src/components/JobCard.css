@@ -1,0 +1,252 @@
+.tracked-job-card, .new-job-card {
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  box-shadow: 0px 8px 10px darkgray;
+
+  width: 90vw;
+  padding: 10px;
+  margin: 10px 20px;
+}
+
+.company-information-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  margin: 10px 0px;
+}
+
+.company-name {
+  text-align: left;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  width: 50%;
+  margin: 0px 0px 0px 10px;
+
+  font-size: clamp(12px, 1.5em, 20px);
+}
+
+.company-logo {
+  width: 20%;
+  object-fit: cover;
+}
+
+/*  */
+
+.job-information-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.job-title {
+  font-size: clamp(12px, 1.5em, 20px);
+  margin: 10px 0px 5px 0px;
+}
+
+.job-description, .abbreviated-job-description {
+  text-align: left;
+  /* font-size: 10px; */
+  /* word-wrap: none; */
+  text-overflow: ellipsis;
+
+  font-size: clamp(12px, 1em, 16px);
+}
+
+/*  */
+
+.expanded-container {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(12px, 1em, 16px);
+}
+
+.expanded-label {
+  font-size: clamp(12px, 1em, 16px);
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.expanded-copy {
+  font-size: clamp(12px, 1em, 16px);
+  margin-top: 5px;
+}
+
+.expanded-job-card-buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.expanded-job-card-button {
+  width: 30%;
+  padding: 10px;
+  margin-top: 10px;
+
+  text-align: center;
+  background: white;
+  border: 5px solid #F7116B;
+  border-radius: 18px;
+}
+
+
+/* Opportunity Status */
+
+.tracker-container {
+  display:  flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0px 15px 0px;
+
+  font-size: clamp(12px, 1em, 16px)
+}
+
+.opportunity-status-container {
+  font-size: 12px;
+
+  width: 40%;
+  padding: 5px 10px;
+  
+  border-radius: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.applied {
+  color: #2D7DD2;
+  border: 2px solid #2D7DD2;
+}
+
+.phone-screening-Pending-Decision, .interviewed-Pending-Decision {
+  color: #9AA0A8;
+  border: 2px solid #9AA0A8;
+}
+
+.interview, .phone-Screening {
+  color: #A30015;
+  border: 2px solid #A30015;
+}
+
+.case-Study-Exercise {
+  color: #A30015;
+  border: 2px solid #A30015;
+}
+
+.offer {
+  color: green;
+  border: 2px solid green;
+}
+
+.negotation {
+  color :#97CC04;
+  border: 2px solid #97CC04;
+}
+
+
+/* Action Items */
+
+.action-item-container {
+  color: white;
+  font-size: 12px;
+
+  width: 40%;
+  padding: 5px 10px;
+
+  border-radius: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; */
+}
+
+.prepare-Resume {
+  background-color: #2D7DD2;
+  border: solid #2D7DD2 2px;
+}
+
+.write-Cover-Letter {
+  background-color: #2D7DD2;
+  border: solid #2D7DD2 2px;
+}
+
+.submit-Application {
+  background-color: #1C3144;
+  border: solid #1C3144 2px;
+}
+
+.follow-Up-E-mail {
+  background-color: #9AA0A8;
+  border: solid #9AA0A8 2px;
+}
+
+.phone-Screen-Prep, .interview-Prep {
+  background-color: #A30015 ;
+  border: solid #A30015 2px;
+}
+
+.case-Study-Exercise, .complete-Case-Study-Project {
+  background-color: #A30015;
+  border: solid #A30015 2px;
+}
+
+@media only screen and (min-width: 375px) {
+
+}
+
+@media only screen and (min-width: 481px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .tracked-job-card, .new-job-card {
+    width: 60vw;
+    padding: 25px;
+  }
+
+  .company-logo {
+    width: 10%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .tracked-job-card, .new-job-card {
+    padding: 25px;
+  }
+
+  .job-title, .company-name {
+    font-size: clamp(24px, 2em, 36px);
+  }
+
+  .company-name {
+    margin: 0px 0px 0px 25px;
+  }
+
+  .job-title {
+    margin: 25px 0px 13px 0px;
+  }
+
+  .job-description, .opportunity-status-container, .action-item-container, .expanded-label, .expanded-copy, .expanded-job-card-button {
+    font-size: clamp(16px, 1.5em, 24px);
+  }
+
+  .opportunity-status-container, .action-item-container {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+
+}
