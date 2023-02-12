@@ -271,7 +271,13 @@ main {
 }
 
 @media only screen and (min-width: 1200px) {
-
+  body {
+    background-image: url('https://github.com/tylerhuyser/profesh/blob/master/profesh/Icons/Images/AdobeStock_151498259.jpeg?raw=true');
+    background-size: 33vw;
+    background-position: center center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+  }
 }
 
 @media only screen and (min-width: 1600px) {

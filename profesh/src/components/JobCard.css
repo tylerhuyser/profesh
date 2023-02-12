@@ -1,11 +1,13 @@
 .tracked-job-card, .new-job-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   background-color: white;
   box-shadow: 0px 8px 10px darkgray;
 
   width: 90vw;
+  /* height: auto; */
   padding: 10px;
   margin: 10px 20px;
 }
@@ -214,7 +216,7 @@
 
 @media only screen and (min-width: 1024px) {
   .tracked-job-card, .new-job-card {
-    width: 60vw;
+    width: clamp(500px, 60vw, 750px);
     padding: 25px;
   }
 
@@ -248,5 +250,9 @@
 }
 
 @media only screen and (min-width: 1600px) {
-
+  .tracked-job-card, .new-job-card {
+    width: 25%;
+    /* height: 30vh; */
+    min-height: 30vh;
+  }
 }
