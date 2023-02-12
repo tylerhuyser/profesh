@@ -45,7 +45,7 @@ export default function JobCard (props) {
       :
         
         <div className={expanded.includes(job.id) ? "job-description" : "abbreviated-job-description"}>
-          {(job.fields.jobDescription.length > 200 && !expanded.includes(job.id)) ? job.fields.jobDescription.substring(0,197) + "..." : job.fields.jobDescription}
+          {(job.fields.jobDescription.length > 300 && !expanded.includes(job.id)) ? job.fields.jobDescription.substring(0,297) + "..." : job.fields.jobDescription}
         </div>
         
       }
