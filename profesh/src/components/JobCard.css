@@ -49,6 +49,12 @@
 .job-title {
   font-size: clamp(12px, 1.5em, 20px);
   margin: 10px 0px 5px 0px;
+
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden
 }
 
 .job-description, .abbreviated-job-description {
