@@ -39,7 +39,7 @@
 
   position: absolute;
   left: 10;
-}
+} 
 
 .search-bar-input {
   width: clamp(150px, 50%, 300px);
