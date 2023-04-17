@@ -260,7 +260,8 @@
   .tracked-job-card, .new-job-card {
     width: 25%;
     height: 30vh;
-    /* min-height: 30vh; */
+    margin: 20px;
+    position: relative
   }
 
   .tracked-job-card:not(.expanded):hover, .new-job-card:not(.expanded):hover {
@@ -273,19 +274,30 @@
 
   .expanded-container {
     transition: all 0.2s ease-in-out;
-    background-color: blue;
-    width: calc(300% + 230px);
-    position: relative;
-    left:-25px;
-    bottom: calc(-1* (30vh - 50px));
-    margin-top: 25px;
-    
+
+    background-color: yellow;
+    height: 30vh;
+    width: calc(300% + 20px + 20px + 20px + 20px);
+    margin: 20px;
+    margin-bottom: 20px;
+    padding: 25px 0px ;
+
+    position: absolute;
+    left: -20px;
+    bottom: calc(-20px - 20px - 20px - 30vh - 25px - 25px );
     display: flex;
     justify-content: center;
     align-items: center;
     
     text-transform: uppercase;
     font-size: 1.5em;
+
+    box-shadow: 0px 8px 10px darkgray;
+    z-index: 3;
+  }
+
+  .expanded {
+    margin-bottom: calc(30vh + 20px + 20px + 20px + 25px + 25px);
   }
 
   .expanded::after { 
@@ -295,7 +307,7 @@
     height: 0;
     width: 0;
     position: relative;
-    bottom: -50px;
+    bottom: calc(-1 * (20px + 20px + 25px));
     left: calc(50% - 15px);
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
