@@ -29,13 +29,33 @@ export default function ExpandedJobCard(job, setJobs, location, expanded, visibi
     )
   } else if (expanded.includes(job.id) && location === "/jobs") {
     return (
-      <div className="expanded-container">
-          <label className="expanded-label" id="job-type-label" forhtml="jobType">Job Type:</label>
-          <p className="expanded-copy" id="job-type" name="jobType">{job.fields.jobType}</p>
-          <label className="expanded-label" id="posting-date-label" forhtml="positing-date">Posting Date</label>
-          <p className="expanded-copy" id="posting-date" name="posting-date">{job.fields.postingDate}</p>
-          <button className="expanded-job-card-button" id="add-tracked-job-button" onMouseDown={() => handleOpenForm("add new job from LinkedIn", setFormMode, visibility, setVisibility, job, setActiveJob)}> Add Job </button>
-      </div>
+      <>
+        
+        <div className="expanded-container">
+            <label className="expanded-label" id="job-type-label" forhtml="jobType">Job Type:</label>
+            <p className="expanded-copy" id="job-type" name="jobType">{job.fields.jobType}</p>
+            <label className="expanded-label" id="posting-date-label" forhtml="positing-date">Posting Date</label>
+            <p className="expanded-copy" id="posting-date" name="posting-date">{job.fields.postingDate}</p>
+            <button className="expanded-job-card-button" id="add-tracked-job-button" onMouseDown={() => handleOpenForm("add new job from LinkedIn", setFormMode, visibility, setVisibility, job, setActiveJob)}> Add Job </button>
+        </div>
+
+        <div className="expanded-container-desktop">
+
+          <div className="expanded-job-description-container">
+            <p className="expanded-description-title">JOB DESCRIPTION:</p>
+            <p className="job-description-desktop"> {job.fields.jobDescription}</p>
+           </div>
+
+          <div className="additional-job-details-expanded-container">
+            <label className="expanded-label" id="job-type-label" forhtml="jobType">Job Type:</label>
+            <p className="expanded-copy" id="job-type" name="jobType">{job.fields.jobType.charAt(0).toUpperCase()+ job.fields.jobType.slice(1)}</p>
+            <label className="expanded-label" id="posting-date-label" forhtml="positing-date">Posting Date</label>
+            <p className="expanded-copy" id="posting-date" name="posting-date">{job.fields.postingDate}</p>
+            <button className="expanded-job-card-button" id="add-tracked-job-button" onMouseDown={() => handleOpenForm("add new job from LinkedIn", setFormMode, visibility, setVisibility, job, setActiveJob)}> Add Job </button>
+          </div>
+
+        </div>
+      </>
     )
   }
 }

@@ -1,7 +1,7 @@
 .tracked-job-card, .new-job-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   background-color: white;
   box-shadow: 0px 8px 10px darkgray;
@@ -67,6 +67,10 @@
 }
 
 /*  */
+
+.expanded-container-desktop {
+  display: none;
+}
 
 .expanded-container {
   display: flex;
@@ -261,43 +265,30 @@
     width: 25%;
     height: 30vh;
     margin: 20px;
-    position: relative
+    position: relative;
+
+    transition: all 0.2s ease-in-out;
   }
 
   .tracked-job-card:not(.expanded):hover, .new-job-card:not(.expanded):hover {
     transform: scale(1.05);
   }
 
-  .job-description {
-    display: none;
+  .tracked-job-card:nth-of-type(2n+2), .new-job-card:nth-of-type(2n+2)
+  .expanded-container {
+    left: calc(0px - 25px);
   }
 
+  .tracked-job-card:nth-of-type(3n+3), .new-job-card:nth-of-type(3n+3)
   .expanded-container {
-    transition: all 0.2s ease-in-out;
-
-    background-color: yellow;
-    height: 30vh;
-    width: calc(300% + 20px + 20px + 20px + 20px);
-    margin: 20px;
-    margin-bottom: 20px;
-    padding: 25px 0px ;
-
-    position: absolute;
-    left: -20px;
-    bottom: calc(-20px - 20px - 20px - 30vh - 25px - 25px );
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    text-transform: uppercase;
-    font-size: 1.5em;
-
-    box-shadow: 0px 8px 10px darkgray;
-    z-index: 3;
+    left: calc(-25px - 60px - 25px - 50vw)
   }
 
   .expanded {
-    margin-bottom: calc(30vh + 20px + 20px + 20px + 25px + 25px);
+    width: calc(25% - 10px);
+    height: calc(30vh - 10px);
+    margin-bottom: calc(30vh + 20px + 20px + 20px + 25px + 25px + 10px);
+    border: 5px solid #2c404b;
   }
 
   .expanded::after { 
@@ -307,10 +298,106 @@
     height: 0;
     width: 0;
     position: relative;
-    bottom: calc(-1 * (20px + 20px + 25px));
-    left: calc(50% - 15px);
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 15px solid blue;
+    bottom: calc(-1 * (20px + 20px + 25px + 15vh));
+    left: calc(50% - 25px);
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid #2c404b;
+  }
+
+  .expanded
+  .job-title {
+    white-space: normal;
+  }
+
+  .expanded-container {
+    display: none;
+  }
+
+  .expanded-container-desktop {
+    transition: all 0.2s ease-in-out;
+
+    background-color: white;
+    height: calc(30vh - 10px);
+    width: calc(300% + 20px + 20px + 20px + 20px + 10px + 10px - 50px);
+    margin: 20px;
+    margin-bottom: 20px;
+    padding: 25px ;
+
+    position: absolute;
+    left: -25px;
+    bottom: calc(-20px - 20px - 20px - 30vh - 25px - 25px );
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    font-size: 1.5em;
+
+    border: 5px solid #2c404b;
+    box-shadow: 0px 8px 10px darkgray;
+    z-index: 3;
+  }
+
+  /* .expanded  
+  .additional-job-details-module-desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .expanded  
+  .additional-job-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  } */
+
+  .expanded-job-description-container {
+    display: flex;
+    flex-direction: column;
+
+    height: calc(100% - 50px);
+    width: calc(50vw + 115px);
+  }
+
+  .expanded-description-title {
+    font-size: clamp(16px, 1.5em, 24px);
+    font-weight: 900;
+
+    margin-bottom: 10px;
+  }
+
+  .job-description {
+    display: none;
+  }
+
+  .job-description-desktop {
+    height: calc(15.3em);
+    width: calc(100%);
+
+    font-size: clamp(12px, 1em, 16px);
+    text-align: left;
+    line-height: 1.7em;
+
+    
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+  }
+
+  .additional-job-details-expanded-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: calc(25% + 25px + 25px + 20px + 20px);
+    height: calc(100% - 50px);
   }
 }

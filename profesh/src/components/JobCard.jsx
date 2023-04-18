@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 import toggleExpand from "../functions/toggleExpand.js"
 import ExpandedJobCard from "./ExpandedJobCard"
+import handleOpenForm from "../functions/handleOpenForm"
 
 import "./JobCard.css"
 
@@ -43,10 +44,11 @@ export default function JobCard (props) {
         </div>
       
       :
-        
-        <div className={expanded.includes(job.id) ? "job-description" : "abbreviated-job-description"}>
-          {(job.fields.jobDescription.length > 300 && !expanded.includes(job.id)) ? job.fields.jobDescription.substring(0,297) + "..." : job.fields.jobDescription}
-        </div>
+        <>
+          <div className={expanded.includes(job.id) ? "job-description" : "abbreviated-job-description"}>
+            {(job.fields.jobDescription.length > 300 && !expanded.includes(job.id)) ? job.fields.jobDescription.substring(0,297) + "..." : job.fields.jobDescription}
+          </div>
+        </>
         
       }
       
