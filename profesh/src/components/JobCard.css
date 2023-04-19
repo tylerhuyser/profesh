@@ -111,6 +111,7 @@
 /* Opportunity Status */
 
 .tracker-container {
+  height: auto;
   display:  flex;
   justify-content: space-between;
   align-items: center;
@@ -266,6 +267,8 @@
   .tracked-job-card, .new-job-card {
     width: 25%;
     height: 30vh;
+    min-height: 400px;
+    max-height: 500px;
     margin: 20px;
     position: relative;
 
@@ -304,7 +307,9 @@
   .expanded {
     width: calc(25% - 10px);
     height: calc(30vh - 10px);
-    margin-bottom: calc(30vh + 20px + 20px + 20px + 25px + 25px + 10px);
+    min-height: 400px;
+    max-height: 500px;
+    margin-bottom: calc(clamp(400px, 30vh, 500px) + 20px + 20px + 20px + 25px + 25px + 10px);
     border: 5px solid #2c404b;
   }
 
@@ -359,6 +364,8 @@
 
     background-color: white;
     height: calc(30vh - 10px);
+    min-height: 400px;
+    max-height: 500px;
     width: calc(300% + 20px + 20px + 20px + 20px + 10px + 10px - 50px);
     margin: 20px;
     margin-bottom: 20px;
@@ -366,7 +373,7 @@
 
     position: absolute;
     left: -25px;
-    bottom: calc(-20px - 20px - 20px - 30vh - 25px - 25px );
+    bottom: calc(-20px - 20px - 20px - clamp(400px, 30vh, 500px) - 25px - 25px - 10px );
 
     display: flex;
     flex-direction: row;
@@ -377,7 +384,6 @@
 
     border: 5px solid #2c404b;
     box-shadow: 0px 8px 10px darkgray;
-    z-index: 3;
   }
 
   .expanded-job-description-container {
@@ -408,7 +414,7 @@
   }
 
   .job-description-desktop {
-    height: calc(15.3em);
+    height: calc(1.7em * 15);
     width: calc(100%);
 
     font-size: clamp(12px, 1em, 16px);
@@ -418,10 +424,14 @@
 
     display: block;
     display: -webkit-box;
-    -webkit-line-clamp: 9;
+    -webkit-line-clamp: 15;
     -webkit-box-orient: vertical;
     overflow: auto;
 
+  }
+
+  .tracker-container {
+    align-items: flex-start;
   }
 
   .additional-job-details-expanded-container {
@@ -434,5 +444,7 @@
     height: calc(100% - 50px);
 
     border-left: 5px solid red;
+
+    /* overflow: scroll; */
   }
 }
