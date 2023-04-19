@@ -32,7 +32,7 @@ export default function ExpandedJobCard(job, setJobs, location, expanded, visibi
         <div className="expanded-container-desktop">
 
           <div className="expanded-job-description-container">
-            <p className="expanded-description-title">JOB DESCRIPTION:</p>
+            <p className="expanded-job-description-title">JOB DESCRIPTION:</p>
             <p className="job-description-desktop"> {job.fields.jobDescription}</p>
           </div>
 
@@ -50,7 +50,7 @@ export default function ExpandedJobCard(job, setJobs, location, expanded, visibi
               <button className="expanded-job-card-button" id="update-tracked-job-button" onMouseDown={() => handleOpenForm("update tracked job", setFormMode, visibility, setVisibility, job, setActiveJob)}> Edit </button>
               <button className="expanded-job-card-button" id="delete-tracked-job-button" onClick={() => deleteJob(job.id, setJobs)} >Delete</button>
             </div>
-            
+
           </div>
           
         </div>
@@ -71,7 +71,7 @@ export default function ExpandedJobCard(job, setJobs, location, expanded, visibi
         <div className="expanded-container-desktop">
 
           <div className="expanded-job-description-container">
-            <p className="expanded-description-title">JOB DESCRIPTION:</p>
+            <p className="expanded-job-description-title">JOB DESCRIPTION:</p>
             <p className="job-description-desktop"> {job.fields.jobDescription}</p>
            </div>
 
