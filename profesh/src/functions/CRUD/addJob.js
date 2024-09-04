@@ -8,7 +8,7 @@ export default async function addJob(inputValues, setJobs, formMode, setFormMode
     { fields: inputValues.fields },
     {
       headers: {
-        "Authorization": `Bearer ${process.env.REACT_APP_KEY}`,
+        "Authorization": `Bearer ${process.env.REACT_APP_TOKEN}`,
         "Content-Type": "application/json",
       },
     }

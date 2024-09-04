@@ -9,7 +9,7 @@ export default async function updateJob(inputValues, jobs, setJobs, formMode, se
     { fields: inputValues.fields },
     {
       headers: {
-        "Authorization": `Bearer ${process.env.REACT_APP_KEY}`,
+        "Authorization": `Bearer ${process.env.REACT_APP_TOKEN}`,
         "Content-Type": "application/json",
       },
     }
