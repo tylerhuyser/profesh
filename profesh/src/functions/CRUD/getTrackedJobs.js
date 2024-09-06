@@ -1,11 +1,11 @@
-import Axios from 'axios';
+import api from './api-config'
 
 export default async function getTrackedJobs() {
-  const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities`
-  const response = await Axios.get(airtableURL, {
-    headers: {
-      "Authorization": `Bearer ${process.env.REACT_APP_TOKEN}`,
-    },
-  });
-  return response.data.records
+  try {
+    const response = await api.get()
+    // console.log(response)
+    return response.data.records
+  } catch (error) {
+      throw error
+  }
 }
