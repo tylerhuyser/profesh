@@ -1,11 +1,12 @@
-import Axios from 'axios';
+import api from "./api-config"
 
 export default async function deleteJob(jobID, setJobs) {
-  const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_BASE}/opportunities/${jobID}`
-  await Axios.delete(airtableURL, {
-    headers: {
-      "Authorization": `Bearer ${process.env.REACT_APP_TOKEN}`,
-    },
-  });
-  setJobs((prevState) => prevState.filter((job) => job.id !== jobID))
+  try {
+    await api.delete(`${jobID}`);
+    setJobs((prevState) => prevState.filter((job) => job.id !== jobID))
+   }
+  catch (error) {
+    throw error
+  }
+
 };
