@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import "./OpportunityForm.css"
+import "./NewJobForm.css"
 
 import initializeInputValues from '../functions/initializeInputValues';
 import handleCloseForm from '../functions/handleCloseForm';
 import handleInputChange from '../functions/handleInputChange'
 import validateForm from '../functions/validateForm';
 
-export default function OpportunityForm (props) {
+export default function NewJobForm (props) {
 
   const { jobs, setJobs } = props
   const { activeJob, setActiveJob } = props

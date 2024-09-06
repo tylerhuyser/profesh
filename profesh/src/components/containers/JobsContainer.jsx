@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 import Loader from "../shared/Loader"
 import JobsResults from "../JobsResults"
-import OpportunityForm from "../OpportunityForm"
+import NewJobForm from "../NewJobForm.jsx"
 import TrackNewJobButton from "../TrackNewJobButton"
 
 import getNewJobs from "../../functions/CRUD/getNewJobs"
@@ -83,7 +83,7 @@ export default function JobsContainer (props) {
           <JobsResults jobs={jobs} setJobs={setJobs} mount={mount} setActiveJob={setActiveJob} setFormMode={setFormMode} searchQuery={searchQuery} visibility={visibility} setVisibility={setVisibility} />
         
           {visibility && formMode ?
-            <OpportunityForm jobs={jobs} setJobs={setJobs} activeJob={activeJob} setActiveJob={setActiveJob} formMode={formMode} setFormMode={setFormMode} visibility={visibility} setVisibility={setVisibility} />
+            <NewJobForm jobs={jobs} setJobs={setJobs} activeJob={activeJob} setActiveJob={setActiveJob} formMode={formMode} setFormMode={setFormMode} visibility={visibility} setVisibility={setVisibility} />
             
             :
             <></>
