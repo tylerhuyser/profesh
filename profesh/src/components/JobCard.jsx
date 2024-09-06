@@ -22,7 +22,7 @@ export default function JobCard (props) {
 
       <div className="company-information-container">
 
-        <img className="company-logo" src={`https://logo.clearbit.com/${job.fields.companyName}.com`} onError={(e) => { e.target.onerror = null; e.target.src = "https://d3jmn01ri1fzgl.cloudfront.net/photoadking/webp_thumbnail/60b5e3f25f9a6_json_image_1622533106.webp" }} alt={job.companyName} />
+        <img className="company-logo" src={`https://img.logo.dev/${job.fields.companyName}.com?token=${process.env.REACT_APP_LOGO_DEV_TOKEN}`} onError={(e) => { e.target.onerror = null; e.target.src = `https://img.logo.dev/404.com?token=${process.env.REACT_APP_LOGO_DEV_TOKEN}` }} alt={job.companyName} />
 
         <p className="company-name">{job.fields.companyName}</p>
 
