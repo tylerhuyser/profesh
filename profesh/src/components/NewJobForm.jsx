@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom'
 import "./NewJobForm.css"
 
 import initializeInputValues from '../functions/initializeInputValues';
@@ -14,6 +15,8 @@ export default function NewJobForm (props) {
   const { visibility, setVisibility } = props
 
   const [inputValues, setInputValues] = useState(() => initializeInputValues(activeJob, formMode))
+
+  const location = useLocation()
 
   let visibilityClass = "hidden";
 
@@ -87,7 +90,7 @@ export default function NewJobForm (props) {
           <input className="job-form-input" id={`contact-phone-number-input`} type="text" name="contactPhoneNumber" placeholder='Contact Phone Number'  value={inputValues.fields.contactPhoneNumber} onChange={(e) => handleInputChange(e, setInputValues)} />
         
         <div className="job-form-buttons-container">
-          <button className="job-form-button" id="job-form-submit-button" type="submit" onClick={(e) => validateForm(e, inputValues, jobs, setJobs, formMode, setFormMode, visibility, setVisibility, setActiveJob)} >
+          <button className="job-form-button" id="job-form-submit-button" type="submit" onClick={(e) => validateForm(e, inputValues, jobs, setJobs, formMode, setFormMode, visibility, setVisibility, setActiveJob, location.pathname)} >
             Submit</button>
           
           <button className="job-form-button" id="job-form-cancel-button" onClick={() => handleCloseForm(setFormMode, visibility, setVisibility, setActiveJob)} >
