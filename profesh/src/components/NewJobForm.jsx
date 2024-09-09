@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import "./OpportunityForm.css"
+import { useLocation } from 'react-router-dom'
+import "./NewJobForm.css"
 
 import initializeInputValues from '../functions/initializeInputValues';
 import handleCloseForm from '../functions/handleCloseForm';
 import handleInputChange from '../functions/handleInputChange'
 import validateForm from '../functions/validateForm';
 
-export default function OpportunityForm (props) {
+export default function NewJobForm (props) {
 
   const { jobs, setJobs } = props
   const { activeJob, setActiveJob } = props
@@ -14,6 +15,8 @@ export default function OpportunityForm (props) {
   const { visibility, setVisibility } = props
 
   const [inputValues, setInputValues] = useState(() => initializeInputValues(activeJob, formMode))
+
+  const location = useLocation()
 
   let visibilityClass = "hidden";
 
@@ -87,7 +90,7 @@ export default function OpportunityForm (props) {
           <input className="job-form-input" id={`contact-phone-number-input`} type="text" name="contactPhoneNumber" placeholder='Contact Phone Number'  value={inputValues.fields.contactPhoneNumber} onChange={(e) => handleInputChange(e, setInputValues)} />
         
         <div className="job-form-buttons-container">
-          <button className="job-form-button" id="job-form-submit-button" type="submit" onClick={(e) => validateForm(e, inputValues, jobs, setJobs, formMode, setFormMode, visibility, setVisibility, setActiveJob)} >
+          <button className="job-form-button" id="job-form-submit-button" type="submit" onClick={(e) => validateForm(e, inputValues, jobs, setJobs, formMode, setFormMode, visibility, setVisibility, setActiveJob, location.pathname)} >
             Submit</button>
           
           <button className="job-form-button" id="job-form-cancel-button" onClick={() => handleCloseForm(setFormMode, visibility, setVisibility, setActiveJob)} >
